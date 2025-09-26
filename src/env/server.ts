@@ -17,6 +17,7 @@ export const env = createEnv({
 		throw new Error('❌ Invalid environment variables');
 	},
 	server: {
+		DATABASE_URL: z.url(),
 		NODE_ENV: z.enum(['development', 'production', 'test']).default('development').optional(),
 	},
 });

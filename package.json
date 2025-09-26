@@ -9,7 +9,11 @@
 		"lint": "eslint",
 		"lint:fix": "eslint --fix",
 		"format": "prettier --check .",
-		"format:fix": "prettier --write ."
+		"format:fix": "prettier --write .",
+		"db:generate": "drizzle-kit generate",
+		"db:migrate": "drizzle-kit migrate",
+		"db:studio": "drizzle-kit studio",
+		"postinstall": "drizzle-kit generate"
 	},
 	"dependencies": {
 		"@neondatabase/serverless": "^1.0.1",

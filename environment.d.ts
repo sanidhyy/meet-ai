@@ -6,6 +6,9 @@ declare global {
 		interface ProcessEnv {
 			// app base url
 			NEXT_PUBLIC_APP_BASE_URL: string;
+
+			// neon db uri
+			DATABASE_URL: string;
 		}
 	}
 }
