@@ -1,5 +1,6 @@
 import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
+import { oneTap } from 'better-auth/plugins';
 
 import { MAX_PASSWORD_LENGTH, MIN_PASSWORD_LENGTH } from '@/modules/auth/config';
 
@@ -25,6 +26,7 @@ export const auth = betterAuth({
 	onAPIError: {
 		errorURL: '/sign-in',
 	},
+	plugins: [oneTap()],
 	secret: env.BETTER_AUTH_SECRET,
 	socialProviders: {
 		github: {
@@ -32,7 +34,7 @@ export const auth = betterAuth({
 			clientSecret: env.GITHUB_CLIENT_SECRET,
 		},
 		google: {
-			clientId: env.GOOGLE_CLIENT_ID,
+			clientId: clientEnv.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
 			clientSecret: env.GOOGLE_CLIENT_SECRET,
 		},
 	},
