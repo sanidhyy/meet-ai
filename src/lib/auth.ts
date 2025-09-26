@@ -5,9 +5,12 @@ import { MAX_PASSWORD_LENGTH, MIN_PASSWORD_LENGTH } from '@/modules/auth/config'
 
 import { db } from '@/db';
 import * as schema from '@/db/schema';
+import { env as clientEnv } from '@/env/client';
 import { env } from '@/env/server';
 
 export const auth = betterAuth({
+	appName: 'Meet.AI',
+	baseURL: clientEnv.NEXT_PUBLIC_APP_BASE_URL,
 	database: drizzleAdapter(db, {
 		debugLogs: env.NODE_ENV !== 'production',
 		provider: 'pg',
@@ -18,5 +21,19 @@ export const auth = betterAuth({
 		enabled: true,
 		maxPasswordLength: MAX_PASSWORD_LENGTH,
 		minPasswordLength: MIN_PASSWORD_LENGTH,
+	},
+	onAPIError: {
+		errorURL: '/sign-in',
+	},
+	secret: env.BETTER_AUTH_SECRET,
+	socialProviders: {
+		github: {
+			clientId: env.GITHUB_CLIENT_ID,
+			clientSecret: env.GITHUB_CLIENT_SECRET,
+		},
+		google: {
+			clientId: env.GOOGLE_CLIENT_ID,
+			clientSecret: env.GOOGLE_CLIENT_SECRET,
+		},
 	},
 });
