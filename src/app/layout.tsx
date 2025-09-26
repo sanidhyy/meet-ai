@@ -1,3 +1,4 @@
+import type { PropsWithChildren } from 'react';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
@@ -14,11 +15,7 @@ export const metadata: Metadata = {
 	title: 'Meet AI',
 };
 
-const RootLayout = ({
-	children,
-}: Readonly<{
-	children: React.ReactNode;
-}>) => {
+const RootLayout = ({ children }: Readonly<PropsWithChildren>) => {
 	return (
 		<html lang='en'>
 			<body className={cn(inter.className, 'antialiased')}>{children}</body>
