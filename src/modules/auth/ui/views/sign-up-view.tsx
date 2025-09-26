@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { OctagonAlertIcon } from 'lucide-react';
+import { EyeIcon, EyeOffIcon, OctagonAlertIcon } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -44,7 +44,9 @@ const signUpFormSchema = z
 	});
 
 export const SignUpView = () => {
+	const router = useRouter();
 	const searchParams = useSearchParams();
+	const [passwordVisible, setPasswordVisible] = useState(false);
 	const [error, setError] = useState<string | null>(
 		searchParams.get('error')?.trim() !== 'access_denied' ? searchParams.get('error_description')?.trim() || null : null
 	);
@@ -64,23 +66,20 @@ export const SignUpView = () => {
 		setError(null);
 		setPending('form');
 
-		signUp.email(
-			{
-				...values,
-				callbackURL: '/',
+		signUp.email(values, {
+			onError: ({ error }) => {
+				signUpForm.resetField('password');
+				signUpForm.resetField('confirmPassword');
+				setError(error.message || 'Failed to sign up. Please try again!');
 			},
-			{
-				onError: ({ error }) => {
-					setError(error.message || 'Failed to sign up. Please try again!');
-				},
-				onResponse: () => {
-					setPending(null);
-				},
-				onSuccess: () => {
-					signUpForm.reset();
-				},
-			}
-		);
+			onResponse: () => {
+				setPending(null);
+			},
+			onSuccess: () => {
+				signUpForm.reset();
+				router.push('/');
+			},
+		});
 	};
 
 	const isPending = pending !== null;
@@ -90,7 +89,7 @@ export const SignUpView = () => {
 			<form className='p-6 md:p-8' onSubmit={signUpForm.handleSubmit(handleSubmit)} autoCapitalize='off'>
 				<div className='flex flex-col gap-6'>
 					<div className='flex flex-col items-center text-center'>
-						<h1 className='text-2xl font-bold'>Let&apos; get started</h1>
+						<h1 className='text-2xl font-bold'>Let&apos;s get started</h1>
 
 						<p className='text-muted-foreground text-balance'>Create your account</p>
 					</div>
@@ -142,9 +141,27 @@ export const SignUpView = () => {
 								<FormItem>
 									<FormLabel>Password</FormLabel>
 
-									<FormControl>
-										<Input type='password' placeholder={'•'.repeat(MIN_PASSWORD_LENGTH)} {...field} />
-									</FormControl>
+									<div className='relative'>
+										<FormControl className='pr-12'>
+											<Input
+												type={passwordVisible ? 'text' : 'password'}
+												placeholder={'•'.repeat(MIN_PASSWORD_LENGTH)}
+												{...field}
+											/>
+										</FormControl>
+
+										<button
+											disabled={isPending}
+											type='button'
+											className='text-muted-foreground absolute inset-y-0 right-1 flex cursor-pointer items-center p-3 disabled:cursor-not-allowed disabled:opacity-50'
+											onClick={() => {
+												setPasswordVisible((prevPasswordVisible) => !prevPasswordVisible);
+												signUpForm.setFocus('password');
+											}}
+										>
+											{passwordVisible ? <EyeOffIcon className='size-5' /> : <EyeIcon className='size-5' />}
+										</button>
+									</div>
 
 									<FormMessage />
 								</FormItem>

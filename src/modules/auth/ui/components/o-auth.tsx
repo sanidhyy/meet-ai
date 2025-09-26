@@ -56,8 +56,9 @@ export const OAuth = ({
 					type='button'
 					onClick={() => handleOAuth('google')}
 					className='w-full'
+					aria-label='Continue with Google'
 				>
-					Google
+					{pending !== 'google' && <img src='/google.svg' alt='Google' className='size-4' />}
 				</Button>
 
 				<Button
@@ -67,8 +68,9 @@ export const OAuth = ({
 					type='button'
 					onClick={() => handleOAuth('github')}
 					className='w-full'
+					aria-label='Continue with GitHub'
 				>
-					GitHub
+					{pending !== 'github' && <img src='/github.svg' alt='GitHub' className='size-4' />}
 				</Button>
 			</div>
 		</div>

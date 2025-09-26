@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { OctagonAlertIcon } from 'lucide-react';
@@ -25,6 +25,7 @@ const signInFormSchema = z.object({
 });
 
 export const SignInView = () => {
+	const router = useRouter();
 	const searchParams = useSearchParams();
 	const [error, setError] = useState<string | null>(
 		searchParams.get('error')?.trim() !== 'access_denied' ? searchParams.get('error_description')?.trim() || null : null
@@ -43,23 +44,19 @@ export const SignInView = () => {
 		setError(null);
 		setPending('form');
 
-		signIn.email(
-			{
-				...values,
-				callbackURL: '/',
+		signIn.email(values, {
+			onError: ({ error }) => {
+				signInForm.resetField('password');
+				setError(error.message || 'Failed to sign in. Please try again!');
 			},
-			{
-				onError: ({ error }) => {
-					setError(error.message || 'Failed to sign in. Please try again!');
-				},
-				onResponse: () => {
-					setPending(null);
-				},
-				onSuccess: () => {
-					signInForm.reset();
-				},
-			}
-		);
+			onResponse: () => {
+				setPending(null);
+			},
+			onSuccess: () => {
+				signInForm.reset();
+				router.push('/');
+			},
+		});
 	};
 
 	const isPending = pending !== null;
