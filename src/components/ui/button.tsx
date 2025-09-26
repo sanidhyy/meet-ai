@@ -1,12 +1,13 @@
 import * as React from 'react';
 
-import { Slot } from '@radix-ui/react-slot';
+import { Slot, Slottable } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
+import { Loader2Icon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-	"focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+	"focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
 	{
 		defaultVariants: {
 			size: 'default',
@@ -33,19 +34,34 @@ const buttonVariants = cva(
 	}
 );
 
+export interface ButtonProps extends React.ComponentProps<'button'>, VariantProps<typeof buttonVariants> {
+	asChild?: boolean;
+	isLoading?: boolean;
+}
+
 function Button({
+	asChild = false,
 	className,
+	children,
+	disabled = false,
+	isLoading = false,
 	variant,
 	size,
-	asChild = false,
 	...props
-}: React.ComponentProps<'button'> &
-	VariantProps<typeof buttonVariants> & {
-		asChild?: boolean;
-	}) {
+}: ButtonProps) {
 	const Comp = asChild ? Slot : 'button';
 
-	return <Comp data-slot='button' className={cn(buttonVariants({ className, size, variant }))} {...props} />;
+	return (
+		<Comp
+			data-slot='button'
+			className={cn(buttonVariants({ className, size, variant }))}
+			disabled={isLoading || disabled}
+			{...props}
+		>
+			{isLoading && <Loader2Icon className='animate-spin' strokeWidth={2.5} aria-label='Loading...' />}
+			<Slottable>{children}</Slottable>
+		</Comp>
+	);
 }
 
 export { Button, buttonVariants };

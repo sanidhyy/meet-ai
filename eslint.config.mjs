@@ -20,6 +20,7 @@ const eslintConfig = [
 	),
 	...compat.config({
 		rules: {
+			'@next/next/no-img-element': 'off',
 			'@typescript-eslint/no-unused-vars': [
 				'warn',
 				{
