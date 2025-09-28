@@ -1,18 +1,12 @@
 'use client';
 
-import { signOut, useSession } from '@/lib/auth-client';
+import { useQuery } from '@tanstack/react-query';
+
+import { useTRPC } from '@/trpc/client';
 
 export const HomeView = () => {
-	const { data: session } = useSession();
+	const trpc = useTRPC();
+	const { data } = useQuery(trpc.hello.queryOptions({ text: 'Test Client' }));
 
-	if (!session) return null;
-
-	return (
-		<div>
-			<pre className='size-full break-all whitespace-pre-wrap'>{JSON.stringify(session.user)}</pre>
-
-			<br />
-			<button onClick={() => signOut({})}>Sign out</button>
-		</div>
-	);
+	return <div className='flex flex-col gap-y-4'>{data?.greeting}</div>;
 };
