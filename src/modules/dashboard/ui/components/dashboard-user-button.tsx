@@ -32,7 +32,7 @@ export const DashboardUserButton = () => {
 
 	return (
 		<DropdownMenu>
-			<DropdownMenuTrigger className='border-border/10 flex w-full items-center justify-between gap-1 overflow-hidden rounded-lg border bg-white/5 p-3 hover:bg-white/10'>
+			<DropdownMenuTrigger className='border-border/10 flex w-full items-center justify-between gap-x-2 overflow-hidden rounded-lg border bg-white/5 p-3 hover:bg-white/10'>
 				{session.user.image ? (
 					<Avatar>
 						<AvatarImage src={session.user.image} alt={`${session.user.name}'s profile picture`} />
