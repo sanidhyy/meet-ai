@@ -15,8 +15,14 @@ function DropdownMenuPortal({ ...props }: React.ComponentProps<typeof DropdownMe
 	return <DropdownMenuPrimitive.Portal data-slot='dropdown-menu-portal' {...props} />;
 }
 
-function DropdownMenuTrigger({ ...props }: React.ComponentProps<typeof DropdownMenuPrimitive.Trigger>) {
-	return <DropdownMenuPrimitive.Trigger data-slot='dropdown-menu-trigger' {...props} />;
+function DropdownMenuTrigger({ className, ...props }: React.ComponentProps<typeof DropdownMenuPrimitive.Trigger>) {
+	return (
+		<DropdownMenuPrimitive.Trigger
+			data-slot='dropdown-menu-trigger'
+			className={cn('cursor-pointer', className)}
+			{...props}
+		/>
+	);
 }
 
 function DropdownMenuContent({
