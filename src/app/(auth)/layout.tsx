@@ -29,4 +29,5 @@ const AuthLayout = ({ children }: Readonly<PropsWithChildren>) => {
 		</div>
 	);
 };
+
 export default AuthLayout;

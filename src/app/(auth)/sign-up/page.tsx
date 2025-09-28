@@ -14,4 +14,5 @@ const SignUpPage = async () => {
 
 	return <SignUpView />;
 };
+
 export default SignUpPage;

@@ -14,4 +14,5 @@ const SignInPage = async () => {
 
 	return <SignInView />;
 };
+
 export default SignInPage;
