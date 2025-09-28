@@ -54,11 +54,14 @@ function Button({
 	return (
 		<Comp
 			data-slot='button'
-			className={cn(buttonVariants({ className, size, variant }))}
+			className={cn(
+				buttonVariants({ className, size, variant }),
+				isLoading && '[&_img]:hidden [&_svg]:hidden [&_svg#loader]:block'
+			)}
 			disabled={isLoading || disabled}
 			{...props}
 		>
-			{isLoading && <Loader2Icon className='animate-spin' strokeWidth={2.5} aria-label='Loading...' />}
+			{isLoading && <Loader2Icon id='loader' className='animate-spin' strokeWidth={2.5} aria-label='Loading...' />}
 			<Slottable>{children}</Slottable>
 		</Comp>
 	);
