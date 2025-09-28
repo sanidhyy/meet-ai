@@ -9,7 +9,7 @@ export const HomeView = () => {
 
 	return (
 		<div>
-			<pre>{JSON.stringify(session.user)}</pre>
+			<pre className='size-full break-all whitespace-pre-wrap'>{JSON.stringify(session.user)}</pre>
 
 			<br />
 			<button onClick={() => signOut({})}>Sign out</button>
