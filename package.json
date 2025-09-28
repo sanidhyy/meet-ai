@@ -16,6 +16,8 @@
 		"postinstall": "drizzle-kit generate"
 	},
 	"dependencies": {
+		"@dicebear/collection": "^9.2.4",
+		"@dicebear/core": "^9.2.4",
 		"@hookform/resolvers": "^5.2.2",
 		"@neondatabase/serverless": "^1.0.1",
 		"@radix-ui/react-avatar": "^1.1.10",
