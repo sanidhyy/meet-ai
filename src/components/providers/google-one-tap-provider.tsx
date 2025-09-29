@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 import { oneTap, useSession } from '@/lib/auth-client';
 
-export const GoogleOneTap = () => {
+export const GoogleOneTapProvider = () => {
 	const { data: session, isPending } = useSession();
 
 	useEffect(() => {

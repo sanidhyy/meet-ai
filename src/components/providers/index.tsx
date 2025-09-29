@@ -2,14 +2,16 @@ import type { PropsWithChildren } from 'react';
 
 import { TRPCReactProvider } from '@/trpc/client';
 
-import { GoogleOneTap } from './google-one-tap';
+import { GoogleOneTapProvider } from './google-one-tap-provider';
+import { ToasterProvider } from './toaster-provider';
 
 export const Providers = ({ children }: Readonly<PropsWithChildren>) => {
 	return (
 		<TRPCReactProvider>
 			{children}
 
-			<GoogleOneTap />
+			<ToasterProvider />
+			<GoogleOneTapProvider />
 		</TRPCReactProvider>
 	);
 };
