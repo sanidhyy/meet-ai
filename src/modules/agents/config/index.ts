@@ -1,0 +1,5 @@
+export const MIN_AGENT_NAME_LENGTH = 2;
+export const MAX_AGENT_NAME_LENGTH = 30;
+
+export const MIN_AGENT_INSTRUCTIONS_LENGTH = 10;
+export const MAX_AGENT_INSTRUCTIONS_LENGTH = 2000;
