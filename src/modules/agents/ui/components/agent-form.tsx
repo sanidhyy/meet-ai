@@ -1,5 +1,3 @@
-import { useRouter } from 'next/navigation';
-
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
@@ -55,7 +53,7 @@ export const AgentForm = ({ initialValues, onCancel, onSuccess }: AgentFormProps
 
 	const handleSubmit = (values: z.infer<typeof AgentSchema>) => {
 		if (isEdit) {
-			console.log('TODO: Update agent');
+			// TODO: Implement update agent functionality
 		} else {
 			createAgent.mutate(values);
 		}
