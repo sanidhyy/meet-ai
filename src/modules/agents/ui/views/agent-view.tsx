@@ -23,7 +23,7 @@ export const AgentView = ({ agentId }: AgentViewProps) => {
 
 	return (
 		<div className='flex flex-1 flex-col gap-y-4 p-4 md:px-8'>
-			<AgentViewHeader agentId={agentId} agentName={agent.name} onEdit={() => {}} onRemove={() => {}} />
+			<AgentViewHeader agentName={agent.name} onEdit={() => {}} onRemove={() => {}} />
 
 			<div className='rounded-lg border bg-white'>
 				<div className='col-span-5 flex flex-col gap-y-5 px-4 py-5'>

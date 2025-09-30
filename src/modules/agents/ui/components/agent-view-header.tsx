@@ -7,6 +7,7 @@ import {
 	BreadcrumbItem,
 	BreadcrumbLink,
 	BreadcrumbList,
+	BreadcrumbPage,
 	BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import { Button } from '@/components/ui/button';
@@ -18,13 +19,12 @@ import {
 } from '@/components/ui/dropdown-menu';
 
 interface AgentViewHeaderProps {
-	agentId: string;
 	agentName: string;
 	onEdit: () => void;
 	onRemove: () => void;
 }
 
-export const AgentViewHeader = ({ agentId, agentName, onEdit, onRemove }: AgentViewHeaderProps) => {
+export const AgentViewHeader = ({ agentName, onEdit, onRemove }: AgentViewHeaderProps) => {
 	return (
 		<div className='flex items-center justify-between'>
 			<Breadcrumb>
@@ -40,9 +40,7 @@ export const AgentViewHeader = ({ agentId, agentName, onEdit, onRemove }: AgentV
 					</BreadcrumbSeparator>
 
 					<BreadcrumbItem>
-						<BreadcrumbLink className='text-foreground text-lg font-medium' asChild>
-							<Link href={`/agents/${agentId}`}>{agentName}</Link>
-						</BreadcrumbLink>
+						<BreadcrumbPage className='text-foreground text-lg font-medium'>{agentName}</BreadcrumbPage>
 					</BreadcrumbItem>
 				</BreadcrumbList>
 			</Breadcrumb>
