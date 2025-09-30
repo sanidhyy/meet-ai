@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { useMutation, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
@@ -7,6 +8,7 @@ import { VideoIcon } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 import { AgentViewHeader } from '@/modules/agents/ui/components/agent-view-header';
+import { UpdateAgentDialog } from '@/modules/agents/ui/components/update-agent-dialog';
 
 import { ErrorState } from '@/components/error-state';
 import { GeneratedAvatar } from '@/components/generated-avatar';
@@ -26,6 +28,7 @@ export const AgentView = ({ agentId }: AgentViewProps) => {
 	const trpc = useTRPC();
 	const { data: agent } = useSuspenseQuery(trpc.agents.getOne.queryOptions({ id: agentId }));
 
+	const [updateAgentDialogOpen, setUpdateAgentDialogOpen] = useState(false);
 	const [ConfirmDialog, confirm] = useConfirm({
 		message: `Are you sure you want to delete this agent? This will remove ${agent.meetingCount} associated meetings. This action cannot be undone.`,
 		title: `Delete agent ${agent.name}`,
@@ -58,9 +61,15 @@ export const AgentView = ({ agentId }: AgentViewProps) => {
 	return (
 		<>
 			<ConfirmDialog />
+			<UpdateAgentDialog initialValues={agent} open={updateAgentDialogOpen} onOpenChange={setUpdateAgentDialogOpen} />
 
 			<div className='flex flex-1 flex-col gap-y-4 p-4 md:px-8'>
-				<AgentViewHeader agentName={agent.name} onEdit={() => {}} onRemove={handleRemoveAgent} isPending={isPending} />
+				<AgentViewHeader
+					agentName={agent.name}
+					onEdit={() => setUpdateAgentDialogOpen(true)}
+					onRemove={handleRemoveAgent}
+					isPending={isPending}
+				/>
 
 				<div className='rounded-lg border bg-white'>
 					<div className='col-span-5 flex flex-col gap-y-5 px-4 py-5'>

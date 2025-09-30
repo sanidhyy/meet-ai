@@ -29,9 +29,26 @@ export const AgentForm = ({ initialValues, onCancel, onSuccess }: AgentFormProps
 	const createAgent = useMutation(
 		trpc.agents.create.mutationOptions({
 			onError: (error) => {
-				toast.error(error.message || `Failed to ${isEdit ? 'edit' : 'create'} the agent!`);
+				toast.error(error.message || 'Failed to create the agent!');
 
-				// TODO: Check if error code is FORBIDDEN, redirect to /upgrade
+				// TODO: Check if error code is FORBIDDEN (potentially PAYMENT_REQUIRED), redirect to /upgrade
+			},
+			onSuccess: async () => {
+				await queryClient.invalidateQueries(trpc.agents.getMany.queryOptions());
+
+				// Invalidate free tier usage
+
+				onSuccess?.();
+			},
+		})
+	);
+
+	const updateAgent = useMutation(
+		trpc.agents.update.mutationOptions({
+			onError: (error) => {
+				toast.error(error.message || 'Failed to edit the agent!');
+
+				// TODO: Check if error code is FORBIDDEN (potentially PAYMENT_REQUIRED), redirect to /upgrade
 			},
 			onSuccess: async () => {
 				await queryClient.invalidateQueries(trpc.agents.getMany.queryOptions());
@@ -53,13 +70,13 @@ export const AgentForm = ({ initialValues, onCancel, onSuccess }: AgentFormProps
 
 	const handleSubmit = (values: z.infer<typeof AgentSchema>) => {
 		if (isEdit) {
-			// TODO: Implement update agent functionality
+			updateAgent.mutate({ ...values, id: initialValues.id });
 		} else {
 			createAgent.mutate(values);
 		}
 	};
 
-	const isPending = createAgent.isPending;
+	const isPending = createAgent.isPending || updateAgent.isPending;
 
 	return (
 		<Form {...agentForm}>
