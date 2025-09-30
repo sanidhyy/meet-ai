@@ -40,6 +40,7 @@ export const AgentsListHeader = () => {
 
 				<div className='flex items-center gap-x-2 p-1'>
 					<AgentsSearchFilter />
+
 					{isAnyFilterModified && (
 						<Button variant='outline' size='sm' onClick={onClearFilters}>
 							<XCircleIcon />

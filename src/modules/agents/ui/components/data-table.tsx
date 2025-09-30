@@ -40,7 +40,7 @@ export function DataTable<TData, TValue>({ columns, data, onRowClick }: DataTabl
 					) : (
 						<TableRow>
 							<TableCell colSpan={columns.length} className='text-muted-foreground h-19 text-center'>
-								No results.
+								No agents found.
 							</TableCell>
 						</TableRow>
 					)}
