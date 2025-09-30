@@ -2,6 +2,7 @@
 
 import { useSuspenseQuery } from '@tanstack/react-query';
 
+import { useAgentsFilters } from '@/modules/agents/hooks/use-agents-filters';
 import { columns } from '@/modules/agents/ui/components/columns';
 import { DataTable } from '@/modules/agents/ui/components/data-table';
 
@@ -13,7 +14,12 @@ import type { ErrorFallbackProps } from '@/types';
 
 export const AgentsView = () => {
 	const trpc = useTRPC();
-	const { data: agents } = useSuspenseQuery(trpc.agents.getMany.queryOptions());
+	const [filters] = useAgentsFilters();
+	const { data: agents } = useSuspenseQuery(
+		trpc.agents.getMany.queryOptions({
+			...filters,
+		})
+	);
 
 	return (
 		<div className='flex flex-1 flex-col gap-y-4 px-4 pb-4 md:px-8'>
