@@ -7,10 +7,12 @@ interface DataPaginationProps {
 }
 
 export const DataPagination = ({ page, totalPages, onPageChange }: DataPaginationProps) => {
+	const filterPage = Math.min(page, totalPages || 1);
+
 	return (
 		<div className='flex items-center justify-between'>
 			<div className='text-muted-foreground flex-1 text-sm'>
-				Page {page} of {totalPages || 1}
+				Page {filterPage} of {totalPages || 1}
 			</div>
 
 			<div className='flex items-center justify-end gap-x-2 py-4'>
@@ -18,10 +20,10 @@ export const DataPagination = ({ page, totalPages, onPageChange }: DataPaginatio
 					Previous
 				</Button>
 				<Button
-					disabled={page === totalPages || totalPages === 0}
+					disabled={filterPage === totalPages || totalPages === 0}
 					variant='outline'
 					size='sm'
-					onClick={() => onPageChange(Math.min(totalPages, page + 1))}
+					onClick={() => onPageChange(Math.min(totalPages, filterPage + 1))}
 				>
 					Next
 				</Button>
