@@ -2,7 +2,7 @@ import { TRPCError } from '@trpc/server';
 import { and, desc, eq, getTableColumns, ilike, sql, type SQLWrapper } from 'drizzle-orm';
 import z from 'zod';
 
-import { AgentSchema } from '@/modules/agents/schema';
+import { AgentSchema, AgentUpdateSchema } from '@/modules/agents/schema';
 
 import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE, MIN_PAGE_SIZE } from '@/config';
 import { db } from '@/db';
@@ -12,9 +12,11 @@ import { createTRPCRouter, protectedProcedure } from '@/trpc/init';
 export const agentsRouter = createTRPCRouter({
 	create: protectedProcedure.input(AgentSchema).mutation(async ({ ctx, input }) => {
 		const { instructions, name } = input;
-		const { auth } = ctx;
+		const {
+			auth: { user },
+		} = ctx;
 
-		const [agent] = await db.insert(agents).values({ instructions, name, userId: auth.user.id }).returning();
+		const [agent] = await db.insert(agents).values({ instructions, name, userId: user.id }).returning();
 
 		return agent;
 	}),
@@ -64,7 +66,7 @@ export const agentsRouter = createTRPCRouter({
 				totalPages,
 			};
 		}),
-	getOne: protectedProcedure.input(z.object({ id: z.string() })).query(async ({ ctx, input }) => {
+	getOne: protectedProcedure.input(z.object({ id: z.string().trim().min(1) })).query(async ({ ctx, input }) => {
 		const {
 			auth: { user },
 		} = ctx;
@@ -77,6 +79,40 @@ export const agentsRouter = createTRPCRouter({
 			})
 			.from(agents)
 			.where(and(eq(agents.id, agentId), eq(agents.userId, user.id)));
+
+		if (!agent) throw new TRPCError({ code: 'NOT_FOUND', message: 'Agent not found!' });
+
+		return agent;
+	}),
+	remove: protectedProcedure.input(z.object({ id: z.string().trim().min(1) })).mutation(async ({ ctx, input }) => {
+		const {
+			auth: { user },
+		} = ctx;
+		const { id: agentId } = input;
+
+		const [agent] = await db
+			.delete(agents)
+			.where(and(eq(agents.id, agentId), eq(agents.userId, user.id)))
+			.returning();
+
+		if (!agent) throw new TRPCError({ code: 'NOT_FOUND', message: 'Agent not found!' });
+
+		return agent;
+	}),
+	update: protectedProcedure.input(AgentUpdateSchema).mutation(async ({ ctx, input }) => {
+		const {
+			auth: { user },
+		} = ctx;
+		const { id: agentId, instructions, name } = input;
+
+		const [agent] = await db
+			.update(agents)
+			.set({
+				instructions,
+				name,
+			})
+			.where(and(eq(agents.id, agentId), eq(agents.userId, user.id)))
+			.returning();
 
 		if (!agent) throw new TRPCError({ code: 'NOT_FOUND', message: 'Agent not found!' });
 

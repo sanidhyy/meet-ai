@@ -22,9 +22,10 @@ interface AgentViewHeaderProps {
 	agentName: string;
 	onEdit: () => void;
 	onRemove: () => void;
+	isPending: boolean;
 }
 
-export const AgentViewHeader = ({ agentName, onEdit, onRemove }: AgentViewHeaderProps) => {
+export const AgentViewHeader = ({ agentName, onEdit, onRemove, isPending }: AgentViewHeaderProps) => {
 	return (
 		<div className='flex items-center justify-between'>
 			<Breadcrumb>
@@ -47,7 +48,7 @@ export const AgentViewHeader = ({ agentName, onEdit, onRemove }: AgentViewHeader
 
 			<DropdownMenu modal={false}>
 				<DropdownMenuTrigger asChild>
-					<Button variant='ghost' className='hover:bg-background'>
+					<Button disabled={isPending} isLoading={isPending} variant='ghost' className='hover:bg-background'>
 						<MoreVerticalIcon />
 						<span className='sr-only'>More options</span>
 					</Button>

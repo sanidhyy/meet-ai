@@ -19,3 +19,7 @@ export const AgentSchema = z.object({
 		.min(MIN_AGENT_NAME_LENGTH, `Name must be at least ${MIN_AGENT_NAME_LENGTH} characters!`)
 		.max(MAX_AGENT_NAME_LENGTH, `Name cannot exceed ${MAX_AGENT_NAME_LENGTH} characters!`),
 });
+
+export const AgentUpdateSchema = AgentSchema.extend({
+	id: z.string().min(1, 'Id is required!'),
+});
