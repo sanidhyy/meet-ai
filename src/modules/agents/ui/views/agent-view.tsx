@@ -2,6 +2,9 @@
 
 import { useSuspenseQuery } from '@tanstack/react-query';
 
+import { columns } from '@/modules/agents/ui/components/columns';
+import { DataTable } from '@/modules/agents/ui/components/data-table';
+
 import { ErrorState } from '@/components/error-state';
 import { LoadingState } from '@/components/loading-state';
 import { useTRPC } from '@/trpc/client';
@@ -11,7 +14,11 @@ export const AgentsView = () => {
 	const trpc = useTRPC();
 	const { data: agents } = useSuspenseQuery(trpc.agents.getMany.queryOptions());
 
-	return <div>{JSON.stringify(agents, null, 2)}</div>;
+	return (
+		<div className='flex flex-1 flex-col gap-y-4 px-4 pb-4 md:px-8'>
+			<DataTable columns={columns} data={agents} />
+		</div>
+	);
 };
 
 export const AgentsViewLoading = () => {
