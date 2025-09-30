@@ -16,15 +16,13 @@ export const columns: ColumnDef<AgentGetOne>[] = [
 				<div className='flex items-center gap-x-2'>
 					<GeneratedAvatar variant='botttsNeutral' seed={row.original.name} className='size-6' />
 
-					<span className='font-semibold capitalize'>{row.original.name}</span>
+					<span className='font-semibold'>{row.original.name}</span>
 				</div>
 
 				<div className='flex items-center gap-x-1.5'>
 					<CornerDownRightIcon className='text-muted-foreground size-3' />
 
-					<span className='text-muted-foreground max-w-[200px] truncate text-sm capitalize'>
-						{row.original.instructions}
-					</span>
+					<span className='text-muted-foreground max-w-[200px] truncate text-sm'>{row.original.instructions}</span>
 				</div>
 			</div>
 		),
