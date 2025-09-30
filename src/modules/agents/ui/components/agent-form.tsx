@@ -94,6 +94,7 @@ export const AgentForm = ({ initialValues, onCancel, onSuccess }: AgentFormProps
 							<FormControl>
 								<Textarea
 									placeholder='You are a helpful math assistant that can answer questions and help with assignments.'
+									className='h-40 max-h-96'
 									{...field}
 								/>
 							</FormControl>

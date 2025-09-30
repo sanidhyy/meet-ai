@@ -21,7 +21,7 @@ import { signUp } from '@/lib/auth-client';
 
 const signUpFormSchema = z
 	.object({
-		confirmPassword: z.string().min(1, 'Confirm Password is required!'),
+		confirmPassword: z.string().trim().min(1, 'Confirm Password is required!'),
 		email: z.email('Invalid email!'),
 		name: z
 			.string()

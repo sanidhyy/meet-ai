@@ -17,8 +17,8 @@ export const AgentsView = () => {
 
 	return (
 		<div className='flex flex-1 flex-col gap-y-4 px-4 pb-4 md:px-8'>
-			{!!agents.length ? (
-				<DataTable columns={columns} data={agents} />
+			{!!agents.total ? (
+				<DataTable columns={columns} data={agents.items} />
 			) : (
 				<EmptyState
 					title='Create your first agent'

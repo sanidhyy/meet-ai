@@ -4,7 +4,7 @@ import { z } from 'zod';
 export const env = createEnv({
 	client: {
 		NEXT_PUBLIC_APP_BASE_URL: z.url(),
-		NEXT_PUBLIC_GOOGLE_CLIENT_ID: z.string().min(1),
+		NEXT_PUBLIC_GOOGLE_CLIENT_ID: z.string().trim().min(1),
 	},
 	emptyStringAsUndefined: true,
 	isServer: typeof window === undefined,
