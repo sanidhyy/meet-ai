@@ -1,0 +1,2 @@
+export const MIN_MEETING_NAME_LENGTH = 2;
+export const MAX_MEETING_NAME_LENGTH = 30;
