@@ -1,4 +1,5 @@
 import { clsx, type ClassValue } from 'clsx';
+import humanizeDuration from 'humanize-duration';
 import { twMerge } from 'tailwind-merge';
 
 import { env } from '@/env/client';
@@ -24,4 +25,12 @@ export const absoluteUrl = (path: string): string => {
 
 export const enumToPgEnum = <T extends Record<string, unknown>>(myEnum: T): [T[keyof T], ...T[keyof T][]] => {
 	return Object.values(myEnum).map((value: unknown) => `${value}`) as never;
+};
+
+export const formatDuration = (seconds: number) => {
+	return humanizeDuration(seconds * 1000, {
+		largest: 1,
+		round: true,
+		units: ['h', 'm', 's'],
+	});
 };

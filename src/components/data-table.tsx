@@ -9,9 +9,15 @@ interface DataTableProps<TData, TValue> {
 	columns: ColumnDef<TData, TValue>[];
 	data: TData[];
 	onRowClick?: (row: TData) => void;
+	emptyMessage?: string;
 }
 
-export function DataTable<TData, TValue>({ columns, data, onRowClick }: DataTableProps<TData, TValue>) {
+export function DataTable<TData, TValue>({
+	columns,
+	data,
+	emptyMessage = 'No results.',
+	onRowClick,
+}: DataTableProps<TData, TValue>) {
 	const table = useReactTable({
 		columns,
 		data,
@@ -40,7 +46,7 @@ export function DataTable<TData, TValue>({ columns, data, onRowClick }: DataTabl
 					) : (
 						<TableRow>
 							<TableCell colSpan={columns.length} className='text-muted-foreground h-19 text-center'>
-								No agents found.
+								{emptyMessage}
 							</TableCell>
 						</TableRow>
 					)}

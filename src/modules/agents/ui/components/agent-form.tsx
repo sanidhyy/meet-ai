@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 import { z } from 'zod';
 
 import { AgentSchema } from '@/modules/agents/schema';
-import { AgentGetOne } from '@/modules/agents/types';
+import type { AgentGetOne } from '@/modules/agents/types';
 
 import { GeneratedAvatar } from '@/components/generated-avatar';
 import { Button } from '@/components/ui/button';

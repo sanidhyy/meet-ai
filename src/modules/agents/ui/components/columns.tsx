@@ -3,12 +3,14 @@
 import { ColumnDef } from '@tanstack/react-table';
 import { CornerDownRightIcon, VideoIcon } from 'lucide-react';
 
-import { AgentGetOne } from '@/modules/agents/types';
+import type { AgentGetMany } from '@/modules/agents/types';
 
 import { GeneratedAvatar } from '@/components/generated-avatar';
 import { Badge } from '@/components/ui/badge';
 
-export const columns: ColumnDef<AgentGetOne>[] = [
+type Agent = AgentGetMany['items'][number];
+
+export const columns: ColumnDef<Agent>[] = [
 	{
 		accessorKey: 'name',
 		cell: ({ row }) => (

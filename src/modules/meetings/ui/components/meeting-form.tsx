@@ -9,7 +9,7 @@ import { z } from 'zod';
 
 import { NewAgentDialog } from '@/modules/agents/ui/components/new-agent-dialog';
 import { MeetingSchema } from '@/modules/meetings/schema';
-import { MeetingGetOne } from '@/modules/meetings/types';
+import type { MeetingGetOne } from '@/modules/meetings/types';
 
 import { CommandSelect } from '@/components/command-select';
 import { GeneratedAvatar } from '@/components/generated-avatar';

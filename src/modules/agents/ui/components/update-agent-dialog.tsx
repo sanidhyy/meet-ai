@@ -1,4 +1,4 @@
-import { AgentGetOne } from '@/modules/agents/types';
+import type { AgentGetOne } from '@/modules/agents/types';
 
 import { ResponsiveDialog } from '@/components/responsive-dialog';
 

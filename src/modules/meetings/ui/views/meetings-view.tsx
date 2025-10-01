@@ -2,6 +2,10 @@
 
 import { useSuspenseQuery } from '@tanstack/react-query';
 
+import { columns } from '@/modules/meetings/ui/components/columns';
+
+import { DataTable } from '@/components/data-table';
+import { EmptyState } from '@/components/empty-state';
 import { ErrorState } from '@/components/error-state';
 import { LoadingState } from '@/components/loading-state';
 import { useTRPC } from '@/trpc/client';
@@ -12,7 +16,18 @@ export const MeetingsView = () => {
 
 	const { data: meetings } = useSuspenseQuery(trpc.meetings.getMany.queryOptions());
 
-	return <div>{JSON.stringify(meetings, null, 2)}</div>;
+	return (
+		<div className='flex flex-1 flex-col gap-y-4 p-4 md:px-8'>
+			{!meetings.total ? (
+				<EmptyState
+					title='Create your first meeting'
+					description='Schedule a meeting to connect with others. Each meeting lets you collaborate, share ideas, and interact with participants in real time.'
+				/>
+			) : (
+				<DataTable columns={columns} data={meetings.items} />
+			)}
+		</div>
+	);
 };
 
 export const MeetingsViewLoading = () => {
