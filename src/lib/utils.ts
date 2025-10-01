@@ -21,3 +21,7 @@ export const absoluteUrl = (path: string): string => {
 
 	return `${baseUrl}${formattedPath.startsWith('/') ? '' : '/'}${formattedPath}`;
 };
+
+export const enumToPgEnum = <T extends Record<string, unknown>>(myEnum: T): [T[keyof T], ...T[keyof T][]] => {
+	return Object.values(myEnum).map((value: unknown) => `${value}`) as never;
+};

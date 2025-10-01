@@ -15,6 +15,13 @@
       "when": 1759066312468,
       "tag": "0001_powerful_nomad",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1759304479605,
+      "tag": "0002_silly_the_hood",
+      "breakpoints": true
     }
   ]
 }

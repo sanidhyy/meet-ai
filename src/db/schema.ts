@@ -1,8 +1,10 @@
 /* eslint-disable sort-keys */
 
 import { relations } from 'drizzle-orm';
-import { boolean, pgTable, text, timestamp } from 'drizzle-orm/pg-core';
+import { boolean, index, pgTable, text, timestamp } from 'drizzle-orm/pg-core';
 import { nanoid } from 'nanoid';
+
+import { enumToPgEnum } from '@/lib/utils';
 
 export const users = pgTable('user', {
 	id: text('id')
@@ -24,6 +26,7 @@ export const usersRelations = relations(users, ({ many }) => ({
 	accounts: many(accounts),
 	sessions: many(sessions),
 	agents: many(agents),
+	meetings: many(meetings),
 }));
 
 export const sessions = pgTable('session', {
@@ -98,26 +101,91 @@ export const verifications = pgTable('verification', {
 		.$onUpdate(() => new Date()),
 });
 
-export const agents = pgTable('agent', {
-	id: text('id')
-		.primaryKey()
-		.$defaultFn(() => nanoid()),
-	name: text('name').notNull(),
-	userId: text('user_id')
-		.notNull()
-		.references(() => users.id, { onDelete: 'cascade' }),
-	instructions: text('instruction').notNull(),
+export const agents = pgTable(
+	'agent',
+	{
+		id: text('id')
+			.primaryKey()
+			.$defaultFn(() => nanoid()),
+		name: text('name').notNull(),
+		userId: text('user_id')
+			.notNull()
+			.references(() => users.id, { onDelete: 'cascade' }),
+		instructions: text('instruction').notNull(),
 
-	createdAt: timestamp('created_at').notNull().defaultNow(),
-	updatedAt: timestamp('updated_at')
-		.notNull()
-		.defaultNow()
-		.$onUpdate(() => new Date()),
-});
+		createdAt: timestamp('created_at').notNull().defaultNow(),
+		updatedAt: timestamp('updated_at')
+			.notNull()
+			.defaultNow()
+			.$onUpdate(() => new Date()),
+	},
+	(agent) => [
+		{
+			nameIdx: index('name_idx').on(agent.name),
+		},
+	]
+);
 
-export const agentsRelations = relations(agents, ({ one }) => ({
+export const agentsRelations = relations(agents, ({ many, one }) => ({
 	user: one(users, {
 		fields: [agents.userId],
+		references: [users.id],
+	}),
+	meetings: many(meetings),
+}));
+
+export enum MeetingStatus {
+	UPCOMING = 'upcoming',
+	ACTIVE = 'active',
+	COMPLETED = 'completed',
+	PROCESSING = 'processing',
+	CANCELLED = 'cancelled',
+}
+
+export const meetings = pgTable(
+	'meeting',
+	{
+		id: text('id')
+			.primaryKey()
+			.$defaultFn(() => nanoid()),
+		name: text('name').notNull(),
+		userId: text('user_id')
+			.notNull()
+			.references(() => users.id, { onDelete: 'cascade' }),
+		agentId: text('agent_id')
+			.notNull()
+			.references(() => agents.id, { onDelete: 'cascade' }),
+		status: text('status', { enum: enumToPgEnum(MeetingStatus) })
+			.notNull()
+			.default(MeetingStatus.UPCOMING),
+		summary: text('summary'),
+
+		transcriptUrl: text('transcript_url'),
+		recordingUrl: text('recording_url'),
+
+		startedAt: timestamp('started_at'),
+		endedAt: timestamp('ended_at'),
+
+		createdAt: timestamp('created_at').notNull().defaultNow(),
+		updatedAt: timestamp('updated_at')
+			.notNull()
+			.defaultNow()
+			.$onUpdate(() => new Date()),
+	},
+	(meeting) => [
+		{
+			nameIdx: index('name_idx').on(meeting.name),
+		},
+	]
+);
+
+export const meetingsRelations = relations(meetings, ({ one }) => ({
+	agent: one(agents, {
+		fields: [meetings.agentId],
+		references: [agents.id],
+	}),
+	user: one(users, {
+		fields: [meetings.userId],
 		references: [users.id],
 	}),
 }));
