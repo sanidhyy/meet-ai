@@ -15,6 +15,7 @@ import { NewAgentDialog } from './new-agent-dialog';
 export const AgentsListHeader = () => {
 	const [filters, setFilters] = useAgentsFilters();
 	const [isNewAgentDialogOpen, setIsNewAgentDialogOpen] = useState(false);
+	const [inputSearch, setInputSearch] = useState(filters.search);
 
 	const isAnyFilterModified = !!filters.search;
 
@@ -23,6 +24,7 @@ export const AgentsListHeader = () => {
 			page: DEFAULT_PAGE,
 			search: '',
 		});
+		setInputSearch('');
 	};
 
 	return (
@@ -39,7 +41,7 @@ export const AgentsListHeader = () => {
 				</div>
 
 				<div className='flex items-center gap-x-2 p-1'>
-					<AgentsSearchFilter />
+					<AgentsSearchFilter inputSearch={inputSearch} setInputSearch={setInputSearch} />
 
 					{isAnyFilterModified && (
 						<Button variant='outline' size='sm' onClick={onClearFilters}>

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 
 import debounce from 'lodash.debounce';
 import { SearchIcon } from 'lucide-react';
@@ -7,10 +7,13 @@ import { useMeetingsFilters } from '@/modules/meetings/hooks/use-meetings-filter
 
 import { Input } from '@/components/ui/input';
 
-export const MeetingsSearchFilter = () => {
-	const [filters, setFilters] = useMeetingsFilters();
+interface MeetingsSearchFilterProps {
+	inputSearch: string;
+	setInputSearch: (inputSearch: string) => void;
+}
 
-	const [inputSearch, setInputSearch] = useState(filters.search);
+export const MeetingsSearchFilter = ({ inputSearch, setInputSearch }: MeetingsSearchFilterProps) => {
+	const [_filters, setFilters] = useMeetingsFilters();
 
 	const handleSearchChange = useMemo(
 		() =>

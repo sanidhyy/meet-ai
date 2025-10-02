@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 
 import debounce from 'lodash.debounce';
 import { SearchIcon } from 'lucide-react';
@@ -7,10 +7,13 @@ import { useAgentsFilters } from '@/modules/agents/hooks/use-agents-filters';
 
 import { Input } from '@/components/ui/input';
 
-export const AgentsSearchFilter = () => {
-	const [filters, setFilters] = useAgentsFilters();
+interface AgentsSearchFilterProps {
+	inputSearch: string;
+	setInputSearch: (inputSearch: string) => void;
+}
 
-	const [inputSearch, setInputSearch] = useState(filters.search);
+export const AgentsSearchFilter = ({ inputSearch, setInputSearch }: AgentsSearchFilterProps) => {
+	const [_filters, setFilters] = useAgentsFilters();
 
 	const handleSearchChange = useMemo(
 		() =>
