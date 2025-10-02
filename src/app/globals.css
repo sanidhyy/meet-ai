@@ -116,7 +116,26 @@
 	* {
 		@apply border-border outline-ring/50;
 	}
+
+	*::selection {
+		@apply bg-primary text-primary-foreground;
+	}
+
 	body {
-		@apply bg-background text-foreground;
+		@apply bg-background text-foreground scroll-smooth;
+	}
+
+	/* hide cancel button in search input */
+	input[type='search']::-webkit-search-cancel-button {
+		display: none;
+	}
+
+	/* Hide number input arrows */
+	input[type='number']::-webkit-inner-spin-button,
+	input[type='number']::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		margin: 0;
 	}
 }

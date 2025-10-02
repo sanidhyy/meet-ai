@@ -7,6 +7,7 @@ import { PlusIcon, XCircleIcon } from 'lucide-react';
 import { useMeetingsFilters } from '@/modules/meetings/hooks/use-meetings-filters';
 
 import { Button } from '@/components/ui/button';
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { DEFAULT_PAGE } from '@/config';
 
 import { MeetingsAgentFilter } from './meetings-agent-filter';
@@ -44,18 +45,22 @@ export const MeetingsListHeader = () => {
 					</Button>
 				</div>
 
-				<div className='flex items-center gap-x-2 p-1'>
-					<MeetingsSearchFilter inputSearch={inputSearch} setInputSearch={setInputSearch} />
-					<MeetingsStatusFilter />
-					<MeetingsAgentFilter />
+				<ScrollArea>
+					<div className='flex items-center gap-x-2 p-1'>
+						<MeetingsSearchFilter inputSearch={inputSearch} setInputSearch={setInputSearch} />
+						<MeetingsStatusFilter />
+						<MeetingsAgentFilter />
 
-					{isAnyFilterModified && (
-						<Button variant='outline' size='sm' onClick={onClearFilters}>
-							<XCircleIcon />
-							Clear
-						</Button>
-					)}
-				</div>
+						{isAnyFilterModified && (
+							<Button variant='outline' size='sm' onClick={onClearFilters}>
+								<XCircleIcon />
+								Clear
+							</Button>
+						)}
+					</div>
+
+					<ScrollBar orientation='horizontal' />
+				</ScrollArea>
 			</div>
 		</>
 	);

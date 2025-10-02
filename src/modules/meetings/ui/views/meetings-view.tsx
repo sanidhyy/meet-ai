@@ -1,30 +1,51 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
+
 import { useSuspenseQuery } from '@tanstack/react-query';
 
+import { useMeetingsFilters } from '@/modules/meetings/hooks/use-meetings-filters';
 import { columns } from '@/modules/meetings/ui/components/columns';
 
+import { DataPagination } from '@/components/data-pagination';
 import { DataTable } from '@/components/data-table';
 import { EmptyState } from '@/components/empty-state';
 import { ErrorState } from '@/components/error-state';
 import { LoadingState } from '@/components/loading-state';
+import { DEFAULT_PAGE } from '@/config';
 import { useTRPC } from '@/trpc/client';
 import type { ErrorFallbackProps } from '@/types';
 
 export const MeetingsView = () => {
+	const router = useRouter();
 	const trpc = useTRPC();
 
-	const { data: meetings } = useSuspenseQuery(trpc.meetings.getMany.queryOptions());
+	const [filters, setFilters] = useMeetingsFilters();
+	const { data: meetings } = useSuspenseQuery(trpc.meetings.getMany.queryOptions(filters));
+
+	const isAnyFilterModified = !!filters.status || !!filters.search || !!filters.agentId;
 
 	return (
 		<div className='flex flex-1 flex-col gap-y-4 p-4 md:px-8'>
-			{!meetings.total ? ( // TODO: Include filters condition here
+			{!meetings.total && filters.page === DEFAULT_PAGE && !isAnyFilterModified ? (
 				<EmptyState
 					title='Create your first meeting'
 					description='Schedule a meeting to connect with others. Each meeting lets you collaborate, share ideas, and interact with participants in real time.'
 				/>
 			) : (
-				<DataTable columns={columns} data={meetings.items} />
+				<>
+					<DataTable
+						columns={columns}
+						data={meetings.items}
+						onRowClick={(meeting) => router.push(`/meetings/${meeting.id}`)}
+						emptyMessage='No meetings found.'
+					/>
+					<DataPagination
+						page={filters.page}
+						totalPages={meetings.totalPages}
+						onPageChange={(page) => setFilters({ page })}
+					/>
+				</>
 			)}
 		</div>
 	);

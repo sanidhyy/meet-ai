@@ -28,6 +28,7 @@ export const AgentsSearchFilter = ({ inputSearch, setInputSearch }: AgentsSearch
 	return (
 		<div className='relative'>
 			<Input
+				type='search'
 				placeholder='Filter by name'
 				className='h-9 w-[200px] bg-white pl-9'
 				value={inputSearch}
