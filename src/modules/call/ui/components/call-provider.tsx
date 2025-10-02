@@ -18,7 +18,7 @@ export const CallProvider = ({ meetingId, meetingName }: CallProviderProps) => {
 	if (!session || isPending) {
 		return (
 			<div className='from-sidebar-accent to-sidebar flex h-screen items-center justify-center bg-radial'>
-				<Loader2Icon className='size-6 animate-spin text-white' strokeWidth={2.5} />
+				<Loader2Icon className='size-6 animate-spin text-white' strokeWidth={2.5} aria-label='Loading...' />
 			</div>
 		);
 	}
