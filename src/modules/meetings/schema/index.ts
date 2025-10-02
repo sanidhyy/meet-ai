@@ -12,5 +12,5 @@ export const MeetingSchema = z.object({
 });
 
 export const MeetingUpdateSchema = MeetingSchema.extend({
-	id: z.string().min(1, 'Id is required!'),
+	id: z.string().trim().min(1, 'Id is required!'),
 });
