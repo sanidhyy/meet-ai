@@ -9,6 +9,7 @@ import {
 	ClockFadingIcon,
 	CornerDownRightIcon,
 	LoaderIcon,
+	VideoIcon,
 	type LucideIcon,
 } from 'lucide-react';
 
@@ -23,7 +24,7 @@ type Meeting = MeetingGetMany['items'][number];
 
 const statusIconMap: Record<MeetingStatus, LucideIcon> = {
 	[MeetingStatus.UPCOMING]: ClockArrowUpIcon,
-	[MeetingStatus.ACTIVE]: LoaderIcon,
+	[MeetingStatus.ACTIVE]: VideoIcon,
 	[MeetingStatus.COMPLETED]: CircleCheckIcon,
 	[MeetingStatus.PROCESSING]: LoaderIcon,
 	[MeetingStatus.CANCELLED]: CircleXIcon,
@@ -71,11 +72,7 @@ export const columns: ColumnDef<Meeting>[] = [
 					variant='outline'
 					className={cn('text-muted-foreground capitalize [&_svg]:size-4', statusColorMap[row.original.status])}
 				>
-					<Icon
-						className={cn(
-							[MeetingStatus.PROCESSING, MeetingStatus.ACTIVE].includes(row.original.status) && 'animate-spin'
-						)}
-					/>
+					<Icon className={cn(row.original.status === MeetingStatus.PROCESSING && 'animate-spin')} />
 
 					{row.original.status}
 				</Badge>

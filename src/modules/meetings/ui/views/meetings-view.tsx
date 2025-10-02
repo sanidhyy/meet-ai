@@ -18,7 +18,7 @@ export const MeetingsView = () => {
 
 	return (
 		<div className='flex flex-1 flex-col gap-y-4 p-4 md:px-8'>
-			{!meetings.total ? (
+			{!meetings.total ? ( // TODO: Include filters condition here
 				<EmptyState
 					title='Create your first meeting'
 					description='Schedule a meeting to connect with others. Each meeting lets you collaborate, share ideas, and interact with participants in real time.'

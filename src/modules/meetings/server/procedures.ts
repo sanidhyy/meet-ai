@@ -6,7 +6,7 @@ import { MeetingSchema, MeetingUpdateSchema } from '@/modules/meetings/schema';
 
 import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE, MIN_PAGE_SIZE } from '@/config';
 import { db } from '@/db';
-import { agents, meetings } from '@/db/schema';
+import { MeetingStatus, agents, meetings } from '@/db/schema';
 import { createTRPCRouter, protectedProcedure } from '@/trpc/init';
 
 export const meetingsRouter = createTRPCRouter({
@@ -26,9 +26,11 @@ export const meetingsRouter = createTRPCRouter({
 		.input(
 			z
 				.object({
+					agentId: z.string().trim().nullish(),
 					page: z.number().default(DEFAULT_PAGE),
 					pageSize: z.number().min(MIN_PAGE_SIZE).max(MAX_PAGE_SIZE).default(DEFAULT_PAGE_SIZE),
 					search: z.string().trim().nullish(),
+					status: z.enum(MeetingStatus).nullish(),
 				})
 				.optional()
 				.default({
@@ -41,11 +43,13 @@ export const meetingsRouter = createTRPCRouter({
 			const {
 				auth: { user },
 			} = ctx;
-			const { page, pageSize, search } = input;
+			const { agentId, page, pageSize, search, status } = input;
 
 			const where: (SQLWrapper | undefined)[] = [eq(meetings.userId, user.id)];
 
 			if (!!search) where.push(ilike(meetings.name, `%${search}%`));
+			if (!!status) where.push(eq(meetings.status, status));
+			if (!!agentId) where.push(eq(meetings.agentId, agentId));
 
 			const data = await db
 				.select({
