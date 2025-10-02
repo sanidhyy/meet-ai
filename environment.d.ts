@@ -24,6 +24,9 @@ declare global {
 			// stream video api key and secret
 			NEXT_PUBLIC_STREAM_VIDEO_API_KEY: string;
 			STREAM_VIDEO_API_SECRET: string;
+
+			// openai api key
+			OPENAI_API_KEY: string;
 		}
 	}
 }
