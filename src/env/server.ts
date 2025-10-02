@@ -23,5 +23,6 @@ export const env = createEnv({
 		GITHUB_CLIENT_SECRET: z.string().trim().min(1),
 		GOOGLE_CLIENT_SECRET: z.string().trim().min(1),
 		NODE_ENV: z.enum(['development', 'production', 'test']).default('development').optional(),
+		STREAM_VIDEO_API_SECRET: z.string().trim().min(1),
 	},
 });

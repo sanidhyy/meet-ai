@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+
 import { TRPCError } from '@trpc/server';
 import { and, desc, eq, getTableColumns, ilike, sql, type SQLWrapper } from 'drizzle-orm';
 import z from 'zod';
@@ -7,6 +9,8 @@ import { MeetingSchema, MeetingUpdateSchema } from '@/modules/meetings/schema';
 import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE, MIN_PAGE_SIZE } from '@/config';
 import { db } from '@/db';
 import { MeetingStatus, agents, meetings } from '@/db/schema';
+import { generateAvatarUri } from '@/lib/avatar';
+import { streamVideo } from '@/lib/stream-video';
 import { createTRPCRouter, protectedProcedure } from '@/trpc/init';
 
 export const meetingsRouter = createTRPCRouter({
@@ -18,9 +22,74 @@ export const meetingsRouter = createTRPCRouter({
 
 		const [meeting] = await db.insert(meetings).values({ agentId, name, userId: user.id }).returning();
 
-		// TODO: Create Stream Call, Upsert Stream Users
+		const call = streamVideo.video.call('default', meeting.id);
+
+		await call.create({
+			data: {
+				created_by_id: user.id,
+				custom: {
+					meetingId: meeting.id,
+					meetingName: meeting.name,
+				},
+				settings_override: {
+					recording: {
+						mode: 'auto-on',
+						quality: '1080p',
+					},
+					transcription: {
+						closed_caption_mode: 'auto-on',
+						language: 'en',
+						mode: 'auto-on',
+					},
+				},
+			},
+		});
+
+		const [agent] = await db
+			.select()
+			.from(agents)
+			.where(and(eq(agents.id, meeting.agentId), eq(agents.userId, user.id)));
+
+		if (!agent) throw new TRPCError({ code: 'NOT_FOUND', message: 'Agent not found!' });
+
+		await streamVideo.upsertUsers([
+			{
+				id: agent.id,
+				image: generateAvatarUri({
+					seed: agent.name,
+					variant: 'botttsNeutral',
+				}),
+				name: agent.name,
+				role: 'user',
+			},
+		]);
 
 		return meeting;
+	}),
+	generateToken: protectedProcedure.mutation(async ({ ctx }) => {
+		const {
+			auth: { user },
+		} = ctx;
+
+		await streamVideo.upsertUsers([
+			{
+				id: user.id,
+				image: user.image || generateAvatarUri({ seed: user.name, variant: 'initials' }),
+				name: user.name,
+				role: 'admin',
+			},
+		]);
+
+		const expirationTime = Math.floor(Date.now() / 1000) + 3600; /// 1 hour
+		const issuedAt = Math.floor(Date.now() / 1000) - 60;
+
+		const token = streamVideo.generateUserToken({
+			exp: expirationTime,
+			user_id: user.id,
+			validity_in_seconds: issuedAt,
+		});
+
+		return token;
 	}),
 	getMany: protectedProcedure
 		.input(

@@ -20,6 +20,10 @@ declare global {
 			// google oauth client id and secret
 			NEXT_PUBLIC_GOOGLE_CLIENT_ID: string;
 			GOOGLE_CLIENT_SECRET: string;
+
+			// stream video api key and secret
+			NEXT_PUBLIC_STREAM_VIDEO_API_KEY: string;
+			STREAM_VIDEO_API_SECRET: string;
 		}
 	}
 }
