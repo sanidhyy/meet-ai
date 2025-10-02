@@ -10,7 +10,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import { MIN_PASSWORD_LENGTH } from '@/modules/auth/config';
-import { Provider } from '@/modules/auth/types';
+import type { Provider } from '@/modules/auth/types';
 import { OAuth } from '@/modules/auth/ui/components/o-auth';
 
 import { Alert, AlertTitle } from '@/components/ui/alert';

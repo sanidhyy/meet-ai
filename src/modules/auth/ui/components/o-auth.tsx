@@ -1,6 +1,6 @@
 'use client';
 
-import { Provider } from '@/modules/auth/types';
+import type { Provider } from '@/modules/auth/types';
 
 import { Button } from '@/components/ui/button';
 import { signIn } from '@/lib/auth-client';
