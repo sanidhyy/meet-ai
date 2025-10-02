@@ -133,7 +133,7 @@ export const MeetingForm = ({ initialValues, onCancel, onSuccess }: MeetingFormP
 
 								<FormControl>
 									<CommandSelect
-										options={(agents?.items ?? []).map((agent) => ({
+										options={(agents?.items || []).map((agent) => ({
 											children: (
 												<div className='flex items-center gap-x-2'>
 													<GeneratedAvatar variant='botttsNeutral' seed={agent.name} className='size-6 border' />

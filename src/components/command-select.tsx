@@ -43,7 +43,7 @@ export const CommandSelect = ({
 				className={cn('h-9 justify-between px-2 font-normal', !selectedOption && 'text-muted-foreground', className)}
 				onClick={() => setOpen(true)}
 			>
-				<div>{selectedOption?.children ?? placeholder}</div>
+				<div>{selectedOption?.children || placeholder}</div>
 
 				<ChevronsUpDownIcon />
 			</Button>
@@ -61,7 +61,7 @@ export const CommandSelect = ({
 					<CommandEmpty>
 						{isSearching ? (
 							<div className='flex items-center justify-center'>
-								<Loader2Icon className='size-4 animate-spin' aria-label='Searching...' />
+								<Loader2Icon className='size-4 animate-spin' strokeWidth={2.5} aria-label='Searching...' />
 							</div>
 						) : (
 							<span className='text-muted-foreground text-sm'>{emptyMessage}</span>

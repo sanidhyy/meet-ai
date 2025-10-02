@@ -9,7 +9,7 @@ export const LoadingState = ({ description, title }: LoadingStateProps) => {
 	return (
 		<div className='flex flex-1 items-center justify-center px-8 py-4'>
 			<div className='bg-background flex flex-col items-center justify-center gap-y-6 rounded-lg p-10 shadow-sm'>
-				<Loader2Icon className='text-primary size-6 animate-spin' />
+				<Loader2Icon className='text-primary size-6 animate-spin' strokeWidth={2.5} />
 
 				<div className='flex flex-col gap-y-2 text-center'>
 					<h6 className='text-lg font-medium'>{title}</h6>
