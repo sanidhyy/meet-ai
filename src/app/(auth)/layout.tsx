@@ -13,7 +13,7 @@ const AuthLayout = ({ children }: Readonly<PropsWithChildren>) => {
 							{children}
 
 							<div className='from-sidebar-accent to-sidebar relative hidden flex-col items-center justify-center gap-y-4 bg-radial md:flex'>
-								<img src='/logo.svg' alt='Image' className='size-[92px]' />
+								<img src='/logo.svg' alt='Meet.AI logo' className='size-[92px]' />
 
 								<p className='text-2xl font-semibold text-white'>Meet.AI</p>
 							</div>
