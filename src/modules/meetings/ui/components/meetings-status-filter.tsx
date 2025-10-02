@@ -13,7 +13,7 @@ const statusIconMap: Record<MeetingStatus, LucideIcon> = {
 	[MeetingStatus.CANCELLED]: CircleXIcon,
 };
 
-export const MeetingStatusFilter = () => {
+export const MeetingsStatusFilter = () => {
 	const [filters, setFilters] = useMeetingsFilters();
 
 	return (
