@@ -6,11 +6,16 @@ import { useRouter } from 'next/navigation';
 import { useMutation, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 
+import { ActiveState } from '@/modules/meetings/ui/components/active-state';
+import { CancelledState } from '@/modules/meetings/ui/components/cancelled-state';
 import { MeetingViewHeader } from '@/modules/meetings/ui/components/meeting-view-header';
+import { ProcessingState } from '@/modules/meetings/ui/components/processing-state';
+import { UpcomingState } from '@/modules/meetings/ui/components/upcoming-state';
 import { UpdateMeetingDialog } from '@/modules/meetings/ui/components/update-meeting-dialog';
 
 import { ErrorState } from '@/components/error-state';
 import { LoadingState } from '@/components/loading-state';
+import { MeetingStatus } from '@/db/schema';
 import { useConfirm } from '@/hooks/use-confirm';
 import { useTRPC } from '@/trpc/client';
 import type { ErrorFallbackProps } from '@/types';
@@ -55,6 +60,21 @@ export const MeetingView = ({ meetingId }: MeetingViewProps) => {
 
 	const isPending = removeMeeting.isPending;
 
+	const MeetingViewContent = () => {
+		switch (meeting.status) {
+			case MeetingStatus.CANCELLED:
+				return <CancelledState />;
+			case MeetingStatus.PROCESSING:
+				return <ProcessingState />;
+			case MeetingStatus.COMPLETED:
+				return <div>Completed</div>;
+			case MeetingStatus.ACTIVE:
+				return <ActiveState meetingId={meetingId} />;
+			case MeetingStatus.UPCOMING:
+				return <UpcomingState meetingId={meetingId} onCancelMeeting={() => {}} isCancelling={false} />;
+		}
+	};
+
 	return (
 		<>
 			<ConfirmDialog />
@@ -71,7 +91,7 @@ export const MeetingView = ({ meetingId }: MeetingViewProps) => {
 					onRemove={handleRemoveMeeting}
 					isPending={isPending}
 				/>
-				{JSON.stringify(meeting, null, 2)}
+				<MeetingViewContent />
 			</div>
 		</>
 	);
