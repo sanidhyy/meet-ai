@@ -1,6 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-import { CallSessionParticipantLeftEvent, CallSessionStartedEvent, type WebhookEvent } from '@stream-io/node-sdk';
+import type {
+	CallEndedEvent,
+	CallRecordingReadyEvent,
+	CallSessionParticipantLeftEvent,
+	CallSessionStartedEvent,
+	CallTranscriptionReadyEvent,
+	WebhookEvent,
+} from '@stream-io/node-sdk';
 import { and, eq } from 'drizzle-orm';
 
 import { BAD_REQUEST, NOT_FOUND, OK, UNAUTHORIZED } from '@/config/http-status-codes';
@@ -80,6 +87,51 @@ export async function POST(req: NextRequest) {
 
 			const call = streamVideo.video.call('default', meetingId);
 			await call.end();
+
+			break;
+		}
+		case 'call.session_ended': {
+			const event = payload as CallEndedEvent;
+			const meetingId = event.call.custom?.meetingId as string | undefined;
+
+			if (!meetingId) return NextResponse.json({ error: 'Missing meeting id!' }, { status: BAD_REQUEST });
+
+			await db
+				.update(meetings)
+				.set({ endedAt: new Date(), status: MeetingStatus.PROCESSING })
+				.where(and(eq(meetings.id, meetingId), eq(meetings.status, MeetingStatus.ACTIVE)));
+
+			break;
+		}
+		case 'call.transcription_ready': {
+			const event = payload as CallTranscriptionReadyEvent;
+			const meetingId = event.call_cid.split(':')?.[1] as string | undefined; // call_cid is formatted as "type:id"
+
+			if (!meetingId) return NextResponse.json({ error: 'Missing meeting id!' }, { status: BAD_REQUEST });
+
+			const [updatedMeeting] = await db
+				.update(meetings)
+				.set({ transcriptUrl: event.call_transcription.url })
+				.where(eq(meetings.id, meetingId))
+				.returning();
+
+			if (!updatedMeeting) return NextResponse.json({ error: 'Meeting not found!' }, { status: NOT_FOUND });
+
+			// TODO: Call Inngest background job to summarize the transcript
+
+			break;
+		}
+		case 'call.recording_ready': {
+			const event = payload as CallRecordingReadyEvent;
+			const meetingId = event.call_cid.split(':')?.[1] as string | undefined; // call_cid is formatted as "type:id"
+
+			if (!meetingId) return NextResponse.json({ error: 'Missing meeting id!' }, { status: BAD_REQUEST });
+
+			await db
+				.update(meetings)
+				.set({ recordingUrl: event.call_recording.url })
+				.where(eq(meetings.id, meetingId))
+				.returning();
 
 			break;
 		}
