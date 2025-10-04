@@ -21,6 +21,7 @@
 		"@dicebear/collection": "^9.2.4",
 		"@dicebear/core": "^9.2.4",
 		"@hookform/resolvers": "^5.2.2",
+		"@inngest/agent-kit": "^0.13.0",
 		"@neondatabase/serverless": "^1.0.1",
 		"@radix-ui/react-avatar": "^1.1.10",
 		"@radix-ui/react-dialog": "^1.1.15",
