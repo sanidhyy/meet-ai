@@ -8,6 +8,7 @@ import toast from 'react-hot-toast';
 
 import { ActiveState } from '@/modules/meetings/ui/components/active-state';
 import { CancelledState } from '@/modules/meetings/ui/components/cancelled-state';
+import { CompletedState } from '@/modules/meetings/ui/components/completed-state';
 import { MeetingViewHeader } from '@/modules/meetings/ui/components/meeting-view-header';
 import { ProcessingState } from '@/modules/meetings/ui/components/processing-state';
 import { UpcomingState } from '@/modules/meetings/ui/components/upcoming-state';
@@ -67,7 +68,7 @@ export const MeetingView = ({ meetingId }: MeetingViewProps) => {
 			case MeetingStatus.PROCESSING:
 				return <ProcessingState />;
 			case MeetingStatus.COMPLETED:
-				return <div>Completed</div>;
+				return <CompletedState data={meeting} />;
 			case MeetingStatus.ACTIVE:
 				return <ActiveState meetingId={meetingId} />;
 			case MeetingStatus.UPCOMING:
