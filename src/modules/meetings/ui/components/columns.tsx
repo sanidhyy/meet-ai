@@ -8,7 +8,7 @@ import {
 	ClockArrowUpIcon,
 	ClockFadingIcon,
 	CornerDownRightIcon,
-	LoaderIcon,
+	Loader2Icon,
 	VideoIcon,
 	type LucideIcon,
 } from 'lucide-react';
@@ -26,7 +26,7 @@ const statusIconMap: Record<MeetingStatus, LucideIcon> = {
 	[MeetingStatus.UPCOMING]: ClockArrowUpIcon,
 	[MeetingStatus.ACTIVE]: VideoIcon,
 	[MeetingStatus.COMPLETED]: CircleCheckIcon,
-	[MeetingStatus.PROCESSING]: LoaderIcon,
+	[MeetingStatus.PROCESSING]: Loader2Icon,
 	[MeetingStatus.CANCELLED]: CircleXIcon,
 };
 
