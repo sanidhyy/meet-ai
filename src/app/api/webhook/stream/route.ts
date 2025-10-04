@@ -14,6 +14,7 @@ import { BAD_REQUEST, NOT_FOUND, OK, UNAUTHORIZED } from '@/config/http-status-c
 import { db } from '@/db';
 import { MeetingStatus, agents, meetings } from '@/db/schema';
 import { env } from '@/env/server';
+import { inngest } from '@/inngest/client';
 import { streamVideo } from '@/lib/stream-video';
 
 const verifySignatureWithSDK = (body: string, signature: string): boolean => {
@@ -117,7 +118,13 @@ export async function POST(req: NextRequest) {
 
 			if (!updatedMeeting) return NextResponse.json({ error: 'Meeting not found!' }, { status: NOT_FOUND });
 
-			// TODO: Call Inngest background job to summarize the transcript
+			await inngest.send({
+				data: {
+					meetingId: updatedMeeting.id,
+					transcriptUrl: updatedMeeting.transcriptUrl,
+				},
+				name: 'meetings/processing',
+			});
 
 			break;
 		}
