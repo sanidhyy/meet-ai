@@ -2,16 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { useMutation } from '@tanstack/react-query';
 import type { Channel as StreamChannel } from 'stream-chat';
-import {
-	Channel,
-	Chat,
-	MessageInput,
-	MessageList,
-	Thread,
-	Window,
-	useCreateChatClient,
-	useStateStore,
-} from 'stream-chat-react';
+import { Channel, Chat, MessageInput, MessageList, Thread, Window, useCreateChatClient } from 'stream-chat-react';
 
 import { LoadingState } from '@/components/loading-state';
 import { env } from '@/env/client';
@@ -21,13 +12,12 @@ import 'stream-chat-react/dist/css/v2/index.css';
 
 interface ChatUIProps {
 	meetingId: string;
-	meetingName: string;
 	userId: string;
 	userImage: string | undefined;
 	userName: string;
 }
 
-export const ChatUI = ({ meetingId, meetingName, userId, userImage, userName }: ChatUIProps) => {
+export const ChatUI = ({ meetingId, userId, userImage, userName }: ChatUIProps) => {
 	const trpc = useTRPC();
 
 	const { mutateAsync: generateChatToken } = useMutation(trpc.meetings.generateChatToken.mutationOptions());

@@ -143,7 +143,7 @@ export const CompletedState = ({ data }: CompletedStateProps) => {
 				</TabsContent>
 
 				<TabsContent value='chat'>
-					<ChatProvider meetingId={data.id} meetingName={data.name} />
+					<ChatProvider meetingId={data.id} />
 				</TabsContent>
 			</Tabs>
 		</div>
