@@ -6,16 +6,24 @@ import type {
 	CallSessionParticipantLeftEvent,
 	CallSessionStartedEvent,
 	CallTranscriptionReadyEvent,
+	MessageNewEvent,
 	WebhookEvent,
 } from '@stream-io/node-sdk';
 import { and, eq } from 'drizzle-orm';
+import { OpenAI } from 'openai';
+import type { ChatCompletionMessageParam } from 'openai/resources';
 
-import { BAD_REQUEST, NOT_FOUND, OK, UNAUTHORIZED } from '@/config/http-status-codes';
+import { BAD_REQUEST, INTERNAL_SERVER_ERROR, NOT_FOUND, OK, UNAUTHORIZED } from '@/config/http-status-codes';
 import { db } from '@/db';
 import { MeetingStatus, agents, meetings } from '@/db/schema';
 import { env } from '@/env/server';
 import { inngest } from '@/inngest/client';
+import { generateAvatarUri } from '@/lib/avatar';
+import { streamChat } from '@/lib/stream-chat';
 import { streamVideo } from '@/lib/stream-video';
+import { createChatInstructions } from '@/lib/utils';
+
+const openAIClient = new OpenAI({ apiKey: env.OPENAI_API_KEY });
 
 const verifySignatureWithSDK = (body: string, signature: string): boolean => {
 	return streamVideo.verifyWebhook(body, signature);
@@ -139,6 +147,86 @@ export async function POST(req: NextRequest) {
 				.set({ recordingUrl: event.call_recording.url })
 				.where(eq(meetings.id, meetingId))
 				.returning();
+
+			break;
+		}
+		case 'message.new': {
+			const event = payload as MessageNewEvent;
+
+			const userId = event.user?.id;
+			const channelId = event.channel_id;
+			const text = event.message?.text;
+
+			if (!userId || !channelId || !text) {
+				return NextResponse.json(
+					{
+						error: 'Missing required fields.',
+					},
+					{ status: BAD_REQUEST }
+				);
+			}
+
+			const [meeting] = await db
+				.select()
+				.from(meetings)
+				.where(and(eq(meetings.id, channelId), eq(meetings.status, MeetingStatus.COMPLETED)));
+
+			if (!meeting) return NextResponse.json({ error: 'Meeting not found!' }, { status: NOT_FOUND });
+
+			const [agent] = await db.select().from(agents).where(eq(agents.id, meeting.agentId));
+
+			if (!agent) return NextResponse.json({ error: 'Agent not found!' }, { status: NOT_FOUND });
+
+			if (userId !== agent.id) {
+				const instructions = createChatInstructions(meeting.summary || '', agent.instructions);
+
+				const channel = streamChat.channel('messaging', channelId);
+				await channel.watch();
+
+				const previousMessages = channel.state.messages
+					.slice(-5)
+					.filter((msg) => msg.text && msg.text.trim() !== '')
+					.map<ChatCompletionMessageParam>((message) => ({
+						content: message.text || '',
+						role: message.user?.id === agent.id ? 'assistant' : 'user',
+					}));
+
+				const gptResponse = await openAIClient.chat.completions.create({
+					messages: [{ content: instructions, role: 'system' }, ...previousMessages, { content: text, role: 'user' }],
+					model: 'gpt-4.1-nano',
+				});
+
+				const gptTextResponse = gptResponse.choices?.[0]?.message?.content;
+
+				if (!gptTextResponse) {
+					return NextResponse.json(
+						{
+							error: 'No response from GPT!',
+						},
+						{ status: INTERNAL_SERVER_ERROR }
+					);
+				}
+
+				const avatarUrl = generateAvatarUri({
+					seed: agent.name,
+					variant: 'botttsNeutral',
+				});
+
+				streamChat.upsertUser({
+					id: agent.id,
+					image: avatarUrl,
+					name: agent.name,
+				});
+
+				channel.sendMessage({
+					text: gptTextResponse,
+					user: {
+						id: agent.id,
+						image: avatarUrl,
+						name: agent.name,
+					},
+				});
+			}
 
 			break;
 		}
