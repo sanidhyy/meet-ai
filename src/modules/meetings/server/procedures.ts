@@ -1,14 +1,16 @@
 /* eslint-disable camelcase */
 
 import { TRPCError } from '@trpc/server';
-import { and, desc, eq, getTableColumns, ilike, sql, type SQLWrapper } from 'drizzle-orm';
+import { and, desc, eq, getTableColumns, ilike, inArray, sql, type SQLWrapper } from 'drizzle-orm';
+import JSONL from 'jsonl-parse-stringify';
 import z from 'zod';
 
 import { MeetingSchema, MeetingUpdateSchema } from '@/modules/meetings/schema';
+import type { StreamTranscriptItem } from '@/modules/meetings/types';
 
 import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE, MIN_PAGE_SIZE } from '@/config';
 import { db } from '@/db';
-import { MeetingStatus, agents, meetings } from '@/db/schema';
+import { MeetingStatus, agents, meetings, users } from '@/db/schema';
 import { generateAvatarUri } from '@/lib/avatar';
 import { streamVideo } from '@/lib/stream-video';
 import { createTRPCRouter, protectedProcedure } from '@/trpc/init';
@@ -162,6 +164,71 @@ export const meetingsRouter = createTRPCRouter({
 		if (!meeting) throw new TRPCError({ code: 'NOT_FOUND', message: 'Meeting not found!' });
 
 		return meeting;
+	}),
+	getTranscript: protectedProcedure.input(z.object({ id: z.string().trim().min(1) })).query(async ({ ctx, input }) => {
+		const {
+			auth: { user },
+		} = ctx;
+		const { id: meetingId } = input;
+
+		const [meeting] = await db
+			.select()
+			.from(meetings)
+			.where(and(eq(meetings.id, meetingId), eq(meetings.userId, user.id)));
+
+		if (!meeting) throw new TRPCError({ code: 'NOT_FOUND', message: 'Meeting not found!' });
+
+		if (!meeting.transcriptUrl) return [];
+
+		const transcript = await fetch(meeting.transcriptUrl)
+			.then((res) => res.text())
+			.then((text) => JSONL.parse<StreamTranscriptItem>(text))
+			.catch(() => []);
+
+		const speakerIds = [...new Set(transcript.map((item) => item.speaker_id))];
+
+		const userSpeakers = await db.select().from(users).where(inArray(users.id, speakerIds));
+
+		const normalizedUserSpeakers = userSpeakers.map((user) => ({
+			...user,
+			image: user.image ?? generateAvatarUri({ seed: user.name, variant: 'initials' }),
+		}));
+
+		const agentSpeakers = await db.select().from(agents).where(inArray(agents.id, speakerIds));
+
+		const normalizedAgentSpeakers = agentSpeakers.map((agent) => ({
+			...agent,
+			image: generateAvatarUri({ seed: agent.name, variant: 'botttsNeutral' }),
+		}));
+
+		const speakers = [...normalizedUserSpeakers, ...normalizedAgentSpeakers];
+
+		const transcriptWithSpeakers = transcript.map((item) => {
+			const speaker = speakers.find((speaker) => speaker.id === item.speaker_id);
+
+			if (!speaker) {
+				return {
+					...item,
+					user: {
+						image: generateAvatarUri({
+							seed: 'Unknown',
+							variant: 'initials',
+						}),
+						name: 'Unknown',
+					},
+				};
+			}
+
+			return {
+				...item,
+				user: {
+					image: speaker.image,
+					name: speaker.name,
+				},
+			};
+		});
+
+		return transcriptWithSpeakers;
 	}),
 	remove: protectedProcedure.input(z.object({ id: z.string().trim().min(1) })).mutation(async ({ ctx, input }) => {
 		const {

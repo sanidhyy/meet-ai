@@ -12,6 +12,8 @@ import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { cn, formatDuration } from '@/lib/utils';
 
+import { Transcript } from './transcript';
+
 interface CompletedStateProps {
 	data: MeetingGetOne;
 }
@@ -133,6 +135,10 @@ export const CompletedState = ({ data }: CompletedStateProps) => {
 							</div>
 						</div>
 					</div>
+				</TabsContent>
+
+				<TabsContent value='transcript'>
+					<Transcript meetingId={data.id} />
 				</TabsContent>
 			</Tabs>
 		</div>
