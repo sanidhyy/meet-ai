@@ -12,6 +12,7 @@ import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { cn, formatDuration } from '@/lib/utils';
 
+import { ChatProvider } from './chat-provider';
 import { Transcript } from './transcript';
 
 interface CompletedStateProps {
@@ -139,6 +140,10 @@ export const CompletedState = ({ data }: CompletedStateProps) => {
 
 				<TabsContent value='transcript'>
 					<Transcript meetingId={data.id} />
+				</TabsContent>
+
+				<TabsContent value='chat'>
+					<ChatProvider meetingId={data.id} meetingName={data.name} />
 				</TabsContent>
 			</Tabs>
 		</div>

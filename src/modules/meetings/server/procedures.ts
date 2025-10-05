@@ -12,6 +12,7 @@ import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE, MIN_PAGE_SIZE } from '@
 import { db } from '@/db';
 import { MeetingStatus, agents, meetings, users } from '@/db/schema';
 import { generateAvatarUri } from '@/lib/avatar';
+import { streamChat } from '@/lib/stream-chat';
 import { streamVideo } from '@/lib/stream-video';
 import { createTRPCRouter, protectedProcedure } from '@/trpc/init';
 
@@ -67,6 +68,20 @@ export const meetingsRouter = createTRPCRouter({
 		]);
 
 		return meeting;
+	}),
+	generateChatToken: protectedProcedure.mutation(async ({ ctx }) => {
+		const {
+			auth: { user },
+		} = ctx;
+
+		const token = streamChat.createToken(user.id);
+
+		await streamChat.upsertUser({
+			id: user.id,
+			role: 'admin',
+		});
+
+		return token;
 	}),
 	generateToken: protectedProcedure.mutation(async ({ ctx }) => {
 		const {

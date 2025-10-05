@@ -5,6 +5,7 @@ import { formatDate } from 'date-fns';
 import { SearchIcon } from 'lucide-react';
 import Highlighter from 'react-highlight-words';
 
+import { LoadingState } from '@/components/loading-state';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -17,13 +18,21 @@ interface TranscriptProps {
 
 export const Transcript = ({ meetingId }: TranscriptProps) => {
 	const trpc = useTRPC();
-	const { data: transcript } = useQuery(trpc.meetings.getTranscript.queryOptions({ id: meetingId }));
+	const { data: transcript, isPending } = useQuery(trpc.meetings.getTranscript.queryOptions({ id: meetingId }));
 
 	const [searchQuery, setSearchQuery] = useState('');
 
 	const filteredTranscript = (transcript || []).filter((item) =>
 		item.text.toString().toLowerCase().includes(searchQuery.toLowerCase())
 	);
+
+	if (isPending) {
+		return (
+			<div className='flex w-full flex-col gap-y-4 px-4 py-5'>
+				<LoadingState title='Loading...' description='Please wait while we load the transcripts.' />
+			</div>
+		);
+	}
 
 	return (
 		<div className='flex w-full flex-col gap-y-4 rounded-lg border bg-white px-4 py-5'>
