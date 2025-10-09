@@ -93,7 +93,7 @@ export const MeetingForm = ({ initialValues, onCancel, onSuccess }: MeetingFormP
 		() =>
 			debounce((value: string) => {
 				setAgentSearch(value);
-			}, 400),
+			}, 600),
 		[]
 	);
 

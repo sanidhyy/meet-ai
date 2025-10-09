@@ -72,7 +72,7 @@ export const MeetingView = ({ meetingId }: MeetingViewProps) => {
 			case MeetingStatus.ACTIVE:
 				return <ActiveState meetingId={meetingId} />;
 			case MeetingStatus.UPCOMING:
-				return <UpcomingState meetingId={meetingId} onCancelMeeting={() => {}} isCancelling={false} />;
+				return <UpcomingState meetingId={meetingId} />;
 		}
 	};
 

@@ -1,12 +1,12 @@
 import { TRPCError } from '@trpc/server';
-import { and, desc, eq, getTableColumns, ilike, sql, type SQLWrapper } from 'drizzle-orm';
+import { and, desc, eq, getTableColumns, ilike, type SQLWrapper } from 'drizzle-orm';
 import z from 'zod';
 
 import { AgentSchema, AgentUpdateSchema } from '@/modules/agents/schema';
 
 import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE, MIN_PAGE_SIZE } from '@/config';
 import { db } from '@/db';
-import { agents } from '@/db/schema';
+import { agents, meetings } from '@/db/schema';
 import { createTRPCRouter, premiumProcedure, protectedProcedure } from '@/trpc/init';
 
 export const agentsRouter = createTRPCRouter({
@@ -50,7 +50,7 @@ export const agentsRouter = createTRPCRouter({
 			const data = await db
 				.select({
 					...getTableColumns(agents),
-					meetingCount: sql<number>`5`, // TODO: Modify later
+					meetingCount: db.$count(meetings, eq(agents.id, meetings.agentId)),
 				})
 				.from(agents)
 				.where(and(...where))
@@ -77,7 +77,7 @@ export const agentsRouter = createTRPCRouter({
 		const [agent] = await db
 			.select({
 				...getTableColumns(agents),
-				meetingCount: sql<number>`5`, // TODO: Modify later
+				meetingCount: db.$count(meetings, eq(agents.id, meetings.agentId)),
 			})
 			.from(agents)
 			.where(and(eq(agents.id, agentId), eq(agents.userId, user.id)));

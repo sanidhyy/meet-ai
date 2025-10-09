@@ -26,7 +26,7 @@ export const MeetingsAgentFilter = () => {
 		() =>
 			debounce((value: string) => {
 				setAgentSearch(value);
-			}, 400),
+			}, 600),
 		[]
 	);
 
