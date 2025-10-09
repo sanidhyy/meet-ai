@@ -23,6 +23,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Skeleton } from '@/components/ui/skeleton';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { signOut, useSession } from '@/lib/auth-client';
 
@@ -48,7 +49,15 @@ export const DashboardUserButton = () => {
 		});
 	};
 
-	if (isPending || !session) return null;
+	if (isPending) {
+		return (
+			<div className='border-border/10 flex w-full flex-col gap-y-2 rounded-lg border bg-white/5'>
+				<Skeleton className='h-15 w-full rounded-lg bg-white/5' />
+			</div>
+		);
+	}
+
+	if (!session) return null;
 
 	if (isMobile) {
 		return (

@@ -18,8 +18,19 @@ export const DashboardTrial = () => {
 		return (
 			<div className='border-border/10 flex w-full flex-col gap-y-2 rounded-lg border bg-white/5'>
 				<div className='flex flex-col gap-y-4 p-3'>
-					<Skeleton className='h-4 w-full' />
-					<Skeleton className='h-4 w-full' />
+					<div className='flex items-center gap-2'>
+						<Skeleton className='size-4 bg-white/5' />
+						<Skeleton className='h-4 w-24 bg-white/5' />
+					</div>
+					<div className='flex flex-col gap-y-2'>
+						<Skeleton className='h-3 w-20 bg-white/5' />
+						<Skeleton className='h-2 w-full bg-white/5' />
+					</div>
+					<div className='flex flex-col gap-y-2'>
+						<Skeleton className='h-3 w-20 bg-white/5' />
+						<Skeleton className='h-2 w-full bg-white/5' />
+					</div>
+					<Skeleton className='h-9 w-full bg-white/5' />
 				</div>
 			</div>
 		);
