@@ -1,3 +1,5 @@
+import { useRouter } from 'next/navigation';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
@@ -21,6 +23,7 @@ interface AgentFormProps {
 }
 
 export const AgentForm = ({ initialValues, onCancel, onSuccess }: AgentFormProps) => {
+	const router = useRouter();
 	const trpc = useTRPC();
 	const queryClient = useQueryClient();
 
@@ -29,9 +32,9 @@ export const AgentForm = ({ initialValues, onCancel, onSuccess }: AgentFormProps
 	const createAgent = useMutation(
 		trpc.agents.create.mutationOptions({
 			onError: (error) => {
-				toast.error(error.message || 'Failed to create the agent!');
+				if (error.data?.code === 'PAYMENT_REQUIRED') return router.push('/upgrade');
 
-				// TODO: Check if error code is FORBIDDEN (potentially PAYMENT_REQUIRED), redirect to /upgrade
+				toast.error(error.message || 'Failed to create the agent!');
 			},
 			onSuccess: async () => {
 				await queryClient.invalidateQueries(trpc.agents.getMany.queryOptions());
@@ -46,8 +49,6 @@ export const AgentForm = ({ initialValues, onCancel, onSuccess }: AgentFormProps
 		trpc.agents.update.mutationOptions({
 			onError: (error) => {
 				toast.error(error.message || 'Failed to edit the agent!');
-
-				// TODO: Check if error code is FORBIDDEN (potentially PAYMENT_REQUIRED), redirect to /upgrade
 			},
 			onSuccess: async () => {
 				await queryClient.invalidateQueries(trpc.agents.getMany.queryOptions());

@@ -35,6 +35,15 @@ export const formatDuration = (seconds: number) => {
 	});
 };
 
+export const formatPrice = (price: number, options?: Intl.NumberFormatOptions) => {
+	return Intl.NumberFormat('en-US', {
+		currency: 'USD',
+		minimumFractionDigits: 0,
+		style: 'currency',
+		...options,
+	}).format(price);
+};
+
 export const createChatInstructions = (summary: string, originalInstructions: string) => {
 	const instructions = `
 		You are an AI assistant helping the user revisit a recently completed meeting.

@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
@@ -25,6 +26,7 @@ interface MeetingFormProps {
 }
 
 export const MeetingForm = ({ initialValues, onCancel, onSuccess }: MeetingFormProps) => {
+	const router = useRouter();
 	const trpc = useTRPC();
 	const queryClient = useQueryClient();
 
@@ -43,9 +45,9 @@ export const MeetingForm = ({ initialValues, onCancel, onSuccess }: MeetingFormP
 	const createMeeting = useMutation(
 		trpc.meetings.create.mutationOptions({
 			onError: (error) => {
-				toast.error(error.message || 'Failed to create the meeting!');
+				if (error.data?.code === 'PAYMENT_REQUIRED') return router.push('/upgrade');
 
-				// TODO: Check if error code is FORBIDDEN (potentially PAYMENT_REQUIRED), redirect to /upgrade
+				toast.error(error.message || 'Failed to create the meeting!');
 			},
 			onSuccess: async ({ id }) => {
 				await queryClient.invalidateQueries(trpc.meetings.getMany.queryOptions());
@@ -60,8 +62,6 @@ export const MeetingForm = ({ initialValues, onCancel, onSuccess }: MeetingFormP
 		trpc.meetings.update.mutationOptions({
 			onError: (error) => {
 				toast.error(error.message || 'Failed to edit the meeting!');
-
-				// TODO: Check if error code is FORBIDDEN (potentially PAYMENT_REQUIRED), redirect to /upgrade
 			},
 			onSuccess: async ({ id }) => {
 				await queryClient.invalidateQueries(trpc.meetings.getMany.queryOptions());

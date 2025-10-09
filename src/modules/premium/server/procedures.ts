@@ -3,9 +3,27 @@ import { eq } from 'drizzle-orm';
 import { db } from '@/db';
 import { agents, meetings } from '@/db/schema';
 import { polarClient } from '@/lib/polar';
-import { createTRPCRouter, protectedProcedure } from '@/trpc/init';
+import { baseProcedure, createTRPCRouter, protectedProcedure } from '@/trpc/init';
 
 export const premiumRouter = createTRPCRouter({
+	getCurrentSubscription: protectedProcedure.query(async ({ ctx }) => {
+		const {
+			auth: { user },
+		} = ctx;
+
+		const customer = await polarClient.customers.getStateExternal({
+			externalId: user.id,
+		});
+
+		const subscription = customer.activeSubscriptions?.[0];
+		if (!subscription) return null;
+
+		const product = await polarClient.products.get({
+			id: subscription.productId,
+		});
+
+		return product;
+	}),
 	getFreeUsage: protectedProcedure.query(async ({ ctx }) => {
 		const {
 			auth: { user },
@@ -26,5 +44,14 @@ export const premiumRouter = createTRPCRouter({
 			agentCount: userAgentsCount,
 			meetingCount: userMeetingsCount,
 		};
+	}),
+	getProducts: baseProcedure.query(async () => {
+		const products = await polarClient.products.list({
+			isArchived: false,
+			isRecurring: true,
+			sorting: ['price_amount', 'name'],
+		});
+
+		return products.result.items;
 	}),
 });
