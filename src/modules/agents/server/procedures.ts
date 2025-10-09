@@ -7,19 +7,21 @@ import { AgentSchema, AgentUpdateSchema } from '@/modules/agents/schema';
 import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE, MIN_PAGE_SIZE } from '@/config';
 import { db } from '@/db';
 import { agents } from '@/db/schema';
-import { createTRPCRouter, protectedProcedure } from '@/trpc/init';
+import { createTRPCRouter, premiumProcedure, protectedProcedure } from '@/trpc/init';
 
 export const agentsRouter = createTRPCRouter({
-	create: protectedProcedure.input(AgentSchema).mutation(async ({ ctx, input }) => {
-		const { instructions, name } = input;
-		const {
-			auth: { user },
-		} = ctx;
+	create: premiumProcedure('agents')
+		.input(AgentSchema)
+		.mutation(async ({ ctx, input }) => {
+			const { instructions, name } = input;
+			const {
+				auth: { user },
+			} = ctx;
 
-		const [agent] = await db.insert(agents).values({ instructions, name, userId: user.id }).returning();
+			const [agent] = await db.insert(agents).values({ instructions, name, userId: user.id }).returning();
 
-		return agent;
-	}),
+			return agent;
+		}),
 	getMany: protectedProcedure
 		.input(
 			z

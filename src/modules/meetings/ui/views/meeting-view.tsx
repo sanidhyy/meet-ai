@@ -43,9 +43,9 @@ export const MeetingView = ({ meetingId }: MeetingViewProps) => {
 			onError: (error) => {
 				toast.error(error.message || 'Failed to remove the meeting!');
 			},
-			onSuccess: () => {
-				queryClient.invalidateQueries(trpc.meetings.getMany.queryOptions());
-				// TODO: Invalidate free tier usage
+			onSuccess: async () => {
+				await queryClient.invalidateQueries(trpc.meetings.getMany.queryOptions());
+				await queryClient.invalidateQueries(trpc.premium.getFreeUsage.queryOptions());
 
 				router.push('/meetings');
 			},

@@ -14,61 +14,63 @@ import { MeetingStatus, agents, meetings, users } from '@/db/schema';
 import { generateAvatarUri } from '@/lib/avatar';
 import { streamChat } from '@/lib/stream-chat';
 import { streamVideo } from '@/lib/stream-video';
-import { createTRPCRouter, protectedProcedure } from '@/trpc/init';
+import { createTRPCRouter, premiumProcedure, protectedProcedure } from '@/trpc/init';
 
 export const meetingsRouter = createTRPCRouter({
-	create: protectedProcedure.input(MeetingSchema).mutation(async ({ ctx, input }) => {
-		const { agentId, name } = input;
-		const {
-			auth: { user },
-		} = ctx;
+	create: premiumProcedure('meetings')
+		.input(MeetingSchema)
+		.mutation(async ({ ctx, input }) => {
+			const { agentId, name } = input;
+			const {
+				auth: { user },
+			} = ctx;
 
-		const [meeting] = await db.insert(meetings).values({ agentId, name, userId: user.id }).returning();
+			const [meeting] = await db.insert(meetings).values({ agentId, name, userId: user.id }).returning();
 
-		const call = streamVideo.video.call('default', meeting.id);
+			const call = streamVideo.video.call('default', meeting.id);
 
-		await call.create({
-			data: {
-				created_by_id: user.id,
-				custom: {
-					meetingId: meeting.id,
-					meetingName: meeting.name,
-				},
-				settings_override: {
-					recording: {
-						mode: 'auto-on',
-						quality: '1080p',
+			await call.create({
+				data: {
+					created_by_id: user.id,
+					custom: {
+						meetingId: meeting.id,
+						meetingName: meeting.name,
 					},
-					transcription: {
-						closed_caption_mode: 'auto-on',
-						language: 'en',
-						mode: 'auto-on',
+					settings_override: {
+						recording: {
+							mode: 'auto-on',
+							quality: '1080p',
+						},
+						transcription: {
+							closed_caption_mode: 'auto-on',
+							language: 'en',
+							mode: 'auto-on',
+						},
 					},
 				},
-			},
-		});
+			});
 
-		const [agent] = await db
-			.select()
-			.from(agents)
-			.where(and(eq(agents.id, meeting.agentId), eq(agents.userId, user.id)));
+			const [agent] = await db
+				.select()
+				.from(agents)
+				.where(and(eq(agents.id, meeting.agentId), eq(agents.userId, user.id)));
 
-		if (!agent) throw new TRPCError({ code: 'NOT_FOUND', message: 'Agent not found!' });
+			if (!agent) throw new TRPCError({ code: 'NOT_FOUND', message: 'Agent not found!' });
 
-		await streamVideo.upsertUsers([
-			{
-				id: agent.id,
-				image: generateAvatarUri({
-					seed: agent.name,
-					variant: 'botttsNeutral',
-				}),
-				name: agent.name,
-				role: 'user',
-			},
-		]);
+			await streamVideo.upsertUsers([
+				{
+					id: agent.id,
+					image: generateAvatarUri({
+						seed: agent.name,
+						variant: 'botttsNeutral',
+					}),
+					name: agent.name,
+					role: 'user',
+				},
+			]);
 
-		return meeting;
-	}),
+			return meeting;
+		}),
 	generateChatToken: protectedProcedure.mutation(async ({ ctx }) => {
 		const {
 			auth: { user },

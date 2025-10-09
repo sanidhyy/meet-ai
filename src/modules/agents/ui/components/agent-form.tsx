@@ -35,8 +35,7 @@ export const AgentForm = ({ initialValues, onCancel, onSuccess }: AgentFormProps
 			},
 			onSuccess: async () => {
 				await queryClient.invalidateQueries(trpc.agents.getMany.queryOptions());
-
-				// Invalidate free tier usage
+				await queryClient.invalidateQueries(trpc.premium.getFreeUsage.queryOptions());
 
 				onSuccess?.();
 			},
