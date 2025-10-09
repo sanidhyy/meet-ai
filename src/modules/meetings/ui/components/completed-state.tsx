@@ -10,6 +10,19 @@ import { GeneratedAvatar } from '@/components/generated-avatar';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import {
+	VideoPlayer,
+	VideoPlayerContent,
+	VideoPlayerControlBar,
+	VideoPlayerFullscreenButton,
+	VideoPlayerMuteButton,
+	VideoPlayerPlayButton,
+	VideoPlayerSeekBackwardButton,
+	VideoPlayerSeekForwardButton,
+	VideoPlayerTimeDisplay,
+	VideoPlayerTimeRange,
+	VideoPlayerVolumeRange,
+} from '@/components/ui/video-player';
 import { cn, formatDuration } from '@/lib/utils';
 
 import { ChatProvider } from './chat-provider';
@@ -64,9 +77,27 @@ export const CompletedState = ({ data }: CompletedStateProps) => {
 				</div>
 
 				<TabsContent value='recording'>
-					<div className='rounded-lg border bg-white px-4 py-5'>
-						{/* TODO: Replace with react video player */}
-						<video src={data.recordingUrl!} className='w-full rounded-lg' controls />
+					<div className='rounded-lg bg-white px-4 py-5'>
+						<VideoPlayer className='size-full overflow-hidden rounded-lg border'>
+							<VideoPlayerContent
+								src={data.recordingUrl!}
+								crossOrigin=''
+								preload='auto'
+								slot='media'
+								className='border-none'
+							/>
+
+							<VideoPlayerControlBar>
+								<VideoPlayerPlayButton />
+								<VideoPlayerSeekBackwardButton />
+								<VideoPlayerSeekForwardButton />
+								<VideoPlayerTimeRange />
+								<VideoPlayerTimeDisplay showDuration />
+								<VideoPlayerMuteButton />
+								<VideoPlayerVolumeRange />
+								<VideoPlayerFullscreenButton />
+							</VideoPlayerControlBar>
+						</VideoPlayer>
 					</div>
 				</TabsContent>
 

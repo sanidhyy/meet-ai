@@ -30,7 +30,7 @@ export const AgentView = ({ agentId }: AgentViewProps) => {
 
 	const [updateAgentDialogOpen, setUpdateAgentDialogOpen] = useState(false);
 	const [ConfirmDialog, confirm] = useConfirm({
-		message: `Are you sure you want to delete this agent? This will remove ${agent.meetingCount} associated meetings. This action cannot be undone.`,
+		message: `Are you sure you want to delete this agent?${agent.meetingCount > 0 ? ` This will remove ${agent.meetingCount} associated meetings.` : ''} This action cannot be undone.`,
 		title: `Delete agent ${agent.name}`,
 	});
 

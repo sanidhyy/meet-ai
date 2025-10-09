@@ -5,6 +5,7 @@ import type { CSSProperties, ComponentProps } from 'react';
 import {
 	MediaControlBar,
 	MediaController,
+	MediaFullscreenButton,
 	MediaMuteButton,
 	MediaPlayButton,
 	MediaSeekBackwardButton,
@@ -90,4 +91,10 @@ export type VideoPlayerContentProps = ComponentProps<'video'>;
 
 export const VideoPlayerContent = ({ className, ...props }: VideoPlayerContentProps) => (
 	<video className={cn('mt-0 mb-0', className)} {...props} />
+);
+
+export type VideoPlayerFullscreenButtonProps = ComponentProps<typeof MediaFullscreenButton>;
+
+export const VideoPlayerFullscreenButton = ({ className, ...props }: VideoPlayerFullscreenButtonProps) => (
+	<MediaFullscreenButton className={cn('p-2.5', className)} {...props} />
 );
