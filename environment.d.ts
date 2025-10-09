@@ -31,6 +31,9 @@ declare global {
 
 			// openai api key
 			OPENAI_API_KEY: string;
+
+			// polar access token
+			POLAR_ACCESS_TOKEN: string;
 		}
 	}
 }

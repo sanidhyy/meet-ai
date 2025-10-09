@@ -1,3 +1,4 @@
+import { checkout, polar, portal } from '@polar-sh/better-auth';
 import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import { oneTap } from 'better-auth/plugins';
@@ -8,6 +9,7 @@ import { db } from '@/db';
 import * as schema from '@/db/schema';
 import { env as clientEnv } from '@/env/client';
 import { env } from '@/env/server';
+import { polarClient } from '@/lib/polar';
 
 export const auth = betterAuth({
 	appName: 'Meet.AI',
@@ -26,7 +28,20 @@ export const auth = betterAuth({
 	onAPIError: {
 		errorURL: '/sign-in',
 	},
-	plugins: [oneTap()],
+	plugins: [
+		oneTap(),
+		polar({
+			client: polarClient,
+			createCustomerOnSignUp: true,
+			use: [
+				checkout({
+					authenticatedUsersOnly: true,
+					successUrl: '/upgrade',
+				}),
+				portal(),
+			],
+		}),
+	],
 	secret: env.BETTER_AUTH_SECRET,
 	socialProviders: {
 		github: {

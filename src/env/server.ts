@@ -24,6 +24,7 @@ export const env = createEnv({
 		GOOGLE_CLIENT_SECRET: z.string().trim().min(1),
 		NODE_ENV: z.enum(['development', 'production', 'test']).default('development').optional(),
 		OPENAI_API_KEY: z.string().trim().min(1).startsWith('sk-proj-'),
+		POLAR_ACCESS_TOKEN: z.string().trim().min(1).startsWith('polar_oat_'),
 		STREAM_CHAT_API_SECRET: z.string().trim().min(1),
 		STREAM_VIDEO_API_SECRET: z.string().trim().min(1),
 	},
