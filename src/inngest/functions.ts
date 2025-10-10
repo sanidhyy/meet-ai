@@ -1,5 +1,6 @@
 import { createAgent, openai, type TextMessage } from '@inngest/agent-kit';
 import { eq, inArray } from 'drizzle-orm';
+import { NonRetriableError } from 'inngest';
 import JSONL from 'jsonl-parse-stringify';
 import { UTApi } from 'uploadthing/server';
 
@@ -7,16 +8,17 @@ import type { StreamTranscriptItem } from '@/modules/meetings/types';
 
 import { SUMMARIZER_AGENT_PROMPT } from '@/config';
 import { db } from '@/db';
-import { MeetingStatus, agents, meetings, users } from '@/db/schema';
-import { env } from '@/env/server';
+import { MeetingStatus, agents, meetings, userSettings, users } from '@/db/schema';
+import { decrypt } from '@/lib/encryption';
 
 import { inngest } from './client';
 
-const summarizer = createAgent({
-	model: openai({ apiKey: env.OPENAI_API_KEY, model: 'gpt-5-nano' }),
-	name: 'summarizer',
-	system: SUMMARIZER_AGENT_PROMPT.trim(),
-});
+const summarizer = (apiKey: string) =>
+	createAgent({
+		model: openai({ apiKey, model: 'gpt-5-nano' }),
+		name: 'summarizer',
+		system: SUMMARIZER_AGENT_PROMPT.trim(),
+	});
 
 export const meetingsProcessing = inngest.createFunction(
 	{
@@ -69,7 +71,20 @@ export const meetingsProcessing = inngest.createFunction(
 			});
 		});
 
-		const { output } = await summarizer.run(
+		const apiKey = await step.run('get-api-key', async () => {
+			const [meeting] = await db
+				.select({ userId: meetings.userId })
+				.from(meetings)
+				.where(eq(meetings.id, event.data.meetingId));
+
+			const [aiSettings] = await db.select().from(userSettings).where(eq(userSettings.userId, meeting.userId));
+
+			if (!aiSettings) throw new NonRetriableError('API Key not set!');
+
+			return decrypt(aiSettings.apiKey);
+		});
+
+		const { output } = await summarizer(apiKey).run(
 			`Summarize the following transcript: ${JSON.stringify(transcriptWithSpeakers)}`
 		);
 

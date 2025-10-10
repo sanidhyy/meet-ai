@@ -29,9 +29,6 @@ declare global {
 			NEXT_PUBLIC_STREAM_CHAT_API_KEY: string;
 			STREAM_CHAT_API_SECRET: string;
 
-			// openai api key
-			OPENAI_API_KEY: string;
-
 			// polar access token
 			POLAR_ACCESS_TOKEN: string;
 

@@ -15,15 +15,13 @@ import type { ChatCompletionMessageParam } from 'openai/resources';
 
 import { BAD_REQUEST, INTERNAL_SERVER_ERROR, NOT_FOUND, OK, UNAUTHORIZED } from '@/config/http-status-codes';
 import { db } from '@/db';
-import { MeetingStatus, agents, meetings } from '@/db/schema';
-import { env } from '@/env/server';
+import { MeetingStatus, agents, meetings, userSettings } from '@/db/schema';
 import { inngest } from '@/inngest/client';
 import { generateAvatarUri } from '@/lib/avatar';
+import { decrypt } from '@/lib/encryption';
 import { streamChat } from '@/lib/stream-chat';
 import { streamVideo } from '@/lib/stream-video';
 import { createChatInstructions } from '@/lib/utils';
-
-const openAIClient = new OpenAI({ apiKey: env.OPENAI_API_KEY });
 
 const verifySignatureWithSDK = (body: string, signature: string): boolean => {
 	return streamVideo.verifyWebhook(body, signature);
@@ -69,6 +67,13 @@ export async function POST(req: NextRequest) {
 
 			if (!existingMeeting) return NextResponse.json({ error: 'Meeting not found!' }, { status: NOT_FOUND });
 
+			const [aiSettings] = await db
+				.select()
+				.from(userSettings)
+				.where(eq(userSettings.userId, existingMeeting.agent.userId));
+
+			if (!aiSettings) return NextResponse.json({ error: 'API Key not set!' }, { status: BAD_REQUEST });
+
 			await db
 				.update(meetings)
 				.set({ startedAt: new Date(), status: MeetingStatus.ACTIVE })
@@ -79,7 +84,7 @@ export async function POST(req: NextRequest) {
 			const realtimeClient = await streamVideo.video.connectOpenAi({
 				agentUserId: existingMeeting.agent.id,
 				call,
-				openAiApiKey: env.OPENAI_API_KEY,
+				openAiApiKey: decrypt(aiSettings.apiKey),
 			});
 
 			realtimeClient.updateSession({
@@ -193,6 +198,14 @@ export async function POST(req: NextRequest) {
 						role: message.user?.id === agent.id ? 'assistant' : 'user',
 					}));
 
+				const [aiSettings] = await db.select().from(userSettings).where(eq(userSettings.userId, agent.userId));
+
+				if (!aiSettings) {
+					return NextResponse.json({ error: 'API Key not set!' }, { status: BAD_REQUEST });
+				}
+
+				const openAIClient = new OpenAI({ apiKey: decrypt(aiSettings.apiKey) });
+
 				const gptResponse = await openAIClient.chat.completions.create({
 					messages: [{ content: instructions, role: 'system' }, ...previousMessages, { content: text, role: 'user' }],
 					model: 'gpt-4.1-nano',
@@ -203,7 +216,7 @@ export async function POST(req: NextRequest) {
 				if (!gptTextResponse) {
 					return NextResponse.json(
 						{
-							error: 'No response from GPT!',
+							error: 'No response from AI Assistant!',
 						},
 						{ status: INTERNAL_SERVER_ERROR }
 					);
