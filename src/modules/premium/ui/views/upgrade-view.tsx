@@ -1,6 +1,6 @@
 'use client';
 
-import { useSuspenseQuery } from '@tanstack/react-query';
+import { useQuery, useSuspenseQuery } from '@tanstack/react-query';
 
 import { PricingCard } from '@/modules/premium/ui/components/pricing-card';
 
@@ -26,7 +26,7 @@ export const UpgradeViewLoading = () => {
 
 export const UpgradeView = () => {
 	const trpc = useTRPC();
-	const { data: currentSubscription } = useSuspenseQuery(trpc.premium.getCurrentSubscription.queryOptions());
+	const { data: currentSubscription } = useQuery(trpc.premium.getCurrentSubscription.queryOptions()); // Don't use useSuspenseQuery here to avoid hydration errors
 	const { data: products } = useSuspenseQuery(trpc.premium.getProducts.queryOptions());
 
 	return (

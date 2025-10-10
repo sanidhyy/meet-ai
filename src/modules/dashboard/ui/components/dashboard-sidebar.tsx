@@ -3,7 +3,8 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { BotIcon, StarIcon, VideoIcon } from 'lucide-react';
+import { useQuery } from '@tanstack/react-query';
+import { BotIcon, CreditCardIcon, StarIcon, VideoIcon, type LucideIcon } from 'lucide-react';
 
 import { Separator } from '@/components/ui/separator';
 import {
@@ -17,12 +18,20 @@ import {
 	SidebarMenuButton,
 	SidebarMenuItem,
 } from '@/components/ui/sidebar';
+import { Skeleton } from '@/components/ui/skeleton';
 import { cn } from '@/lib/utils';
+import { useTRPC } from '@/trpc/client';
 
 import { DashboardTrial } from './dashboard-trial';
 import { DashboardUserButton } from './dashboard-user-button';
 
-const FIRST_SECTION = [
+type DashboardSidebarItem = {
+	href: string;
+	icon: LucideIcon;
+	label: string;
+};
+
+const FIRST_SECTION: DashboardSidebarItem[] = [
 	{
 		href: '/meetings',
 		icon: VideoIcon,
@@ -33,18 +42,10 @@ const FIRST_SECTION = [
 		icon: BotIcon,
 		label: 'Agents',
 	},
-] as const;
-
-const SECOND_SECTION = [
-	{
-		href: '/upgrade',
-		icon: StarIcon,
-		label: 'Upgrade',
-	},
-] as const;
+];
 
 interface DashboardSidebarGroupProps {
-	item: (typeof FIRST_SECTION | typeof SECOND_SECTION)[number];
+	item: DashboardSidebarItem;
 	isActive: boolean;
 }
 
@@ -69,6 +70,29 @@ const DashboardSidebarGroup = ({ item: { href, icon: Icon, label }, isActive }: 
 
 export const DashboardSidebar = () => {
 	const pathname = usePathname();
+	const trpc = useTRPC();
+
+	const { data: currentSubscription, isLoading: isLoadingCurrentSubscription } = useQuery(
+		trpc.premium.getCurrentSubscription.queryOptions()
+	);
+
+	const hasSubscription = !!currentSubscription;
+
+	const SECOND_SECTION: DashboardSidebarItem[] = hasSubscription
+		? [
+				{
+					href: '/upgrade',
+					icon: CreditCardIcon,
+					label: 'Manage Subscription',
+				},
+			]
+		: [
+				{
+					href: '/upgrade',
+					icon: StarIcon,
+					label: 'Upgrade',
+				},
+			];
 
 	return (
 		<Sidebar>
@@ -98,15 +122,21 @@ export const DashboardSidebar = () => {
 					<Separator className='text-[#5d6b6a] opacity-10' />
 				</div>
 
-				<SidebarGroup>
-					<SidebarGroupContent>
-						<SidebarMenu>
-							{SECOND_SECTION.map((item) => (
-								<DashboardSidebarGroup key={item.href} item={item} isActive={pathname === item.href} />
-							))}
-						</SidebarMenu>
-					</SidebarGroupContent>
-				</SidebarGroup>
+				{isLoadingCurrentSubscription ? (
+					<div className='px-3 py-1'>
+						<Skeleton className='h-10 w-full bg-white/5' />
+					</div>
+				) : (
+					<SidebarGroup>
+						<SidebarGroupContent>
+							<SidebarMenu>
+								{SECOND_SECTION.map((item) => (
+									<DashboardSidebarGroup key={item.href} item={item} isActive={pathname === item.href} />
+								))}
+							</SidebarMenu>
+						</SidebarGroupContent>
+					</SidebarGroup>
+				)}
 			</SidebarContent>
 
 			<SidebarFooter className='text-white'>

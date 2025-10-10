@@ -19,7 +19,6 @@ const UpgradePage = async () => {
 
 	const queryClient = getQueryClient();
 
-	void queryClient.prefetchQuery(trpc.premium.getCurrentSubscription.queryOptions());
 	void queryClient.prefetchQuery(trpc.premium.getProducts.queryOptions());
 
 	return (
