@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import { ChevronDownIcon, CreditCardIcon, LogOutIcon } from 'lucide-react';
@@ -25,7 +26,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { customer, signOut, useSession } from '@/lib/auth-client';
+import { signOut, useSession } from '@/lib/auth-client';
 
 export const DashboardUserButton = () => {
 	const router = useRouter();
@@ -86,9 +87,11 @@ export const DashboardUserButton = () => {
 					</DrawerHeader>
 
 					<DrawerFooter>
-						<Button variant='outline' onClick={() => customer.portal()}>
-							<CreditCardIcon />
-							Billing
+						<Button variant='outline' asChild>
+							<Link href='/portal' target='_blank' rel='noopener noreferrer'>
+								<CreditCardIcon />
+								Billing
+							</Link>
 						</Button>
 
 						<Button
@@ -136,12 +139,11 @@ export const DashboardUserButton = () => {
 
 				<DropdownMenuSeparator />
 
-				<DropdownMenuItem
-					className='flex cursor-pointer items-center justify-between'
-					onClick={() => customer.portal()}
-				>
-					Billing
-					<CreditCardIcon className='size-4' />
+				<DropdownMenuItem className='flex cursor-pointer items-center justify-between' asChild>
+					<Link href='/portal' target='_blank' rel='noopener noreferrer'>
+						Billing
+						<CreditCardIcon className='size-4' />
+					</Link>
 				</DropdownMenuItem>
 
 				<DropdownMenuItem

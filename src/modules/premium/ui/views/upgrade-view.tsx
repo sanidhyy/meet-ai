@@ -6,7 +6,7 @@ import { PricingCard } from '@/modules/premium/ui/components/pricing-card';
 
 import { ErrorState } from '@/components/error-state';
 import { LoadingState } from '@/components/loading-state';
-import { checkout, customer } from '@/lib/auth-client';
+import { checkout } from '@/lib/auth-client';
 import { useTRPC } from '@/trpc/client';
 import type { ErrorFallbackProps } from '@/types';
 
@@ -42,14 +42,14 @@ export const UpgradeView = () => {
 						const isCurrentProduct = isPremium && currentSubscription.id === product.id;
 
 						let buttonText = 'Upgrade';
-						let onClick = () => checkout({ products: [product.id] });
+						let onClick = () => void checkout({ products: [product.id] });
 
 						if (isCurrentProduct) {
 							buttonText = 'Manage';
-							onClick = () => customer.portal();
+							onClick = () => void window.open('/portal', '_blank', 'noopener,noreferrer');
 						} else if (isPremium) {
 							buttonText = 'Change Plan';
-							onClick = () => customer.portal();
+							onClick = () => void window.open('/portal', '_blank', 'noopener,noreferrer');
 						}
 
 						return (
