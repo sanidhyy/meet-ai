@@ -22,11 +22,30 @@ export const users = pgTable('user', {
 		.$onUpdate(() => new Date()),
 });
 
-export const usersRelations = relations(users, ({ many }) => ({
+export const usersRelations = relations(users, ({ one, many }) => ({
 	accounts: many(accounts),
 	sessions: many(sessions),
 	agents: many(agents),
 	meetings: many(meetings),
+	settings: one(userSettings, {
+		fields: [users.id],
+		references: [userSettings.userId],
+	}),
+}));
+
+export const userSettings = pgTable('user_settings', {
+	userId: text('user_id')
+		.notNull()
+		.primaryKey()
+		.references(() => users.id, { onDelete: 'cascade' }),
+	apiKey: text('api_key').notNull(),
+});
+
+export const userSettingsRelations = relations(userSettings, ({ one }) => ({
+	user: one(users, {
+		fields: [userSettings.userId],
+		references: [users.id],
+	}),
 }));
 
 export const sessions = pgTable('session', {

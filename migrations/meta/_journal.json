@@ -22,6 +22,13 @@
       "when": 1759304479605,
       "tag": "0002_silly_the_hood",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1760081635842,
+      "tag": "0003_strong_zemo",
+      "breakpoints": true
     }
   ]
 }
