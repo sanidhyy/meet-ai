@@ -1,6 +1,7 @@
 import { createAgent, openai, type TextMessage } from '@inngest/agent-kit';
 import { eq, inArray } from 'drizzle-orm';
 import JSONL from 'jsonl-parse-stringify';
+import { UTApi } from 'uploadthing/server';
 
 import type { StreamTranscriptItem } from '@/modules/meetings/types';
 
@@ -76,6 +77,34 @@ export const meetingsProcessing = inngest.createFunction(
 			await db
 				.update(meetings)
 				.set({ status: MeetingStatus.COMPLETED, summary: (output[0] as TextMessage).content as string })
+				.where(eq(meetings.id, event.data.meetingId));
+		});
+	}
+);
+
+export const meetingsRecordingReady = inngest.createFunction(
+	{
+		id: 'meetings/recording-ready',
+	},
+	{
+		event: 'meetings/recording-ready',
+	},
+	async ({ event, step }) => {
+		const uploadedRecordingUrl = await step.run('upload-recording', async () => {
+			const utapi = new UTApi();
+
+			const [uploadedRecording] = await utapi.uploadFilesFromUrl([event.data.recordingUrl]);
+
+			if (uploadedRecording.error || !uploadedRecording.data?.ufsUrl)
+				throw new Error(uploadedRecording.error?.message || 'Failed to upload meeting recording!');
+
+			return uploadedRecording.data.ufsUrl;
+		});
+
+		await step.run('save-recording', async () => {
+			await db
+				.update(meetings)
+				.set({ recordingUrl: uploadedRecordingUrl })
 				.where(eq(meetings.id, event.data.meetingId));
 		});
 	}

@@ -142,11 +142,13 @@ export async function POST(req: NextRequest) {
 
 			if (!meetingId) return NextResponse.json({ error: 'Missing meeting id!' }, { status: BAD_REQUEST });
 
-			await db
-				.update(meetings)
-				.set({ recordingUrl: event.call_recording.url })
-				.where(eq(meetings.id, meetingId))
-				.returning();
+			await inngest.send({
+				data: {
+					meetingId,
+					recordingUrl: event.call_recording.url,
+				},
+				name: 'meetings/recording-ready',
+			});
 
 			break;
 		}

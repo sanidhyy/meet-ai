@@ -34,6 +34,9 @@ declare global {
 
 			// polar access token
 			POLAR_ACCESS_TOKEN: string;
+
+			// uploadthing token
+			UPLOADTHING_TOKEN: string;
 		}
 	}
 }
