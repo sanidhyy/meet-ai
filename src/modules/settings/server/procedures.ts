@@ -1,5 +1,6 @@
 import { TRPCError } from '@trpc/server';
 import { eq } from 'drizzle-orm';
+import OpenAI, { OpenAIError } from 'openai';
 
 import { AISettingsSchema } from '@/modules/settings/schema';
 
@@ -37,8 +38,29 @@ export const settingsRouter = createTRPCRouter({
 		const {
 			auth: { user },
 		} = ctx;
+		const { apiKey } = input;
 
-		const encryptedApiKey = encrypt(input.apiKey);
+		const openai = new OpenAI({
+			apiKey,
+		});
+
+		try {
+			await openai.models.list();
+		} catch (error) {
+			console.error(error);
+			throw new TRPCError({
+				cause: error instanceof Error ? error.cause : undefined,
+				code: 'BAD_REQUEST',
+				message:
+					error instanceof OpenAIError
+						? 'Invalid API Key!'
+						: error instanceof Error
+							? error.message
+							: 'Failed to verify API key!',
+			});
+		}
+
+		const encryptedApiKey = encrypt(apiKey);
 
 		const [settings] = await db
 			.insert(userSettings)

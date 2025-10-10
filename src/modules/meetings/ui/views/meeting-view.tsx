@@ -29,7 +29,9 @@ export const MeetingView = ({ meetingId }: MeetingViewProps) => {
 	const trpc = useTRPC();
 	const router = useRouter();
 	const queryClient = useQueryClient();
+
 	const { data: meeting } = useSuspenseQuery(trpc.meetings.getOne.queryOptions({ id: meetingId }));
+	const { data: aiSettings } = useSuspenseQuery(trpc.settings.getAISettings.queryOptions());
 
 	const [updateMeetingDialogOpen, setUpdateMeetingDialogOpen] = useState(false);
 
@@ -68,7 +70,7 @@ export const MeetingView = ({ meetingId }: MeetingViewProps) => {
 			case MeetingStatus.PROCESSING:
 				return <ProcessingState />;
 			case MeetingStatus.COMPLETED:
-				return <CompletedState data={meeting} />;
+				return <CompletedState data={meeting} apiKey={aiSettings.apiKey} />;
 			case MeetingStatus.ACTIVE:
 				return <ActiveState meetingId={meetingId} />;
 			case MeetingStatus.UPCOMING:

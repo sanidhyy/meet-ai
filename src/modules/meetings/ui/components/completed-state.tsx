@@ -30,9 +30,10 @@ import { Transcript } from './transcript';
 
 interface CompletedStateProps {
 	data: MeetingGetOne;
+	apiKey: string;
 }
 
-export const CompletedState = ({ data }: CompletedStateProps) => {
+export const CompletedState = ({ data, apiKey }: CompletedStateProps) => {
 	return (
 		<div className='flex flex-col gap-y-4'>
 			<Tabs defaultValue='summary'>
@@ -174,7 +175,7 @@ export const CompletedState = ({ data }: CompletedStateProps) => {
 				</TabsContent>
 
 				<TabsContent value='chat'>
-					<ChatProvider meetingId={data.id} />
+					<ChatProvider meetingId={data.id} apiKey={apiKey} />
 				</TabsContent>
 			</Tabs>
 		</div>

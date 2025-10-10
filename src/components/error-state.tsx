@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { AlertCircleIcon, HomeIcon, RotateCcwIcon } from 'lucide-react';
 
-import { Button } from './ui/button';
+import { Button } from '@/components/ui/button';
 
 interface ErrorStateProps {
 	description: string;
