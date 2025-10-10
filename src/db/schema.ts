@@ -39,6 +39,12 @@ export const userSettings = pgTable('user_settings', {
 		.primaryKey()
 		.references(() => users.id, { onDelete: 'cascade' }),
 	apiKey: text('api_key').notNull(),
+
+	createdAt: timestamp('created_at').notNull().defaultNow(),
+	updatedAt: timestamp('updated_at')
+		.notNull()
+		.defaultNow()
+		.$onUpdate(() => new Date()),
 });
 
 export const userSettingsRelations = relations(userSettings, ({ one }) => ({
