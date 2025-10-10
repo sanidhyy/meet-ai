@@ -28,5 +28,6 @@ export const env = createEnv({
 		STREAM_CHAT_API_SECRET: z.string().trim().min(1),
 		STREAM_VIDEO_API_SECRET: z.string().trim().min(1),
 		UPLOADTHING_TOKEN: z.string().trim().min(1),
+		VERIFICATION_SECRET: z.string().trim().min(1),
 	},
 });
