@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { useQuery } from '@tanstack/react-query';
-import { BotIcon, CreditCardIcon, StarIcon, VideoIcon, type LucideIcon } from 'lucide-react';
+import { BotIcon, CreditCardIcon, SparklesIcon, StarIcon, VideoIcon, type LucideIcon } from 'lucide-react';
 
 import { Separator } from '@/components/ui/separator';
 import {
@@ -78,21 +78,24 @@ export const DashboardSidebar = () => {
 
 	const hasSubscription = !!currentSubscription;
 
-	const SECOND_SECTION: DashboardSidebarItem[] = hasSubscription
-		? [
-				{
+	const SECOND_SECTION: DashboardSidebarItem[] = [
+		{
+			href: '/settings',
+			icon: SparklesIcon,
+			label: 'AI Settings',
+		},
+		hasSubscription
+			? {
 					href: '/upgrade',
 					icon: CreditCardIcon,
 					label: 'Manage Subscription',
-				},
-			]
-		: [
-				{
+				}
+			: {
 					href: '/upgrade',
 					icon: StarIcon,
 					label: 'Upgrade',
 				},
-			];
+	];
 
 	return (
 		<Sidebar>
