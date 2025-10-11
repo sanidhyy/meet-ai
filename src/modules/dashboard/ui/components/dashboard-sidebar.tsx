@@ -127,7 +127,8 @@ export const DashboardSidebar = () => {
 				</div>
 
 				{isLoadingCurrentSubscription ? (
-					<div className='px-3 py-1'>
+					<div className='space-y-1 px-3 py-1'>
+						<Skeleton className='h-10 w-full bg-white/5' />
 						<Skeleton className='h-10 w-full bg-white/5' />
 					</div>
 				) : (
