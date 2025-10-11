@@ -19,6 +19,7 @@ import {
 	SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { Skeleton } from '@/components/ui/skeleton';
+import { LINKS } from '@/config';
 import { cn } from '@/lib/utils';
 import { useTRPC } from '@/trpc/client';
 
@@ -50,7 +51,7 @@ interface DashboardSidebarGroupProps {
 }
 
 const DashboardSidebarGroup = ({ item: { href, icon: Icon, label }, isActive }: DashboardSidebarGroupProps) => (
-	<SidebarMenuItem key={href}>
+	<SidebarMenuItem>
 		<SidebarMenuButton
 			className={cn(
 				'from-sidebar-accent via-sidebar/50 to-sidebar/50 h-10 border border-transparent from-5% via-30% hover:border-[#5d5b68]/10 hover:bg-linear-to-r/oklch',
@@ -140,6 +141,29 @@ export const DashboardSidebar = () => {
 						</SidebarGroupContent>
 					</SidebarGroup>
 				)}
+
+				<div className='px-4 py-2'>
+					<Separator className='text-[#5d6b6a] opacity-10' />
+				</div>
+
+				<SidebarGroup>
+					<SidebarGroupContent>
+						<SidebarMenu>
+							<SidebarMenuItem>
+								<SidebarMenuButton
+									className='from-sidebar-accent via-sidebar/50 to-sidebar/50 h-10 border border-transparent from-5% via-30% hover:border-[#5d5b68]/10 hover:bg-linear-to-r/oklch'
+									asChild
+								>
+									<Link href={LINKS.SOURCE_CODE} target='_blank' rel='noopener noreferrer'>
+										<img src='/github-white.svg' alt='GitHub' className='size-5' />
+
+										<span className='text-sm font-medium tracking-tight'>Source Code</span>
+									</Link>
+								</SidebarMenuButton>
+							</SidebarMenuItem>
+						</SidebarMenu>
+					</SidebarGroupContent>
+				</SidebarGroup>
 			</SidebarContent>
 
 			<SidebarFooter className='text-white'>

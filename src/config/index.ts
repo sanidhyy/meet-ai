@@ -24,3 +24,7 @@ export const SUMMARIZER_AGENT_PROMPT = `
   - Feature X automatically does Y
   - Mention of integration with Z
 `;
+
+export const LINKS = {
+	SOURCE_CODE: 'https://github.com/sanidhyy/meet-ai',
+} as const;
