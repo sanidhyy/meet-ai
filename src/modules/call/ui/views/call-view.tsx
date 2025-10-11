@@ -8,9 +8,11 @@ import { AlertCircleIcon, HomeIcon, SparklesIcon } from 'lucide-react';
 import { CallProvider } from '@/modules/call/ui/components/call-provider';
 
 import { ErrorState } from '@/components/error-state';
+import { LoadingState } from '@/components/loading-state';
 import { Button } from '@/components/ui/button';
 import { MeetingStatus } from '@/db/schema';
 import { useTRPC } from '@/trpc/client';
+import type { ErrorFallbackProps } from '@/types';
 
 interface CallViewProps {
 	meetingId: string;
@@ -62,4 +64,24 @@ export const CallView = ({ meetingId }: CallViewProps) => {
 	}
 
 	return <CallProvider meetingId={meetingId} meetingName={meeting.name} />;
+};
+
+export const CallViewLoading = () => {
+	return (
+		<div className='flex h-screen items-center justify-center'>
+			<LoadingState title='Starting Meeting' description='This may take a few seconds.' />
+		</div>
+	);
+};
+
+export const CallViewError = ({ error, resetErrorBoundary }: ErrorFallbackProps) => {
+	return (
+		<div className='flex h-screen items-center justify-center'>
+			<ErrorState
+				title='Failed to start meeting'
+				description={error?.message || 'Something went wrong.'}
+				onRetry={resetErrorBoundary}
+			/>
+		</div>
+	);
 };

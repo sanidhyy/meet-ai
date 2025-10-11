@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import type { Metadata } from 'next';
 import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 
@@ -12,6 +13,10 @@ import { AgentsView, AgentsViewError, AgentsViewLoading } from '@/modules/agents
 
 import { auth } from '@/lib/auth';
 import { getQueryClient, trpc } from '@/trpc/server';
+
+export const metadata: Metadata = {
+	title: 'Agents',
+};
 
 interface AgentsPageProps {
 	searchParams: Promise<SearchParams>;

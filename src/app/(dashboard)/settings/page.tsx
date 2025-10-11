@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import type { Metadata } from 'next';
 import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 
@@ -13,6 +14,10 @@ import {
 
 import { auth } from '@/lib/auth';
 import { getQueryClient, trpc } from '@/trpc/server';
+
+export const metadata: Metadata = {
+	title: 'AI Settings',
+};
 
 const AISettingsPage = async () => {
 	const session = await auth.api.getSession({

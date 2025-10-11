@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+
 export const DEFAULT_PAGE = 1;
 export const DEFAULT_PAGE_SIZE = 10;
 export const MAX_PAGE_SIZE = 100;
@@ -24,6 +26,63 @@ export const SUMMARIZER_AGENT_PROMPT = `
   - Feature X automatically does Y
   - Mention of integration with Z
 `;
+
+export const SITE_CONFIG: Metadata = {
+	appleWebApp: {
+		title: 'Meet.AI',
+	},
+	authors: {
+		name: 'Sanidhya Kumar Verma',
+		url: 'https://github.com/sanidhyy',
+	},
+	description: 'AI-Powered Intelligent Chat Assistant and Meeting Summarizer using Next.js 15 and Stream Video.',
+	keywords: [
+		'reactjs',
+		'nextjs',
+		'stream-video',
+		'stream-chat',
+		'stream-video-react-sdk',
+		'stream-chat-react-sdk',
+		'stream-video-react',
+		'stream-chat-react',
+		'better-auth',
+		'lucide-icons',
+		'getstream-io',
+		'player.js',
+		'shadcn-ui',
+		'radix-ui',
+		'dicebear',
+		'polar-sh',
+		'nuqs',
+		'tailwindcss',
+		'uploadthing',
+		'react-query',
+		'openai',
+		'trpc',
+		'drizzle-orm',
+		'zod',
+		'react-hot-toast',
+		'typescript',
+		'javascript',
+		'vercel',
+		'postcss',
+		'prettier',
+		'eslint',
+		'react',
+		'react-dom',
+		'html',
+		'css',
+		'date-fns',
+		'cn',
+		'clsx',
+		'lucide-react',
+		'neon-db',
+	] as Array<string>,
+	title: {
+		default: 'Meet.AI',
+		template: '%s | Meet.AI',
+	},
+} as const;
 
 export const LINKS = {
 	SOURCE_CODE: 'https://github.com/sanidhyy/meet-ai',
