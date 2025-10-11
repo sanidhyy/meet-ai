@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 
 import { formatDate } from 'date-fns';
@@ -23,6 +25,7 @@ import {
 	VideoPlayerTimeRange,
 	VideoPlayerVolumeRange,
 } from '@/components/ui/video-player';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { cn, formatDuration } from '@/lib/utils';
 
 import { ChatProvider } from './chat-provider';
@@ -34,6 +37,8 @@ interface CompletedStateProps {
 }
 
 export const CompletedState = ({ data, apiKey }: CompletedStateProps) => {
+	const isMobile = useIsMobile();
+
 	return (
 		<div className='flex flex-col gap-y-4'>
 			<Tabs defaultValue='summary'>
@@ -90,12 +95,12 @@ export const CompletedState = ({ data, apiKey }: CompletedStateProps) => {
 
 							<VideoPlayerControlBar>
 								<VideoPlayerPlayButton />
-								<VideoPlayerSeekBackwardButton />
-								<VideoPlayerSeekForwardButton />
+								{!isMobile && <VideoPlayerSeekBackwardButton />}
+								{!isMobile && <VideoPlayerSeekForwardButton />}
 								<VideoPlayerTimeRange />
 								<VideoPlayerTimeDisplay showDuration />
 								<VideoPlayerMuteButton />
-								<VideoPlayerVolumeRange />
+								{!isMobile && <VideoPlayerVolumeRange />}
 								<VideoPlayerFullscreenButton />
 							</VideoPlayerControlBar>
 						</VideoPlayer>

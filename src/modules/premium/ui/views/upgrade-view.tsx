@@ -32,7 +32,7 @@ export const UpgradeView = () => {
 	return (
 		<div className='flex flex-1 flex-col gap-y-10 p-4 md:px-8'>
 			<div className='mt-4 flex flex-1 flex-col items-center gap-y-10'>
-				<h5 className='text-2xl font-medium md:text-3xl'>
+				<h5 className='text-center text-2xl font-medium md:text-3xl'>
 					You are on the <span className='text-primary font-semibold'>{currentSubscription?.name || 'Free'}</span> plan
 				</h5>
 

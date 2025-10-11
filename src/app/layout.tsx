@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 
 import { Providers } from '@/components/providers';
@@ -13,6 +13,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = SITE_CONFIG;
+
+export const viewport: Viewport = {
+	themeColor: '#16A34A',
+};
 
 const RootLayout = ({ children }: Readonly<PropsWithChildren>) => {
 	return (
