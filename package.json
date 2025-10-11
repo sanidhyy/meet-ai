@@ -1,6 +1,6 @@
 {
 	"name": "meet-ai",
-	"version": "0.1.0",
+	"version": "1.0.1",
 	"private": true,
 	"scripts": {
 		"dev": "mprocs \"bun run dev:next\" \"bun run dev:webhook\" \"bun run dev:inngest\" \"bun run db:studio\"",
@@ -18,6 +18,74 @@
 		"db:studio": "drizzle-kit studio",
 		"postinstall": "drizzle-kit generate"
 	},
+	"author": {
+		"name": "Sanidhya Kumar Verma",
+		"email": "sanidhya.verma12345@gmail.com",
+		"url": "https://github.com/sanidhyy"
+	},
+	"description": "AI-Powered Intelligent Chat Assistant and Meeting Summarizer using Next.js 15 and Stream Video.",
+	"keywords": [
+		"reactjs",
+		"nextjs",
+		"stream-video",
+		"stream-chat",
+		"stream-video-react-sdk",
+		"stream-chat-react-sdk",
+		"stream-video-react",
+		"stream-chat-react",
+		"better-auth",
+		"lucide-icons",
+		"getstream-io",
+		"player.js",
+		"shadcn-ui",
+		"radix-ui",
+		"dicebear",
+		"polar-sh",
+		"nuqs",
+		"tailwindcss",
+		"uploadthing",
+		"react-query",
+		"openai",
+		"trpc",
+		"drizzle-orm",
+		"zod",
+		"react-hot-toast",
+		"typescript",
+		"javascript",
+		"vercel",
+		"postcss",
+		"prettier",
+		"eslint",
+		"react",
+		"react-dom",
+		"html",
+		"css",
+		"date-fns",
+		"cn",
+		"clsx",
+		"lucide-react",
+		"neon-db"
+	],
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/sanidhyy/meet-ai.git"
+	},
+	"homepage": "https://github.com/sanidhyy/meet-ai#readme",
+	"bugs": {
+		"url": "https://github.com/sanidhyy/meet-ai/issues",
+		"email": "sanidhya.verma12345@gmail.com"
+	},
+	"funding": [
+		{
+			"type": "patreon",
+			"url": "https://www.patreon.com/sanidhy"
+		},
+		{
+			"type": "Buy me a coffee",
+			"url": "https://www.buymeacoffee.com/sanidhy"
+		}
+	],
 	"dependencies": {
 		"@dicebear/collection": "^9.2.4",
 		"@dicebear/core": "^9.2.4",
