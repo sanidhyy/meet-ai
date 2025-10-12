@@ -36,7 +36,7 @@
 		"@radix-ui/react-slot": "^1.2.3",
 		"@radix-ui/react-tabs": "^1.1.13",
 		"@radix-ui/react-tooltip": "^1.2.8",
-		"@stream-io/node-sdk": "^0.7.4",
+		"@stream-io/node-sdk": "^0.7.9",
 		"@stream-io/openai-realtime-api": "^0.3.3",
 		"@stream-io/video-react-sdk": "^1.23.0",
 		"@t3-oss/env-nextjs": "^0.13.8",
