@@ -51,7 +51,7 @@
 		"clsx": "^2.1.1",
 		"cmdk": "^1.1.1",
 		"date-fns": "^4.1.0",
-		"dotenv": "^17.2.2",
+		"dotenv": "^17.2.3",
 		"drizzle-orm": "^0.44.5",
 		"humanize-duration": "^3.33.1",
 		"inngest": "^3.44.1",
