@@ -21,7 +21,7 @@
         "@radix-ui/react-slot": "^1.2.3",
         "@radix-ui/react-tabs": "^1.1.13",
         "@radix-ui/react-tooltip": "^1.2.8",
-        "@stream-io/node-sdk": "^0.7.4",
+        "@stream-io/node-sdk": "^0.7.9",
         "@stream-io/openai-realtime-api": "^0.3.3",
         "@stream-io/video-react-sdk": "^1.23.0",
         "@t3-oss/env-nextjs": "^0.13.8",
@@ -788,7 +788,7 @@
 
     "@stream-io/logger": ["@stream-io/logger@1.1.4", "", {}, "sha512-96k+8fsy7b0fIxs1MmPX32KBENgpj3RthSSIXo2v/qxGmJ8bK10IHfDNZISpW8pLrgCkVv+8g1l81JmLqvs4fA=="],
 
-    "@stream-io/node-sdk": ["@stream-io/node-sdk@0.7.4", "", { "dependencies": { "@types/jsonwebtoken": "^9.0.3", "@types/node": "^18.3.0", "jsonwebtoken": "^9.0.2", "uuid": "^9.0.1" }, "peerDependencies": { "@stream-io/openai-realtime-api": "~0.1.3 || ~0.2.0 || ~0.3.0" }, "optionalPeers": ["@stream-io/openai-realtime-api"] }, "sha512-8hKb4Kyj7M+Vz6esqtPl6pZ6obomkEo7rb1L5M1QGss5/v3YFOaIIj1VJMZDiBdKF7Nf+hHA8+mA2RfV+1LFsw=="],
+    "@stream-io/node-sdk": ["@stream-io/node-sdk@0.7.9", "", { "dependencies": { "@types/jsonwebtoken": "^9.0.3", "@types/node": "^18.3.0", "jsonwebtoken": "^9.0.2", "uuid": "^9.0.1" }, "peerDependencies": { "@stream-io/openai-realtime-api": "~0.1.3 || ~0.2.0 || ~0.3.0" }, "optionalPeers": ["@stream-io/openai-realtime-api"] }, "sha512-KeXrrK9npQfNDoNgtuOhda2MPTI3dGXJvDzxXREXy5xdrs4lVXthx6eUMyrbxgDgl1+YNaGDgHH0aZYshh16tw=="],
 
     "@stream-io/openai-realtime-api": ["@stream-io/openai-realtime-api@0.3.3", "", { "dependencies": { "@openai/realtime-api-beta": "github:openai/openai-realtime-api-beta#a5cb94824f625423858ebacb9f769226ca98945f", "ws": "^8.18.0" } }, "sha512-jHjvE8zIkUAK6oeR/ZmjKDkyGB/jmV0QSGEv8CmXbobX4uzWPjM72CK6kqzTdUqJdxjGun7UrCp2enrPhHizlg=="],
 
