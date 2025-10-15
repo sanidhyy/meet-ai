@@ -64,7 +64,7 @@
 		"nuqs": "^2.7.1",
 		"openai": "^6.1.0",
 		"react": "19.1.0",
-		"react-dom": "19.1.0",
+		"react-dom": "19.2.0",
 		"react-error-boundary": "^6.0.0",
 		"react-highlight-words": "^0.21.0",
 		"react-hook-form": "^7.63.0",
