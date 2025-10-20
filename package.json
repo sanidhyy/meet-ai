@@ -91,7 +91,7 @@
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
 		"@types/react-highlight-words": "^0.20.0",
-		"drizzle-kit": "^0.31.4",
+		"drizzle-kit": "^0.31.5",
 		"eslint": "^9",
 		"eslint-config-next": "15.5.4",
 		"eslint-config-prettier": "^10.1.8",
