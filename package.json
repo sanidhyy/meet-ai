@@ -58,7 +58,7 @@
 		"jsonl-parse-stringify": "^1.0.3",
 		"lodash.debounce": "^4.0.8",
 		"lucide-react": "^0.544.0",
-		"media-chrome": "^4.14.0",
+		"media-chrome": "^4.16.1",
 		"nanoid": "^5.1.6",
 		"next": "15.5.7",
 		"nuqs": "^2.7.1",
