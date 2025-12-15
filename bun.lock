@@ -1,5 +1,6 @@
 {
   "lockfileVersion": 1,
+  "configVersion": 0,
   "workspaces": {
     "": {
       "name": "meet-ai",
@@ -7,7 +8,7 @@
         "@dicebear/collection": "^9.2.4",
         "@dicebear/core": "^9.2.4",
         "@hookform/resolvers": "^5.2.2",
-        "@inngest/agent-kit": "^0.13.0",
+        "@inngest/agent-kit": "^0.13.2",
         "@neondatabase/serverless": "^1.0.2",
         "@polar-sh/better-auth": "^1.1.9",
         "@polar-sh/sdk": "^0.35.4",
@@ -366,7 +367,7 @@
 
     "@img/sharp-win32-x64": ["@img/sharp-win32-x64@0.34.4", "", { "os": "win32", "cpu": "x64" }, "sha512-xIyj4wpYs8J18sVN3mSQjwrw7fKUqRw+Z5rnHNCy5fYTxigBz81u5mOMPmFumwjcn8+ld1ppptMBCLic1nz6ig=="],
 
-    "@inngest/agent-kit": ["@inngest/agent-kit@0.13.0", "", { "dependencies": { "@dmitryrechkin/json-schema-to-zod": "^1.0.0", "@inngest/ai": "0.1.6", "@modelcontextprotocol/sdk": "^1.11.2", "eventsource": "^3.0.2", "express": "^4.21.1", "xxhashjs": "^0.2.2" }, "peerDependencies": { "inngest": ">=3.43.1", "zod": ">=4 <5" } }, "sha512-4MkNUllJTyEACJCX2IcBnPsL7B5HPBp/XNRW43KKoYyC+Ieep7KKDAJhFvablMJXIrO17pEELcysr3mZBG4xnA=="],
+    "@inngest/agent-kit": ["@inngest/agent-kit@0.13.2", "", { "dependencies": { "@dmitryrechkin/json-schema-to-zod": "^1.0.0", "@inngest/ai": "0.1.6", "@modelcontextprotocol/sdk": "^1.11.2", "eventsource": "^3.0.2", "express": "^4.21.1", "xxhashjs": "^0.2.2" }, "peerDependencies": { "inngest": ">=3.43.1", "zod": ">=4 <5" } }, "sha512-STcA/4mwolWzHVH8RHGC84hUZIzaaxDjUB7tSE8nPEPwnm0sc2OC+TT6UzilADhoZ77sSrqGW1ovrdXivRu+xg=="],
 
     "@inngest/ai": ["@inngest/ai@0.1.6", "", { "dependencies": { "@types/node": "^22.10.5", "typescript": "^5.7.3" } }, "sha512-4hIvD87LnMFSphkbSToB1EkE9epktyZU2xUj6OFCCj/bn379KfbZbhWcCJEyso0P9Ux4vsNTxiSu9E7JSI9HCQ=="],
 
