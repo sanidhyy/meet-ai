@@ -22,7 +22,7 @@
 		"@dicebear/collection": "^9.2.4",
 		"@dicebear/core": "^9.2.4",
 		"@hookform/resolvers": "^5.2.2",
-		"@inngest/agent-kit": "^0.13.0",
+		"@inngest/agent-kit": "^0.13.2",
 		"@neondatabase/serverless": "^1.0.2",
 		"@polar-sh/better-auth": "^1.1.9",
 		"@polar-sh/sdk": "^0.41.5",
