@@ -44,7 +44,7 @@
 		"@tanstack/react-table": "^8.21.3",
 		"@trpc/client": "^11.6.0",
 		"@trpc/server": "^11.6.0",
-		"@trpc/tanstack-react-query": "^11.6.0",
+		"@trpc/tanstack-react-query": "^11.8.1",
 		"better-auth": "^1.4.5",
 		"class-variance-authority": "^0.7.1",
 		"client-only": "^0.0.1",
