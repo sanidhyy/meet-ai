@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useMutation, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 
+import type { MeetingGetOne } from '@/modules/meetings/types';
 import { ActiveState } from '@/modules/meetings/ui/components/active-state';
 import { CancelledState } from '@/modules/meetings/ui/components/cancelled-state';
 import { CompletedState } from '@/modules/meetings/ui/components/completed-state';
@@ -20,6 +21,27 @@ import { MeetingStatus } from '@/db/schema';
 import { useConfirm } from '@/hooks/use-confirm';
 import { useTRPC } from '@/trpc/client';
 import type { ErrorFallbackProps } from '@/types';
+
+interface MeetingViewContentProps {
+	meeting: MeetingGetOne;
+	apiKey: string;
+	meetingId: string;
+}
+
+const MeetingViewContent = ({ meeting, apiKey, meetingId }: MeetingViewContentProps) => {
+	switch (meeting.status) {
+		case MeetingStatus.CANCELLED:
+			return <CancelledState />;
+		case MeetingStatus.PROCESSING:
+			return <ProcessingState />;
+		case MeetingStatus.COMPLETED:
+			return <CompletedState data={meeting} apiKey={apiKey} />;
+		case MeetingStatus.ACTIVE:
+			return <ActiveState meetingId={meetingId} />;
+		case MeetingStatus.UPCOMING:
+			return <UpcomingState meetingId={meetingId} />;
+	}
+};
 
 interface MeetingViewProps {
 	meetingId: string;
@@ -63,21 +85,6 @@ export const MeetingView = ({ meetingId }: MeetingViewProps) => {
 
 	const isPending = removeMeeting.isPending;
 
-	const MeetingViewContent = () => {
-		switch (meeting.status) {
-			case MeetingStatus.CANCELLED:
-				return <CancelledState />;
-			case MeetingStatus.PROCESSING:
-				return <ProcessingState />;
-			case MeetingStatus.COMPLETED:
-				return <CompletedState data={meeting} apiKey={aiSettings.apiKey} />;
-			case MeetingStatus.ACTIVE:
-				return <ActiveState meetingId={meetingId} />;
-			case MeetingStatus.UPCOMING:
-				return <UpcomingState meetingId={meetingId} />;
-		}
-	};
-
 	return (
 		<>
 			<ConfirmDialog />
@@ -94,7 +101,7 @@ export const MeetingView = ({ meetingId }: MeetingViewProps) => {
 					onRemove={handleRemoveMeeting}
 					isPending={isPending}
 				/>
-				<MeetingViewContent />
+				<MeetingViewContent meeting={meeting} apiKey={aiSettings.apiKey} meetingId={meetingId} />
 			</div>
 		</>
 	);
