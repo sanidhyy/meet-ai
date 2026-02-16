@@ -94,7 +94,7 @@
 		"baseline-browser-mapping": "^2.9.19",
 		"drizzle-kit": "^0.31.8",
 		"eslint": "^9",
-		"eslint-config-next": "16.0.1",
+		"eslint-config-next": "16.1.6",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-prettier": "^5.5.4",
 		"eslint-plugin-tailwindcss": "^4.0.0-beta.0",
