@@ -82,7 +82,7 @@
 	"devDependencies": {
 		"@babel/eslint-parser": "^7.28.4",
 		"@eslint/eslintrc": "^3",
-		"@ianvs/prettier-plugin-sort-imports": "^4.7.0",
+		"@ianvs/prettier-plugin-sort-imports": "^4.7.1",
 		"@tailwindcss/postcss": "^4",
 		"@trivago/prettier-plugin-sort-imports": "^6.0.2",
 		"@types/humanize-duration": "^3.27.4",
