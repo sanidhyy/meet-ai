@@ -84,7 +84,7 @@
 		"@eslint/eslintrc": "^3",
 		"@ianvs/prettier-plugin-sort-imports": "^4.7.0",
 		"@tailwindcss/postcss": "^4",
-		"@trivago/prettier-plugin-sort-imports": "^5.2.2",
+		"@trivago/prettier-plugin-sort-imports": "^6.0.2",
 		"@types/humanize-duration": "^3.27.4",
 		"@types/lodash.debounce": "^4.0.9",
 		"@types/node": "^20",
