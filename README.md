@@ -44,106 +44,24 @@
 Here is the folder structure of this app.
 
 <!--- FOLDER_STRUCTURE_START --->
-
 ```bash
 meet-ai/
   |- migrations/
   |- public/
-    |-- cancelled.svg
-    |-- empty.svg
-    |-- github-white.svg
-    |-- github.svg
-    |-- google.svg
-    |-- logo.svg
-    |-- processing.svg
-    |-- upcoming.svg
-    |-- web-app-manifest-192x192.png
-    |-- web-app-manifest-512x512.png
   |- src/
     |-- app/
-        |--- (auth)/
-          |---- sign-in/
-          |---- sign-up/
-          |---- layout.tsx
-        |--- (dashboard)/
-          |---- agents/
-          |---- meetings/
-          |---- settings/
-          |---- upgrade/
-          |---- layout.tsx
-        |--- api/
-          |---- auth/
-          |---- cron/
-          |---- inngest/
-          |---- trpc/
-          |---- webhook/
-        |--- call/
-          |---- [meetingId]/
-          |---- layout.tsx
-        |--- portal/
-          |---- route.ts
-        |--- apple-icon.png
-        |--- favicon.ico
-        |--- globals.css
-        |--- icon0.svg
-        |--- icon1.png
-        |--- layout.tsx
-        |--- manifest.json
-        |--- not-found.tsx
     |-- components/
-        |--- providers/
-        |--- ui/
-        |--- command-select.tsx
-        |--- data-pagination.tsx
-        |--- data-table.tsx
-        |--- empty-state.tsx
-        |--- error-state.tsx
-        |--- generated-avatar.tsx
-        |--- loading-avatar.tsx
-        |--- responsive-modal.tsx
     |-- config/
-        |--- http-status-codes.ts
-        |--- index.ts
     |-- db/
-        |--- index.ts
-        |--- schema.ts
     |-- env/
-        |--- client.ts
-        |--- server.ts
     |-- hooks/
-        |--- use-confirm.tsx
-        |--- use-mobile.ts
     |-- inngest/
-        |--- client.ts
-        |--- functions.ts
     |-- lib/
-        |--- auth-client.ts
-        |--- auth.ts
-        |--- avatar.tsx
-        |--- encryption.ts
-        |--- polar.ts
-        |--- stream-chat.ts
-        |--- stream-video.ts
-        |--- utils.ts
-    |-- modules
-        |--- agents/
-        |--- auth/
-        |--- call/
-        |--- dashboard/
-        |--- meetings/
-        |--- premium/
-        |--- settings/
+    |-- modules/
     |-- trpc/
-        |--- routers/
-        |--- client.tsx
-        |--- init.ts
-        |--- query-client.ts
-        |--- server.tsx
     |-- types/
-        |--- index.ts
-    |-- middleware.ts
   |- .env.example
-  |- .env.local
+  |- .env/.env.local
   |- .gitignore
   |- .prettierignore
   |- .prettierrc.mjs
@@ -152,14 +70,12 @@ meet-ai/
   |- drizzle.config.ts
   |- environment.d.ts
   |- eslint.config.mjs
-  |- next.config.js
+  |- next.config.ts
   |- package.json
   |- postcss.config.mjs
-  |- README.md
   |- tsconfig.json
-  |- vercel.json
+  |- vercel.ts
 ```
-
 <!--- FOLDER_STRUCTURE_END --->
 
 <br />
@@ -368,90 +284,93 @@ Useful resources and dependencies that are used in MeetAI.
 
 - Thanks to CodeWithAntonio: https://codewithantonio.com/
 <!--- DEPENDENCIES_START --->
+- [@babel/eslint-parser](https://www.npmjs.com/package/@babel/eslint-parser): ^7.28.4
 - [@dicebear/collection](https://www.npmjs.com/package/@dicebear/collection): ^9.2.4
-- [@dicebear/core](https://www.npmjs.com/package/@dicebear/core): ^9.2.4
+- [@dicebear/core](https://www.npmjs.com/package/@dicebear/core): ^9.3.1
+- [@eslint/eslintrc](https://www.npmjs.com/package/@eslint/eslintrc): ^3
 - [@hookform/resolvers](https://www.npmjs.com/package/@hookform/resolvers): ^5.2.2
-- [@inngest/agent-kit](https://www.npmjs.com/package/@inngest/agent-kit): ^0.13.0
-- [@neondatabase/serverless](https://www.npmjs.com/package/@neondatabase/serverless): ^1.0.1
-- [@polar-sh/better-auth](https://www.npmjs.com/package/@polar-sh/better-auth): ^1.1.9
-- [@polar-sh/sdk](https://www.npmjs.com/package/@polar-sh/sdk): ^0.35.4
-- [@radix-ui/react-avatar](https://www.npmjs.com/package/@radix-ui/react-avatar): ^1.1.10
+- [@ianvs/prettier-plugin-sort-imports](https://www.npmjs.com/package/@ianvs/prettier-plugin-sort-imports): ^4.7.1
+- [@inngest/agent-kit](https://www.npmjs.com/package/@inngest/agent-kit): ^0.13.2
+- [@neondatabase/serverless](https://www.npmjs.com/package/@neondatabase/serverless): ^1.0.2
+- [@polar-sh/better-auth](https://www.npmjs.com/package/@polar-sh/better-auth): ^1.6.4
+- [@polar-sh/sdk](https://www.npmjs.com/package/@polar-sh/sdk): ^0.43.1
+- [@radix-ui/react-avatar](https://www.npmjs.com/package/@radix-ui/react-avatar): ^1.1.11
 - [@radix-ui/react-dialog](https://www.npmjs.com/package/@radix-ui/react-dialog): ^1.1.15
 - [@radix-ui/react-dropdown-menu](https://www.npmjs.com/package/@radix-ui/react-dropdown-menu): ^2.1.16
 - [@radix-ui/react-label](https://www.npmjs.com/package/@radix-ui/react-label): ^2.1.7
-- [@radix-ui/react-progress](https://www.npmjs.com/package/@radix-ui/react-progress): ^1.1.7
+- [@radix-ui/react-progress](https://www.npmjs.com/package/@radix-ui/react-progress): ^1.1.8
 - [@radix-ui/react-scroll-area](https://www.npmjs.com/package/@radix-ui/react-scroll-area): ^1.2.10
-- [@radix-ui/react-separator](https://www.npmjs.com/package/@radix-ui/react-separator): ^1.1.7
-- [@radix-ui/react-slot](https://www.npmjs.com/package/@radix-ui/react-slot): ^1.2.3
+- [@radix-ui/react-separator](https://www.npmjs.com/package/@radix-ui/react-separator): ^1.1.8
+- [@radix-ui/react-slot](https://www.npmjs.com/package/@radix-ui/react-slot): ^1.2.4
 - [@radix-ui/react-tabs](https://www.npmjs.com/package/@radix-ui/react-tabs): ^1.1.13
 - [@radix-ui/react-tooltip](https://www.npmjs.com/package/@radix-ui/react-tooltip): ^1.2.8
-- [@stream-io/node-sdk](https://www.npmjs.com/package/@stream-io/node-sdk): ^0.7.4
+- [@stream-io/node-sdk](https://www.npmjs.com/package/@stream-io/node-sdk): ^0.7.9
 - [@stream-io/openai-realtime-api](https://www.npmjs.com/package/@stream-io/openai-realtime-api): ^0.3.3
-- [@stream-io/video-react-sdk](https://www.npmjs.com/package/@stream-io/video-react-sdk): ^1.23.0
+- [@stream-io/video-react-sdk](https://www.npmjs.com/package/@stream-io/video-react-sdk): ^1.32.0
 - [@t3-oss/env-nextjs](https://www.npmjs.com/package/@t3-oss/env-nextjs): ^0.13.8
-- [@tanstack/react-query](https://www.npmjs.com/package/@tanstack/react-query): ^5.90.2
-- [@tanstack/react-table](https://www.npmjs.com/package/@tanstack/react-table): ^8.21.3
-- [@trpc/client](https://www.npmjs.com/package/@trpc/client): ^11.6.0
-- [@trpc/server](https://www.npmjs.com/package/@trpc/server): ^11.6.0
-- [@trpc/tanstack-react-query](https://www.npmjs.com/package/@trpc/tanstack-react-query): ^11.6.0
-- [better-auth](https://www.npmjs.com/package/better-auth): ^1.3.18
-- [class-variance-authority](https://www.npmjs.com/package/class-variance-authority): ^0.7.1
-- [client-only](https://www.npmjs.com/package/client-only): ^0.0.1
-- [clsx](https://www.npmjs.com/package/clsx): ^2.1.1
-- [cmdk](https://www.npmjs.com/package/cmdk): ^1.1.1
-- [date-fns](https://www.npmjs.com/package/date-fns): ^4.1.0
-- [dotenv](https://www.npmjs.com/package/dotenv): ^17.2.2
-- [drizzle-orm](https://www.npmjs.com/package/drizzle-orm): ^0.44.5
-- [humanize-duration](https://www.npmjs.com/package/humanize-duration): ^3.33.1
-- [inngest](https://www.npmjs.com/package/inngest): ^3.44.1
-- [jsonl-parse-stringify](https://www.npmjs.com/package/jsonl-parse-stringify): ^1.0.3
-- [lodash.debounce](https://www.npmjs.com/package/lodash.debounce): ^4.0.8
-- [lucide-react](https://www.npmjs.com/package/lucide-react): ^0.544.0
-- [media-chrome](https://www.npmjs.com/package/media-chrome): ^4.14.0
-- [nanoid](https://www.npmjs.com/package/nanoid): ^5.1.6
-- [next](https://www.npmjs.com/package/next): 15.5.4
-- [nuqs](https://www.npmjs.com/package/nuqs): ^2.6.0
-- [openai](https://www.npmjs.com/package/openai): ^6.1.0
-- [react](https://www.npmjs.com/package/react): 19.1.0
-- [react-dom](https://www.npmjs.com/package/react-dom): 19.1.0
-- [react-error-boundary](https://www.npmjs.com/package/react-error-boundary): ^6.0.0
-- [react-highlight-words](https://www.npmjs.com/package/react-highlight-words): ^0.21.0
-- [react-hook-form](https://www.npmjs.com/package/react-hook-form): ^7.63.0
-- [react-hot-toast](https://www.npmjs.com/package/react-hot-toast): ^2.6.0
-- [react-markdown](https://www.npmjs.com/package/react-markdown): ^10.1.0
-- [server-only](https://www.npmjs.com/package/server-only): ^0.0.1
-- [stream-chat](https://www.npmjs.com/package/stream-chat): ^9.20.3
-- [stream-chat-react](https://www.npmjs.com/package/stream-chat-react): ^13.7.0
-- [superjson](https://www.npmjs.com/package/superjson): ^2.2.2
-- [tailwind-merge](https://www.npmjs.com/package/tailwind-merge): ^3.3.1
-- [uploadthing](https://www.npmjs.com/package/uploadthing): ^7.7.4
-- [vaul](https://www.npmjs.com/package/vaul): ^1.1.2
-- [zod](https://www.npmjs.com/package/zod): ^4.1.11
-- [@babel/eslint-parser](https://www.npmjs.com/package/@babel/eslint-parser): ^7.28.4
-- [@eslint/eslintrc](https://www.npmjs.com/package/@eslint/eslintrc): ^3
-- [@ianvs/prettier-plugin-sort-imports](https://www.npmjs.com/package/@ianvs/prettier-plugin-sort-imports): ^4.7.0
 - [@tailwindcss/postcss](https://www.npmjs.com/package/@tailwindcss/postcss): ^4
-- [@trivago/prettier-plugin-sort-imports](https://www.npmjs.com/package/@trivago/prettier-plugin-sort-imports): ^5.2.2
+- [@tanstack/react-query](https://www.npmjs.com/package/@tanstack/react-query): ^5.90.20
+- [@tanstack/react-table](https://www.npmjs.com/package/@tanstack/react-table): ^8.21.3
+- [@trivago/prettier-plugin-sort-imports](https://www.npmjs.com/package/@trivago/prettier-plugin-sort-imports): ^6.0.2
+- [@trpc/client](https://www.npmjs.com/package/@trpc/client): ^11.9.0
+- [@trpc/server](https://www.npmjs.com/package/@trpc/server): ^11.6.0
+- [@trpc/tanstack-react-query](https://www.npmjs.com/package/@trpc/tanstack-react-query): ^11.8.1
 - [@types/humanize-duration](https://www.npmjs.com/package/@types/humanize-duration): ^3.27.4
 - [@types/lodash.debounce](https://www.npmjs.com/package/@types/lodash.debounce): ^4.0.9
 - [@types/node](https://www.npmjs.com/package/@types/node): ^20
 - [@types/react](https://www.npmjs.com/package/@types/react): ^19
 - [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): ^19
-- [@types/react-highlight-words](https://www.npmjs.com/package/@types/react-highlight-words): ^0.20.0
-- [drizzle-kit](https://www.npmjs.com/package/drizzle-kit): ^0.31.4
+- [@types/react-highlight-words](https://www.npmjs.com/package/@types/react-highlight-words): ^0.20.1
+- [@vercel/config](https://www.npmjs.com/package/@vercel/config): ^0.0.33
+- [baseline-browser-mapping](https://www.npmjs.com/package/baseline-browser-mapping): ^2.9.19
+- [better-auth](https://www.npmjs.com/package/better-auth): ^1.4.18
+- [class-variance-authority](https://www.npmjs.com/package/class-variance-authority): ^0.7.1
+- [client-only](https://www.npmjs.com/package/client-only): ^0.0.1
+- [clsx](https://www.npmjs.com/package/clsx): ^2.1.1
+- [cmdk](https://www.npmjs.com/package/cmdk): ^1.1.1
+- [date-fns](https://www.npmjs.com/package/date-fns): ^4.1.0
+- [dotenv](https://www.npmjs.com/package/dotenv): ^17.2.3
+- [drizzle-kit](https://www.npmjs.com/package/drizzle-kit): ^0.31.8
+- [drizzle-orm](https://www.npmjs.com/package/drizzle-orm): ^0.44.7
 - [eslint](https://www.npmjs.com/package/eslint): ^9
-- [eslint-config-next](https://www.npmjs.com/package/eslint-config-next): 15.5.4
+- [eslint-config-next](https://www.npmjs.com/package/eslint-config-next): 16.1.6
 - [eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier): ^10.1.8
 - [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier): ^5.5.4
 - [eslint-plugin-tailwindcss](https://www.npmjs.com/package/eslint-plugin-tailwindcss): ^4.0.0-beta.0
+- [humanize-duration](https://www.npmjs.com/package/humanize-duration): ^3.33.1
+- [inngest](https://www.npmjs.com/package/inngest): ^3.51.0
+- [jsonl-parse-stringify](https://www.npmjs.com/package/jsonl-parse-stringify): ^1.0.3
+- [lodash.debounce](https://www.npmjs.com/package/lodash.debounce): ^4.0.8
+- [lucide-react](https://www.npmjs.com/package/lucide-react): ^0.563.0
+- [media-chrome](https://www.npmjs.com/package/media-chrome): ^4.17.2
 - [mprocs](https://www.npmjs.com/package/mprocs): ^0.7.3
-- [prettier](https://www.npmjs.com/package/prettier): ^3.6.2
-- [prettier-plugin-tailwindcss](https://www.npmjs.com/package/prettier-plugin-tailwindcss): ^0.6.14
+- [nanoid](https://www.npmjs.com/package/nanoid): ^5.1.6
+- [next](https://www.npmjs.com/package/next): 16.1.5
+- [nuqs](https://www.npmjs.com/package/nuqs): ^2.7.1
+- [openai](https://www.npmjs.com/package/openai): ^6.1.0
+- [prettier](https://www.npmjs.com/package/prettier): ^3.7.4
+- [prettier-plugin-tailwindcss](https://www.npmjs.com/package/prettier-plugin-tailwindcss): ^0.7.1
+- [react](https://www.npmjs.com/package/react): 19.2.0
+- [react-dom](https://www.npmjs.com/package/react-dom): 19.2.0
+- [react-error-boundary](https://www.npmjs.com/package/react-error-boundary): ^6.0.0
+- [react-highlight-words](https://www.npmjs.com/package/react-highlight-words): ^0.21.0
+- [react-hook-form](https://www.npmjs.com/package/react-hook-form): ^7.71.1
+- [react-hot-toast](https://www.npmjs.com/package/react-hot-toast): ^2.6.0
+- [react-markdown](https://www.npmjs.com/package/react-markdown): ^10.1.0
+- [server-only](https://www.npmjs.com/package/server-only): ^0.0.1
 - [sort-classes](https://www.npmjs.com/package/sort-classes): npm:prettier-plugin-tailwindcss
+- [stream-chat](https://www.npmjs.com/package/stream-chat): ^9.20.3
+- [stream-chat-react](https://www.npmjs.com/package/stream-chat-react): ^13.9.0
+- [superjson](https://www.npmjs.com/package/superjson): ^2.2.2
+- [tailwind-merge](https://www.npmjs.com/package/tailwind-merge): ^3.3.1
 - [tailwindcss](https://www.npmjs.com/package/tailwindcss): ^4
 - [tidy-imports](https://www.npmjs.com/package/tidy-imports): npm:@trivago/prettier-plugin-sort-imports
 - [tw-animate-css](https://www.npmjs.com/package/tw-animate-css): ^1.4.0
 - [typescript](https://www.npmjs.com/package/typescript): ^5
+- [uploadthing](https://www.npmjs.com/package/uploadthing): ^7.7.4
+- [vaul](https://www.npmjs.com/package/vaul): ^1.1.2
+- [zod](https://www.npmjs.com/package/zod): ^4.1.11
+
 <!--- DEPENDENCIES_END --->
 
 ## :coffee: Buy Me a Coffee
