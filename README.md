@@ -43,6 +43,8 @@
 
 Here is the folder structure of this app.
 
+<!--- FOLDER_STRUCTURE_START --->
+
 ```bash
 meet-ai/
   |- migrations/
@@ -157,6 +159,8 @@ meet-ai/
   |- tsconfig.json
   |- vercel.json
 ```
+
+<!--- FOLDER_STRUCTURE_END --->
 
 <br />
 
@@ -363,6 +367,7 @@ You might encounter some bugs while using this app. You are more than welcome to
 Useful resources and dependencies that are used in MeetAI.
 
 - Thanks to CodeWithAntonio: https://codewithantonio.com/
+<!--- DEPENDENCIES_START --->
 - [@dicebear/collection](https://www.npmjs.com/package/@dicebear/collection): ^9.2.4
 - [@dicebear/core](https://www.npmjs.com/package/@dicebear/core): ^9.2.4
 - [@hookform/resolvers](https://www.npmjs.com/package/@hookform/resolvers): ^5.2.2
@@ -447,6 +452,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [tidy-imports](https://www.npmjs.com/package/tidy-imports): npm:@trivago/prettier-plugin-sort-imports
 - [tw-animate-css](https://www.npmjs.com/package/tw-animate-css): ^1.4.0
 - [typescript](https://www.npmjs.com/package/typescript): ^5
+<!--- DEPENDENCIES_END --->
 
 ## :coffee: Buy Me a Coffee
 
