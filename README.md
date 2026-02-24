@@ -297,7 +297,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [@radix-ui/react-avatar](https://www.npmjs.com/package/@radix-ui/react-avatar): ^1.1.11
 - [@radix-ui/react-dialog](https://www.npmjs.com/package/@radix-ui/react-dialog): ^1.1.15
 - [@radix-ui/react-dropdown-menu](https://www.npmjs.com/package/@radix-ui/react-dropdown-menu): ^2.1.16
-- [@radix-ui/react-label](https://www.npmjs.com/package/@radix-ui/react-label): ^2.1.7
+- [@radix-ui/react-label](https://www.npmjs.com/package/@radix-ui/react-label): ^2.1.8
 - [@radix-ui/react-progress](https://www.npmjs.com/package/@radix-ui/react-progress): ^1.1.8
 - [@radix-ui/react-scroll-area](https://www.npmjs.com/package/@radix-ui/react-scroll-area): ^1.2.10
 - [@radix-ui/react-separator](https://www.npmjs.com/package/@radix-ui/react-separator): ^1.1.8
@@ -307,7 +307,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [@stream-io/node-sdk](https://www.npmjs.com/package/@stream-io/node-sdk): ^0.7.9
 - [@stream-io/openai-realtime-api](https://www.npmjs.com/package/@stream-io/openai-realtime-api): ^0.3.3
 - [@stream-io/video-react-sdk](https://www.npmjs.com/package/@stream-io/video-react-sdk): ^1.32.0
-- [@t3-oss/env-nextjs](https://www.npmjs.com/package/@t3-oss/env-nextjs): ^0.13.8
+- [@t3-oss/env-nextjs](https://www.npmjs.com/package/@t3-oss/env-nextjs): ^0.13.10
 - [@tailwindcss/postcss](https://www.npmjs.com/package/@tailwindcss/postcss): ^4
 - [@tanstack/react-query](https://www.npmjs.com/package/@tanstack/react-query): ^5.90.20
 - [@tanstack/react-table](https://www.npmjs.com/package/@tanstack/react-table): ^8.21.3
@@ -336,11 +336,11 @@ Useful resources and dependencies that are used in MeetAI.
 - [eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier): ^10.1.8
 - [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier): ^5.5.4
 - [eslint-plugin-tailwindcss](https://www.npmjs.com/package/eslint-plugin-tailwindcss): ^4.0.0-beta.0
-- [humanize-duration](https://www.npmjs.com/package/humanize-duration): ^3.33.1
+- [humanize-duration](https://www.npmjs.com/package/humanize-duration): ^3.33.2
 - [inngest](https://www.npmjs.com/package/inngest): ^3.51.0
 - [jsonl-parse-stringify](https://www.npmjs.com/package/jsonl-parse-stringify): ^1.0.3
 - [lodash.debounce](https://www.npmjs.com/package/lodash.debounce): ^4.0.8
-- [lucide-react](https://www.npmjs.com/package/lucide-react): ^0.563.0
+- [lucide-react](https://www.npmjs.com/package/lucide-react): ^0.575.0
 - [media-chrome](https://www.npmjs.com/package/media-chrome): ^4.17.2
 - [mprocs](https://www.npmjs.com/package/mprocs): ^0.7.3
 - [nanoid](https://www.npmjs.com/package/nanoid): ^5.1.6
