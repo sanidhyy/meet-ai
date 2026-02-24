@@ -87,7 +87,7 @@
 		"@tailwindcss/postcss": "^4",
 		"@types/humanize-duration": "^3.27.4",
 		"@types/lodash.debounce": "^4.0.9",
-		"@types/node": "^20",
+		"@types/node": "^25",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
 		"@types/react-highlight-words": "^0.20.1",
