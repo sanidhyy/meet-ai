@@ -50,16 +50,70 @@ meet-ai/
   |- public/
   |- src/
     |-- app/
+      |--- (auth)/
+      |--- (dashboard)/
+      |--- api/
+      |--- call/
+      |--- portal/
+      |--- apple-icon.png
+      |--- favicon.ico
+      |--- globals.css
+      |--- icon0.svg
+      |--- icon1.png
+      |--- layout.tsx
+      |--- manifest.json
+      |--- not-found.tsx
     |-- components/
+      |--- providers/
+      |--- ui/
+      |--- command-select.tsx
+      |--- data-pagination.tsx
+      |--- data-table.tsx
+      |--- empty-state.tsx
+      |--- error-state.tsx
+      |--- generated-avatar.tsx
+      |--- loading-state.tsx
+      |--- responsive-dialog.tsx
     |-- config/
+      |--- http-status-codes.ts
+      |--- index.ts
     |-- db/
+      |--- index.ts
+      |--- schema.ts
     |-- env/
+      |--- client.ts
+      |--- server.ts
     |-- hooks/
+      |--- use-confirm.tsx
+      |--- use-mobile.ts
     |-- inngest/
+      |--- client.ts
+      |--- functions.ts
     |-- lib/
+      |--- auth-client.ts
+      |--- auth.ts
+      |--- avatar.tsx
+      |--- encryption.ts
+      |--- polar.ts
+      |--- stream-chat.ts
+      |--- stream-video.ts
+      |--- utils.ts
     |-- modules/
+      |--- agents/
+      |--- auth/
+      |--- call/
+      |--- dashboard/
+      |--- meetings/
+      |--- premium/
+      |--- settings/
     |-- trpc/
+      |--- routers/
+      |--- client.tsx
+      |--- init.ts
+      |--- query-client.ts
+      |--- server.ts
     |-- types/
+      |--- index.ts
   |- .env.example
   |- .env/.env.local
   |- .gitignore
