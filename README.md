@@ -375,14 +375,14 @@ Useful resources and dependencies that are used in MeetAI.
 - [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): ^19
 - [@types/react-highlight-words](https://www.npmjs.com/package/@types/react-highlight-words): ^0.20.1
 - [@vercel/config](https://www.npmjs.com/package/@vercel/config): ^0.0.33
-- [baseline-browser-mapping](https://www.npmjs.com/package/baseline-browser-mapping): ^2.9.19
+- [baseline-browser-mapping](https://www.npmjs.com/package/baseline-browser-mapping): ^2.10.0
 - [better-auth](https://www.npmjs.com/package/better-auth): ^1.4.18
 - [class-variance-authority](https://www.npmjs.com/package/class-variance-authority): ^0.7.1
 - [client-only](https://www.npmjs.com/package/client-only): ^0.0.1
 - [clsx](https://www.npmjs.com/package/clsx): ^2.1.1
 - [cmdk](https://www.npmjs.com/package/cmdk): ^1.1.1
 - [date-fns](https://www.npmjs.com/package/date-fns): ^4.1.0
-- [dotenv](https://www.npmjs.com/package/dotenv): ^17.2.3
+- [dotenv](https://www.npmjs.com/package/dotenv): ^17.3.1
 - [drizzle-kit](https://www.npmjs.com/package/drizzle-kit): ^0.31.8
 - [drizzle-orm](https://www.npmjs.com/package/drizzle-orm): ^0.44.7
 - [eslint](https://www.npmjs.com/package/eslint): ^9
@@ -400,7 +400,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [nanoid](https://www.npmjs.com/package/nanoid): ^5.1.6
 - [next](https://www.npmjs.com/package/next): 16.1.5
 - [nuqs](https://www.npmjs.com/package/nuqs): ^2.7.1
-- [openai](https://www.npmjs.com/package/openai): ^6.1.0
+- [openai](https://www.npmjs.com/package/openai): ^6.25.0
 - [prettier](https://www.npmjs.com/package/prettier): ^3.7.4
 - [prettier-plugin-tailwindcss](https://www.npmjs.com/package/prettier-plugin-tailwindcss): ^0.7.1
 - [react](https://www.npmjs.com/package/react): 19.2.0
