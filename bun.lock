@@ -31,7 +31,7 @@
         "@trpc/client": "^11.9.0",
         "@trpc/server": "^11.6.0",
         "@trpc/tanstack-react-query": "^11.8.1",
-        "@vercel/config": "^0.0.33",
+        "@vercel/config": "^0.0.37",
         "better-auth": "^1.4.18",
         "class-variance-authority": "^0.7.1",
         "client-only": "^0.0.1",
@@ -982,9 +982,9 @@
 
     "@uploadthing/shared": ["@uploadthing/shared@7.1.10", "", { "dependencies": { "@uploadthing/mime-types": "0.3.6", "effect": "3.17.7", "sqids": "^0.3.0" } }, "sha512-R/XSA3SfCVnLIzFpXyGaKPfbwlYlWYSTuGjTFHuJhdAomuBuhopAHLh2Ois5fJibAHzi02uP1QCKbgTAdmArqg=="],
 
-    "@vercel/config": ["@vercel/config@0.0.33", "", { "dependencies": { "@vercel/routing-utils": "5.3.3", "pretty-cache-header": "^1.0.0", "zod": "^3.22.0" }, "bin": { "config": "dist/cli.js" } }, "sha512-TkYY/kKzAsYlKTmz/uScyEB2vDV1P9HzBVJRSJ5RwU7XNPyYksYNnPTMmytZZfv/poI+xs6KO5fyYxBErH6rtg=="],
+    "@vercel/config": ["@vercel/config@0.0.37", "", { "dependencies": { "@vercel/routing-utils": "6.0.2", "pretty-cache-header": "^1.0.0", "zod": "^3.22.0" }, "bin": { "config": "dist/cli.js" } }, "sha512-tj/bmX4UNoI43XdzXO8kKATccrxQSdkxVQ4NDnVulP/qj7Mp4RakCWd38aNqWJ1i/YM7iUpnZxnMnyhkLuAbVA=="],
 
-    "@vercel/routing-utils": ["@vercel/routing-utils@5.3.3", "", { "dependencies": { "path-to-regexp": "6.1.0", "path-to-regexp-updated": "npm:path-to-regexp@6.3.0" }, "optionalDependencies": { "ajv": "^6.12.3" } }, "sha512-KYm2sLNUD48gDScv8ob4ejc3Gww2jcJyW80hTdYlenAPz/5BQar1Gyh38xrUuZ532TUwSb5mV1uRbAuiykq0EQ=="],
+    "@vercel/routing-utils": ["@vercel/routing-utils@6.0.2", "", { "dependencies": { "path-to-regexp": "6.1.0", "path-to-regexp-updated": "npm:path-to-regexp@6.3.0" }, "optionalDependencies": { "ajv": "^6.12.3" } }, "sha512-XFsvKoRhwwxKC8jnnefhjYG02g5qpHc2PCxd2EKEVLiHQLF9un8HEA6+R0OfazN0daVj3SxjTDVnFClVREjg1Q=="],
 
     "@virtuoso.dev/react-urx": ["@virtuoso.dev/react-urx@0.2.13", "", { "dependencies": { "@virtuoso.dev/urx": "^0.2.13" }, "peerDependencies": { "react": ">=16" } }, "sha512-MY0ugBDjFb5Xt8v2HY7MKcRGqw/3gTpMlLXId2EwQvYJoC8sP7nnXjAxcBtTB50KTZhO0SbzsFimaZ7pSdApwA=="],
 
