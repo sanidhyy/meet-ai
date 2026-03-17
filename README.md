@@ -340,7 +340,7 @@ Useful resources and dependencies that are used in MeetAI.
 <!--- DEPENDENCIES_START --->
 - [@babel/eslint-parser](https://www.npmjs.com/package/@babel/eslint-parser): ^7.28.4
 - [@dicebear/collection](https://www.npmjs.com/package/@dicebear/collection): ^9.2.4
-- [@dicebear/core](https://www.npmjs.com/package/@dicebear/core): ^9.3.1
+- [@dicebear/core](https://www.npmjs.com/package/@dicebear/core): ^9.4.0
 - [@eslint/eslintrc](https://www.npmjs.com/package/@eslint/eslintrc): ^3
 - [@hookform/resolvers](https://www.npmjs.com/package/@hookform/resolvers): ^5.2.2
 - [@ianvs/prettier-plugin-sort-imports](https://www.npmjs.com/package/@ianvs/prettier-plugin-sort-imports): ^4.7.1
