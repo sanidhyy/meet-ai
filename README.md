@@ -383,7 +383,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [cmdk](https://www.npmjs.com/package/cmdk): ^1.1.1
 - [date-fns](https://www.npmjs.com/package/date-fns): ^4.1.0
 - [dotenv](https://www.npmjs.com/package/dotenv): ^17.3.1
-- [drizzle-kit](https://www.npmjs.com/package/drizzle-kit): ^0.31.8
+- [drizzle-kit](https://www.npmjs.com/package/drizzle-kit): ^0.31.9
 - [drizzle-orm](https://www.npmjs.com/package/drizzle-orm): ^0.44.7
 - [eslint](https://www.npmjs.com/package/eslint): ^9
 - [eslint-config-next](https://www.npmjs.com/package/eslint-config-next): 16.1.6
