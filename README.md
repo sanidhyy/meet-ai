@@ -403,8 +403,8 @@ Useful resources and dependencies that are used in MeetAI.
 - [openai](https://www.npmjs.com/package/openai): ^6.25.0
 - [prettier](https://www.npmjs.com/package/prettier): ^3.8.1
 - [prettier-plugin-tailwindcss](https://www.npmjs.com/package/prettier-plugin-tailwindcss): ^0.7.1
-- [react](https://www.npmjs.com/package/react): 19.2.0
-- [react-dom](https://www.npmjs.com/package/react-dom): 19.2.0
+- [react](https://www.npmjs.com/package/react): 19.2.4
+- [react-dom](https://www.npmjs.com/package/react-dom): 19.2.4
 - [react-error-boundary](https://www.npmjs.com/package/react-error-boundary): ^6.0.0
 - [react-highlight-words](https://www.npmjs.com/package/react-highlight-words): ^0.21.0
 - [react-hook-form](https://www.npmjs.com/package/react-hook-form): ^7.71.2
