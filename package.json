@@ -91,7 +91,7 @@
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
 		"@types/react-highlight-words": "^0.20.1",
-		"baseline-browser-mapping": "^2.10.0",
+		"baseline-browser-mapping": "^2.10.12",
 		"drizzle-kit": "^0.31.9",
 		"eslint": "^9",
 		"eslint-config-next": "16.1.6",
