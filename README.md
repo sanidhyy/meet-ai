@@ -366,8 +366,8 @@ Useful resources and dependencies that are used in MeetAI.
 - [@tanstack/react-query](https://www.npmjs.com/package/@tanstack/react-query): ^5.96.2
 - [@tanstack/react-table](https://www.npmjs.com/package/@tanstack/react-table): ^8.21.3
 - [@trpc/client](https://www.npmjs.com/package/@trpc/client): ^11.16.0
-- [@trpc/server](https://www.npmjs.com/package/@trpc/server): ^11.15.0
-- [@trpc/tanstack-react-query](https://www.npmjs.com/package/@trpc/tanstack-react-query): ^11.8.1
+- [@trpc/server](https://www.npmjs.com/package/@trpc/server): ^11.16.0
+- [@trpc/tanstack-react-query](https://www.npmjs.com/package/@trpc/tanstack-react-query): ^11.16.0
 - [@types/humanize-duration](https://www.npmjs.com/package/@types/humanize-duration): ^3.27.4
 - [@types/lodash.debounce](https://www.npmjs.com/package/@types/lodash.debounce): ^4.0.9
 - [@types/node](https://www.npmjs.com/package/@types/node): ^25
