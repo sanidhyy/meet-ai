@@ -374,7 +374,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [@types/react](https://www.npmjs.com/package/@types/react): ^19
 - [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): ^19
 - [@types/react-highlight-words](https://www.npmjs.com/package/@types/react-highlight-words): ^0.20.1
-- [@vercel/config](https://www.npmjs.com/package/@vercel/config): ^0.0.37
+- [@vercel/config](https://www.npmjs.com/package/@vercel/config): ^0.1.0
 - [baseline-browser-mapping](https://www.npmjs.com/package/baseline-browser-mapping): ^2.10.12
 - [better-auth](https://www.npmjs.com/package/better-auth): ^1.4.18
 - [class-variance-authority](https://www.npmjs.com/package/class-variance-authority): ^0.7.1
