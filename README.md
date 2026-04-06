@@ -411,7 +411,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [react-hot-toast](https://www.npmjs.com/package/react-hot-toast): ^2.6.0
 - [react-markdown](https://www.npmjs.com/package/react-markdown): ^10.1.0
 - [server-only](https://www.npmjs.com/package/server-only): ^0.0.1
-- [stream-chat](https://www.npmjs.com/package/stream-chat): ^9.20.3
+- [stream-chat](https://www.npmjs.com/package/stream-chat): ^9.40.0
 - [stream-chat-react](https://www.npmjs.com/package/stream-chat-react): ^13.14.2
 - [superjson](https://www.npmjs.com/package/superjson): ^2.2.6
 - [tailwind-merge](https://www.npmjs.com/package/tailwind-merge): ^3.3.1
