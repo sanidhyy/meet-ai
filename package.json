@@ -72,7 +72,7 @@
 		"react-hot-toast": "^2.6.0",
 		"react-markdown": "^10.1.0",
 		"server-only": "^0.0.1",
-		"stream-chat": "^9.40.0",
+		"stream-chat": "^9.41.0",
 		"stream-chat-react": "^13.14.2",
 		"superjson": "^2.2.6",
 		"tailwind-merge": "^3.3.1",
