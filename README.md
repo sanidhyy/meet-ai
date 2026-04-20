@@ -346,7 +346,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [@ianvs/prettier-plugin-sort-imports](https://www.npmjs.com/package/@ianvs/prettier-plugin-sort-imports): ^4.7.1
 - [@inngest/agent-kit](https://www.npmjs.com/package/@inngest/agent-kit): ^0.13.2
 - [@neondatabase/serverless](https://www.npmjs.com/package/@neondatabase/serverless): ^1.0.2
-- [@polar-sh/better-auth](https://www.npmjs.com/package/@polar-sh/better-auth): ^1.6.4
+- [@polar-sh/better-auth](https://www.npmjs.com/package/@polar-sh/better-auth): ^1.8.3
 - [@polar-sh/sdk](https://www.npmjs.com/package/@polar-sh/sdk): ^0.43.1
 - [@radix-ui/react-avatar](https://www.npmjs.com/package/@radix-ui/react-avatar): ^1.1.11
 - [@radix-ui/react-dialog](https://www.npmjs.com/package/@radix-ui/react-dialog): ^1.1.15
