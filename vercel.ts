@@ -7,6 +7,7 @@ export const config: VercelConfig = {
 			schedule: '0 0 * * *',
 		},
 	],
-	ignoreCommand: "git diff HEAD^ HEAD --name-only | grep -qEv '(\.md$|LICENSE$|\.env\.example$|^\.github/|^\.vscode/)' && exit 1 || exit 0",
+	ignoreCommand:
+		"git diff HEAD^ HEAD --name-only | grep -qEv '(\.md$|LICENSE$|\.env\.example$|^\.github/|^\.vscode/)' && exit 1 || exit 0",
 	trailingSlash: false,
 };

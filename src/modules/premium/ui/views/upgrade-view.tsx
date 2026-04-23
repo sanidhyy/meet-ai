@@ -61,7 +61,7 @@ export const UpgradeView = () => {
 								title={product.name}
 								price={product.prices?.[0].amountType === 'fixed' ? product.prices[0].priceAmount / 100 : 0}
 								description={product.description}
-								priceSuffix={`/${product.prices?.[0].recurringInterval || ''}`}
+								priceSuffix={`/${product.recurringInterval || ''}`}
 								features={product.benefits.map((benefit) => benefit.description)}
 								badge={product.metadata?.badge as string | null}
 							/>
