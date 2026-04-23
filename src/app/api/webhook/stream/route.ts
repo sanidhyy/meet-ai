@@ -7,7 +7,7 @@ import type {
 	CallSessionStartedEvent,
 	CallTranscriptionReadyEvent,
 	MessageNewEvent,
-	WebhookEvent,
+	WHEvent,
 } from '@stream-io/node-sdk';
 import { and, eq } from 'drizzle-orm';
 import { OpenAI } from 'openai';
@@ -47,7 +47,7 @@ export async function POST(req: NextRequest) {
 		return NextResponse.json({ error: 'Invalid JSON!' }, { status: BAD_REQUEST });
 	}
 
-	const eventType = (payload as Record<string, unknown>)?.type as WebhookEvent['type'];
+	const eventType = (payload as Record<string, unknown>)?.type as WHEvent['type'];
 
 	switch (eventType) {
 		case 'call.session_started': {
@@ -84,11 +84,18 @@ export async function POST(req: NextRequest) {
 			const realtimeClient = await streamVideo.video.connectOpenAi({
 				agentUserId: existingMeeting.agent.id,
 				call,
+				model: 'gpt-4o-realtime-preview',
 				openAiApiKey: decrypt(aiSettings.apiKey),
 			});
 
 			realtimeClient.updateSession({
 				instructions: existingMeeting.agent.instructions,
+				// eslint-disable-next-line camelcase
+				turn_detection: {
+					threshold: 0.5,
+					type: 'server_vad',
+				},
+				voice: 'alloy',
 			});
 
 			break;

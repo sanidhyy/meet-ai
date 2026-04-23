@@ -57,6 +57,8 @@ export const createChatInstructions = (summary: string, originalInstructions: st
 		
 		The user may ask questions about the meeting, request clarifications, or ask for follow-up actions.
 		Always base your responses on the meeting summary above.
+
+		Always respond in English.
 		
 		You also have access to the recent conversation history between you and the user. Use the context of previous messages to provide relevant, coherent, and helpful responses. If the user's question refers to something discussed earlier, make sure to take that into account and maintain continuity in the conversation.
 		
