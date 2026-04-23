@@ -19,7 +19,7 @@ importers:
         version: 5.2.2(react-hook-form@7.73.1(react@19.2.4))
       '@inngest/agent-kit':
         specifier: ^0.13.2
-        version: 0.13.2(inngest@3.54.0(@opentelemetry/core@2.7.0(@opentelemetry/api@1.9.1))(express@5.2.1)(hono@4.12.14)(next@16.2.4(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(typescript@6.0.3)(zod@4.3.6))(zod@4.3.6)
+        version: 0.13.2(inngest@4.2.4(@opentelemetry/core@2.7.0(@opentelemetry/api@1.9.1))(express@5.2.1)(hono@4.12.14)(next@16.2.4(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)(typescript@6.0.3)(zod@4.3.6))(zod@4.3.6)
       '@neondatabase/serverless':
         specifier: ^1.0.2
         version: 1.1.0
@@ -117,8 +117,8 @@ importers:
         specifier: ^3.33.2
         version: 3.33.2
       inngest:
-        specifier: ^3.54.0
-        version: 3.54.0(@opentelemetry/core@2.7.0(@opentelemetry/api@1.9.1))(express@5.2.1)(hono@4.12.14)(next@16.2.4(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(typescript@6.0.3)(zod@4.3.6)
+        specifier: ^4.2.4
+        version: 4.2.4(@opentelemetry/core@2.7.0(@opentelemetry/api@1.9.1))(express@5.2.1)(hono@4.12.14)(next@16.2.4(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)(typescript@6.0.3)(zod@4.3.6)
       jsonl-parse-stringify:
         specifier: ^1.0.3
         version: 1.0.3
@@ -3269,10 +3269,6 @@ packages:
   ajv@8.18.0:
     resolution: {integrity: sha512-PlXPeEWMXMZ7sPYOHqmDyCJzcfNrUr3fGNKtezX14ykXOEIvyK81d+qydx89KY5O71FKMPaQ2vBfBFI5NHR63A==}
 
-  ansi-regex@4.1.1:
-    resolution: {integrity: sha512-ILlv4k/3f6vfQ4OoP2AGvirOktlQ98ZEL1k9FaQjxa3L1abBgbuTDAdPOpvbGncC0BTVQrl+OM8xZGK6tWXt7g==}
-    engines: {node: '>=6'}
-
   ansi-regex@5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
     engines: {node: '>=8'}
@@ -4507,8 +4503,8 @@ packages:
   inline-style-parser@0.2.7:
     resolution: {integrity: sha512-Nb2ctOyNR8DqQoR0OwRG95uNWIC0C1lCgf5Naz5H6Ji72KZ8OcFZLz2P5sNgwlyoJ8Yif11oMuYs5pBQa86csA==}
 
-  inngest@3.54.0:
-    resolution: {integrity: sha512-EBMgyRZt9rWUmc9GUdxznbO1CmyXKZi2CZPNxNTyZJyjZMXFhPiftq/lTKjhYXD9/WlqaVFVB2K7o8vDAkGs6w==}
+  inngest@4.2.4:
+    resolution: {integrity: sha512-MBFcRhhQ+dcGHLYCbIcMYxiAZCxzfAx0+3b/euYQKc7MK3rOnNHaNHuF2e0WsT13oWJiGzjuC3T4Nocggmh5WQ==}
     engines: {node: '>=20'}
     peerDependencies:
       '@sveltejs/kit': '>=1.27.3'
@@ -4520,6 +4516,7 @@ packages:
       hono: '>=4.2.7'
       koa: '>=2.14.2'
       next: '>=12.0.0'
+      react: '>=18.0.0'
       typescript: '>=5.8.0'
       zod: ^3.25.0 || ^4.0.0
     peerDependenciesMeta:
@@ -4540,6 +4537,8 @@ packages:
       koa:
         optional: true
       next:
+        optional: true
+      react:
         optional: true
       typescript:
         optional: true
@@ -6021,10 +6020,6 @@ packages:
   stringify-entities@4.0.4:
     resolution: {integrity: sha512-IwfBptatlO+QCJUo19AqvrPNqlVMpW9YEL2LIVY+Rpv2qsjCGxaDLNRgeGsQWJhfItebuJhsGSLjaBbNSQ+ieg==}
 
-  strip-ansi@5.2.0:
-    resolution: {integrity: sha512-DuRs1gKbBqsMKIZlrffwlug8MHkcnpjs5VPmL1PAh+mA30U0DTotfDZ0d2UUsXpPmPmMMJ6W773MaA3J+lbiWA==}
-    engines: {node: '>=6'}
-
   strip-ansi@6.0.1:
     resolution: {integrity: sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==}
     engines: {node: '>=8'}
@@ -7281,14 +7276,14 @@ snapshots:
   '@img/sharp-win32-x64@0.34.5':
     optional: true
 
-  '@inngest/agent-kit@0.13.2(inngest@3.54.0(@opentelemetry/core@2.7.0(@opentelemetry/api@1.9.1))(express@5.2.1)(hono@4.12.14)(next@16.2.4(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(typescript@6.0.3)(zod@4.3.6))(zod@4.3.6)':
+  '@inngest/agent-kit@0.13.2(inngest@4.2.4(@opentelemetry/core@2.7.0(@opentelemetry/api@1.9.1))(express@5.2.1)(hono@4.12.14)(next@16.2.4(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)(typescript@6.0.3)(zod@4.3.6))(zod@4.3.6)':
     dependencies:
       '@dmitryrechkin/json-schema-to-zod': 1.0.1
       '@inngest/ai': 0.1.6
       '@modelcontextprotocol/sdk': 1.29.0(zod@4.3.6)
       eventsource: 3.0.7
       express: 4.22.1
-      inngest: 3.54.0(@opentelemetry/core@2.7.0(@opentelemetry/api@1.9.1))(express@5.2.1)(hono@4.12.14)(next@16.2.4(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(typescript@6.0.3)(zod@4.3.6)
+      inngest: 4.2.4(@opentelemetry/core@2.7.0(@opentelemetry/api@1.9.1))(express@5.2.1)(hono@4.12.14)(next@16.2.4(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)(typescript@6.0.3)(zod@4.3.6)
       xxhashjs: 0.2.2
       zod: 4.3.6
     transitivePeerDependencies:
@@ -9469,8 +9464,6 @@ snapshots:
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
 
-  ansi-regex@4.1.1: {}
-
   ansi-regex@5.0.1: {}
 
   ansi-styles@4.3.0:
@@ -10871,7 +10864,7 @@ snapshots:
 
   inline-style-parser@0.2.7: {}
 
-  inngest@3.54.0(@opentelemetry/core@2.7.0(@opentelemetry/api@1.9.1))(express@5.2.1)(hono@4.12.14)(next@16.2.4(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(typescript@6.0.3)(zod@4.3.6):
+  inngest@4.2.4(@opentelemetry/core@2.7.0(@opentelemetry/api@1.9.1))(express@5.2.1)(hono@4.12.14)(next@16.2.4(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)(typescript@6.0.3)(zod@4.3.6):
     dependencies:
       '@bufbuild/protobuf': 2.11.0
       '@inngest/ai': 0.1.7
@@ -10888,14 +10881,12 @@ snapshots:
       '@types/debug': 4.1.13
       '@types/ms': 2.1.0
       canonicalize: 1.0.8
-      chalk: 4.1.2
       cross-fetch: 4.1.0
       debug: 4.4.3
       hash.js: 1.1.7
       json-stringify-safe: 5.0.1
       ms: 2.1.3
       serialize-error-cjs: 0.1.4
-      strip-ansi: 5.2.0
       temporal-polyfill: 0.2.5
       ulid: 2.4.0
       zod: 4.3.6
@@ -10903,6 +10894,7 @@ snapshots:
       express: 5.2.1
       hono: 4.12.14
       next: 16.2.4(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      react: 19.2.4
       typescript: 6.0.3
     transitivePeerDependencies:
       - '@opentelemetry/core'
@@ -12703,10 +12695,6 @@ snapshots:
     dependencies:
       character-entities-html4: 2.1.0
       character-entities-legacy: 3.0.0
-
-  strip-ansi@5.2.0:
-    dependencies:
-      ansi-regex: 4.1.1
 
   strip-ansi@6.0.1:
     dependencies:
