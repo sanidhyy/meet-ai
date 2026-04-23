@@ -55,7 +55,7 @@
 		"dotenv": "^17.3.1",
 		"drizzle-orm": "^0.45.1",
 		"humanize-duration": "^3.33.2",
-		"inngest": "^3.54.0",
+		"inngest": "^4.2.4",
 		"jsonl-parse-stringify": "^1.0.3",
 		"lodash.debounce": "^4.0.8",
 		"lucide-react": "^1.8.0",
