@@ -44,7 +44,6 @@
 Here is the folder structure of this app.
 
 <!--- FOLDER_STRUCTURE_START --->
-
 ```bash
 meet-ai/
   |- migrations/
@@ -120,18 +119,18 @@ meet-ai/
   |- .gitignore
   |- .prettierignore
   |- .prettierrc.mjs
-  |- bun.lock
   |- components.json
   |- drizzle.config.ts
   |- environment.d.ts
   |- eslint.config.mjs
   |- next.config.ts
   |- package.json
+  |- pnpm-lock.yaml
+  |- pnpm-workspace.yaml
   |- postcss.config.mjs
   |- tsconfig.json
   |- vercel.ts
 ```
-
 <!--- FOLDER_STRUCTURE_END --->
 
 <br />
