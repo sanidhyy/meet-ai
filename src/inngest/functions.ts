@@ -23,9 +23,7 @@ const summarizer = (apiKey: string) =>
 export const meetingsProcessing = inngest.createFunction(
 	{
 		id: 'meetings/processing',
-	},
-	{
-		event: 'meetings/processing',
+		triggers: { event: 'meetings/processing' },
 	},
 	async ({ event, step }) => {
 		const response = await step.run('fetch-transcript', async () => {
@@ -100,9 +98,7 @@ export const meetingsProcessing = inngest.createFunction(
 export const meetingsRecordingReady = inngest.createFunction(
 	{
 		id: 'meetings/recording-ready',
-	},
-	{
-		event: 'meetings/recording-ready',
+		triggers: { event: 'meetings/recording-ready' },
 	},
 	async ({ event, step }) => {
 		const uploadedRecordingUrl = await step.run('upload-recording', async () => {
