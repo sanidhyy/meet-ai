@@ -305,9 +305,21 @@ To obtain Google OAuth credentials:
 
 ---
 
-14. Install Project Dependencies using `npm install --legacy-peer-deps` or `yarn install --legacy-peer-deps` or `pnpm install --legacy-peer-deps`.
+### 14. Ngrok
+  
+- Download Ngrok: https://ngrok.com/download
+- Sign up at [Ngrok](https://ngrok.com/) and copy your auth token from the dashboard.
+- Authenticate ngrok locally:
 
-15. Now app is fully configured 👍 and you can start using this app using either one of `npm run dev` or `yarn dev` or `pnpm dev`.
+```bash
+ngrok config add-authtoken YOUR_AUTH_TOKEN
+```
+
+---
+
+15. Install Project Dependencies using `npm install --legacy-peer-deps` or `yarn install --legacy-peer-deps` or `pnpm install --legacy-peer-deps`.
+
+16. Now app is fully configured 👍 and you can start using this app using either one of `npm run dev` or `yarn dev` or `pnpm dev`.
 
 **NOTE:** Please make sure to keep your API keys and configuration values secure and do not expose them publicly.
 
