@@ -68,7 +68,7 @@
 		"react-dom": "19.2.4",
 		"react-error-boundary": "^6.1.1",
 		"react-highlight-words": "^0.21.0",
-		"react-hook-form": "^7.71.2",
+		"react-hook-form": "^7.75.0",
 		"react-hot-toast": "^2.6.0",
 		"react-markdown": "^10.1.0",
 		"server-only": "^0.0.1",
