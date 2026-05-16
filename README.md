@@ -427,7 +427,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [stream-chat](https://www.npmjs.com/package/stream-chat): ^9.43.0
 - [stream-chat-react](https://www.npmjs.com/package/stream-chat-react): ^14.0.1
 - [superjson](https://www.npmjs.com/package/superjson): ^2.2.6
-- [tailwind-merge](https://www.npmjs.com/package/tailwind-merge): ^3.3.1
+- [tailwind-merge](https://www.npmjs.com/package/tailwind-merge): ^3.6.0
 - [tailwindcss](https://www.npmjs.com/package/tailwindcss): ^4
 - [tw-animate-css](https://www.npmjs.com/package/tw-animate-css): ^1.4.0
 - [typescript](https://www.npmjs.com/package/typescript): ^6
