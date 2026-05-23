@@ -409,7 +409,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [lodash.debounce](https://www.npmjs.com/package/lodash.debounce): ^4.0.8
 - [lucide-react](https://www.npmjs.com/package/lucide-react): ^1.16.0
 - [media-chrome](https://www.npmjs.com/package/media-chrome): ^4.17.2
-- [mprocs](https://www.npmjs.com/package/mprocs): ^0.9.2
+- [mprocs](https://www.npmjs.com/package/mprocs): ^0.9.3
 - [nanoid](https://www.npmjs.com/package/nanoid): ^5.1.11
 - [next](https://www.npmjs.com/package/next): 16.2.6
 - [nuqs](https://www.npmjs.com/package/nuqs): ^2.8.9
