@@ -433,7 +433,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [typescript](https://www.npmjs.com/package/typescript): ^6
 - [uploadthing](https://www.npmjs.com/package/uploadthing): ^7.7.4
 - [vaul](https://www.npmjs.com/package/vaul): ^1.1.2
-- [zod](https://www.npmjs.com/package/zod): ^4.4.2
+- [zod](https://www.npmjs.com/package/zod): ^4.4.3
 
 <!--- DEPENDENCIES_END --->
 
