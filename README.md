@@ -351,7 +351,7 @@ Useful resources and dependencies that are used in MeetAI.
 
 - Thanks to CodeWithAntonio: https://codewithantonio.com/
 <!--- DEPENDENCIES_START --->
-- [@babel/eslint-parser](https://www.npmjs.com/package/@babel/eslint-parser): ^7.28.4
+- [@babel/eslint-parser](https://www.npmjs.com/package/@babel/eslint-parser): ^7.29.7
 - [@dicebear/collection](https://www.npmjs.com/package/@dicebear/collection): ^9.2.4
 - [@dicebear/core](https://www.npmjs.com/package/@dicebear/core): ^9.4.2
 - [@eslint/eslintrc](https://www.npmjs.com/package/@eslint/eslintrc): ^3
