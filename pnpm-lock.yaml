@@ -66,8 +66,8 @@ importers:
         specifier: ^0.3.3
         version: 0.3.3
       '@stream-io/video-react-sdk':
-        specifier: ^1.37.0
-        version: 1.37.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)
+        specifier: ^1.37.4
+        version: 1.37.4(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)
       '@t3-oss/env-nextjs':
         specifier: ^0.13.10
         version: 0.13.11(typescript@6.0.3)(zod@4.4.3)
@@ -2754,20 +2754,20 @@ packages:
     resolution: {integrity: sha512-r6Qp0HylAZhHNWHxU1nGfRI2Dtkbs1iqLCnOp1bvKhv8yj0/sEUigN0dk0LGPbE4I7zDO3tppyd7PaTPBvvJkg==}
     engines: {node: '>=12'}
 
-  '@stream-io/video-client@1.50.0':
-    resolution: {integrity: sha512-AXPRqhD50zhBtUmGiEOSARI8z5cE6ja1yXk7aB44HDE3UbZ/wDSrbghKUA8opAmAgvh0fDvRiWA3hvbNKQ+1aw==}
+  '@stream-io/video-client@1.52.0':
+    resolution: {integrity: sha512-IhWgD2LlemP7o2db/jT/n+tbOWq4Bn3xbp6PFIb9mH9su/Azqg4KqBJilNfKk2j25vVuxJGxmKKTsWQuBd5T5A==}
 
-  '@stream-io/video-filters-web@0.7.4':
-    resolution: {integrity: sha512-N6Oa7sokuuABPeaYIyQJJhzq22MGUny0bSepGRBBeBrcTbR7C8QNZrauFNl3BMquqRrXbl1EkSigEtpivFyx/g==}
+  '@stream-io/video-filters-web@0.7.5':
+    resolution: {integrity: sha512-0oHctfPJivzh154ioh35YB2Vvjrboah97pFYMmKKkFSgDS3psQ/eNPXe5et1XulM0Dqbw/wktzoiucLLduTByQ==}
 
-  '@stream-io/video-react-bindings@1.16.0':
-    resolution: {integrity: sha512-gqGYFkwS1e/vzbzVRWTDAFg/wI9FzXRxWqA+79BvxwRcfRxJ5RIPQpZw2EqmSDo+iCwEJbSKpS7pjFvZv7Qvgg==}
+  '@stream-io/video-react-bindings@1.16.2':
+    resolution: {integrity: sha512-/1LCbit63/ek37LFiR+kPclQQlkLpnTL9IfQcrsK6a7KIy9Ig6XGyjEvVDsRo056ZhK71HX3SpMqC9R5w6DksQ==}
     peerDependencies:
-      '@stream-io/video-client': ^1.50.0
+      '@stream-io/video-client': ^1.52.0
       react: ^17 || ^18 || ^19
 
-  '@stream-io/video-react-sdk@1.37.0':
-    resolution: {integrity: sha512-UWJY5CHp6eus2jCm4MzPx72rSUNBQbaQ7+/Iy/cVQtR6AAfWZPG69K1LrBQupV4PtKwszrNXpihSMlb1oXXJLQ==}
+  '@stream-io/video-react-sdk@1.37.4':
+    resolution: {integrity: sha512-x1MQNjEVj/2lpwBgMqcOODGM3HnmbxQC0HCvc+XFYAYNRZB5aEb1mEtQcbWqyfw37zMOQKpBVoAcjXkaWjWSmg==}
     peerDependencies:
       react: ^17 || ^18 || ^19
       react-dom: ^17 || ^18 || ^19
@@ -3400,8 +3400,8 @@ packages:
   axios@1.15.2:
     resolution: {integrity: sha512-wLrXxPtcrPTsNlJmKjkPnNPK2Ihe0hn0wGSaTEiHRPxwjvJwT3hKmXF4dpqxmPO9SoNb2FsYXj/xEo0gHN+D5A==}
 
-  axios@1.16.1:
-    resolution: {integrity: sha512-caYkukvroVPO8KrzuJEb50Hm07KwfBZPEC3VeFHTsqWHvKTsy54hjJz9BS/cdaypROE2rH6xvm9mHX4fgWkr3A==}
+  axios@1.17.0:
+    resolution: {integrity: sha512-J8SwNxprqqpbfenehxWYXE7CW+wM1BB4w3+N+g+/Wx40xM4rsLrfPmHHxSWIxJLYDgSY/HqlFPIYb2/S3rxafw==}
 
   axobject-query@4.1.0:
     resolution: {integrity: sha512-qIj0G9wZbMGNLjLmg1PT6v2mE9AH2zlnADJD/2tC6E00hgmhUOfEB6greHPAfLRSufHqROIUTkw6E+M3lH0PTQ==}
@@ -9013,14 +9013,14 @@ snapshots:
       lodash.deburr: 4.1.0
     optional: true
 
-  '@stream-io/video-client@1.50.0':
+  '@stream-io/video-client@1.52.0':
     dependencies:
       '@protobuf-ts/runtime': 2.11.1
       '@protobuf-ts/runtime-rpc': 2.11.1
       '@protobuf-ts/twirp-transport': 2.11.1
       '@stream-io/logger': 2.0.0
       '@stream-io/worker-timer': 1.2.5
-      axios: 1.16.1
+      axios: 1.17.0
       rxjs: 7.8.2
       sdp-transform: 2.15.0
       ua-parser-js: 1.0.41
@@ -9029,27 +9029,27 @@ snapshots:
       - debug
       - supports-color
 
-  '@stream-io/video-filters-web@0.7.4':
+  '@stream-io/video-filters-web@0.7.5':
     dependencies:
       '@mediapipe/tasks-vision': 0.10.35
       '@stream-io/worker-timer': 1.2.5
       wasm-feature-detect: 1.8.0
 
-  '@stream-io/video-react-bindings@1.16.0(@stream-io/video-client@1.50.0)(react@19.2.5)(typescript@6.0.3)':
+  '@stream-io/video-react-bindings@1.16.2(@stream-io/video-client@1.52.0)(react@19.2.5)(typescript@6.0.3)':
     dependencies:
-      '@stream-io/video-client': 1.50.0
+      '@stream-io/video-client': 1.52.0
       i18next: 25.10.10(typescript@6.0.3)
       react: 19.2.5
       rxjs: 7.8.2
     transitivePeerDependencies:
       - typescript
 
-  '@stream-io/video-react-sdk@1.37.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)':
+  '@stream-io/video-react-sdk@1.37.4(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)':
     dependencies:
       '@floating-ui/react': 0.27.19(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
-      '@stream-io/video-client': 1.50.0
-      '@stream-io/video-filters-web': 0.7.4
-      '@stream-io/video-react-bindings': 1.16.0(@stream-io/video-client@1.50.0)(react@19.2.5)(typescript@6.0.3)
+      '@stream-io/video-client': 1.52.0
+      '@stream-io/video-filters-web': 0.7.5
+      '@stream-io/video-react-bindings': 1.16.2(@stream-io/video-client@1.52.0)(react@19.2.5)(typescript@6.0.3)
       chart.js: 4.5.1
       clsx: 2.1.1
       react: 19.2.5
@@ -9684,7 +9684,7 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  axios@1.16.1:
+  axios@1.17.0:
     dependencies:
       follow-redirects: 1.16.0
       form-data: 4.0.5
