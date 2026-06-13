@@ -399,7 +399,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [drizzle-kit](https://www.npmjs.com/package/drizzle-kit): ^0.31.10
 - [drizzle-orm](https://www.npmjs.com/package/drizzle-orm): ^0.45.1
 - [eslint](https://www.npmjs.com/package/eslint): ^9
-- [eslint-config-next](https://www.npmjs.com/package/eslint-config-next): 16.2.6
+- [eslint-config-next](https://www.npmjs.com/package/eslint-config-next): 16.2.9
 - [eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier): ^10.1.8
 - [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier): ^5.5.6
 - [eslint-plugin-tailwindcss](https://www.npmjs.com/package/eslint-plugin-tailwindcss): ^4.0.0-beta.0
