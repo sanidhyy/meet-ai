@@ -129,8 +129,8 @@ importers:
         specifier: ^1.17.0
         version: 1.17.0(react@19.2.5)
       media-chrome:
-        specifier: ^4.17.2
-        version: 4.19.0(react@19.2.5)
+        specifier: ^4.19.2
+        version: 4.19.2(react@19.2.5)
       nanoid:
         specifier: ^5.1.11
         version: 5.1.11
@@ -5066,8 +5066,8 @@ packages:
   mdast-util-to-string@4.0.0:
     resolution: {integrity: sha512-0H44vDimn51F0YwvxSJSm0eCDOJTRlmN0R1yBh4HLj9wiV1Dn0QoXGbvFAWj2hSItVTlCmBF1hqKlIyUBVFLPg==}
 
-  media-chrome@4.19.0:
-    resolution: {integrity: sha512-HWhDTwts+BSbdPkkB1VsJXp5kvL0IxY7xFT5tBwliM2+89kTPVTnHnev+9it2f9PweANjT/C8/C/S0PW9oyZbA==}
+  media-chrome@4.19.2:
+    resolution: {integrity: sha512-4ai1ITN8wBhwugQcRgqe3tN0z6OSKGOXqHLNrS04MgKFfsLqu6Dm8MPq02pI9Y9ZKoXtFjIl85jOryIW9es3BA==}
 
   media-typer@0.3.0:
     resolution: {integrity: sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==}
@@ -11559,7 +11559,7 @@ snapshots:
     dependencies:
       '@types/mdast': 4.0.4
 
-  media-chrome@4.19.0(react@19.2.5):
+  media-chrome@4.19.2(react@19.2.5):
     dependencies:
       ce-la-react: 0.3.2(react@19.2.5)
     transitivePeerDependencies:
