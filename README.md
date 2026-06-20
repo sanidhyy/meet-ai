@@ -362,7 +362,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [@polar-sh/better-auth](https://www.npmjs.com/package/@polar-sh/better-auth): ^1.8.4
 - [@polar-sh/sdk](https://www.npmjs.com/package/@polar-sh/sdk): ^0.47.0
 - [@radix-ui/react-avatar](https://www.npmjs.com/package/@radix-ui/react-avatar): ^1.1.11
-- [@radix-ui/react-dialog](https://www.npmjs.com/package/@radix-ui/react-dialog): ^1.1.15
+- [@radix-ui/react-dialog](https://www.npmjs.com/package/@radix-ui/react-dialog): ^1.1.17
 - [@radix-ui/react-dropdown-menu](https://www.npmjs.com/package/@radix-ui/react-dropdown-menu): ^2.1.17
 - [@radix-ui/react-label](https://www.npmjs.com/package/@radix-ui/react-label): ^2.1.8
 - [@radix-ui/react-progress](https://www.npmjs.com/package/@radix-ui/react-progress): ^1.1.8
