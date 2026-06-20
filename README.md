@@ -420,7 +420,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [react-dom](https://www.npmjs.com/package/react-dom): 19.2.5
 - [react-error-boundary](https://www.npmjs.com/package/react-error-boundary): ^6.1.2
 - [react-highlight-words](https://www.npmjs.com/package/react-highlight-words): ^0.21.0
-- [react-hook-form](https://www.npmjs.com/package/react-hook-form): ^7.76.1
+- [react-hook-form](https://www.npmjs.com/package/react-hook-form): ^7.80.0
 - [react-hot-toast](https://www.npmjs.com/package/react-hot-toast): ^2.6.0
 - [react-markdown](https://www.npmjs.com/package/react-markdown): ^10.1.0
 - [server-only](https://www.npmjs.com/package/server-only): ^0.0.1
