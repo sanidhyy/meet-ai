@@ -60,7 +60,7 @@
 		"lodash.debounce": "^4.0.8",
 		"lucide-react": "^1.17.0",
 		"media-chrome": "^4.19.2",
-		"nanoid": "^5.1.11",
+		"nanoid": "^5.1.14",
 		"next": "16.2.6",
 		"nuqs": "^2.8.9",
 		"openai": "^6.44.0",
