@@ -412,7 +412,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [mprocs](https://www.npmjs.com/package/mprocs): ^0.9.3
 - [nanoid](https://www.npmjs.com/package/nanoid): ^5.1.14
 - [next](https://www.npmjs.com/package/next): 16.2.6
-- [nuqs](https://www.npmjs.com/package/nuqs): ^2.8.9
+- [nuqs](https://www.npmjs.com/package/nuqs): ^2.9.0
 - [openai](https://www.npmjs.com/package/openai): ^6.44.0
 - [prettier](https://www.npmjs.com/package/prettier): ^3.8.4
 - [prettier-plugin-tailwindcss](https://www.npmjs.com/package/prettier-plugin-tailwindcss): ^0.8.0
