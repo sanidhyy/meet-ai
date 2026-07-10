@@ -46,7 +46,7 @@
 		"@trpc/server": "^11.16.0",
 		"@trpc/tanstack-react-query": "^11.16.0",
 		"@vercel/config": "^0.3.0",
-		"better-auth": "^1.6.11",
+		"better-auth": "^1.6.13",
 		"class-variance-authority": "^0.7.1",
 		"client-only": "^0.0.1",
 		"clsx": "^2.1.1",
