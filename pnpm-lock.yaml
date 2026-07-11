@@ -87,8 +87,8 @@ importers:
         specifier: ^11.18.0
         version: 11.18.0(@tanstack/react-query@5.101.2(react@19.2.5))(@trpc/client@11.18.0(@trpc/server@11.18.0(typescript@6.0.3))(typescript@6.0.3))(@trpc/server@11.18.0(typescript@6.0.3))(react@19.2.5)(typescript@6.0.3)
       '@vercel/config':
-        specifier: ^0.3.0
-        version: 0.3.0
+        specifier: ^0.5.5
+        version: 0.5.5
       better-auth:
         specifier: ^1.6.23
         version: 1.6.23(@opentelemetry/api@1.9.1)(drizzle-kit@0.31.10)(drizzle-orm@0.45.2(@neondatabase/serverless@1.1.0)(@opentelemetry/api@1.9.1)(@types/pg@8.15.6)(kysely@0.28.17))(next@16.2.6(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
@@ -3588,12 +3588,12 @@ packages:
   '@uploadthing/shared@7.1.10':
     resolution: {integrity: sha512-R/XSA3SfCVnLIzFpXyGaKPfbwlYlWYSTuGjTFHuJhdAomuBuhopAHLh2Ois5fJibAHzi02uP1QCKbgTAdmArqg==}
 
-  '@vercel/config@0.3.0':
-    resolution: {integrity: sha512-Tf5k5y2F478oTiQcU5R8Ntix1UejE6NdduZnI7aa1XXxjCtifX1XdRS/D2uTjiQAwIL3pLa1LSAN80ABbba+TQ==}
+  '@vercel/config@0.5.5':
+    resolution: {integrity: sha512-U0QX7p08vgk8D47HI74wYyRuDJ2IYHbFQyfVdwO81Xchjp5CsV58/xhkV4EAXXj4NuLuELBwdPDa6oOdCYvEhg==}
     hasBin: true
 
-  '@vercel/routing-utils@6.2.0':
-    resolution: {integrity: sha512-YI2cGYZmJKEyGSEgf5Fw5rVuW7X1bTOQ7/pnLRNTFMH3YB3qqP5erCLCJGv2kIvNo1iQAPINHQRJj6ykEdGoPg==}
+  '@vercel/routing-utils@6.4.0':
+    resolution: {integrity: sha512-SnL/449ftNIDt1cB/oDqFmdZWywckNA6Q/S3WuzzsxBdE9DxmNn498qMKRtgx0W6EW3Mm/wVmg7aNJrfElMBTA==}
 
   '@virtuoso.dev/react-urx@0.2.13':
     resolution: {integrity: sha512-MY0ugBDjFb5Xt8v2HY7MKcRGqw/3gTpMlLXId2EwQvYJoC8sP7nnXjAxcBtTB50KTZhO0SbzsFimaZ7pSdApwA==}
@@ -10292,13 +10292,13 @@ snapshots:
       effect: 3.17.7
       sqids: 0.3.0
 
-  '@vercel/config@0.3.0':
+  '@vercel/config@0.5.5':
     dependencies:
-      '@vercel/routing-utils': 6.2.0
+      '@vercel/routing-utils': 6.4.0
       pretty-cache-header: 1.0.0
       zod: 3.25.76
 
-  '@vercel/routing-utils@6.2.0':
+  '@vercel/routing-utils@6.4.0':
     dependencies:
       path-to-regexp: 6.1.0
       path-to-regexp-updated: path-to-regexp@6.3.0
