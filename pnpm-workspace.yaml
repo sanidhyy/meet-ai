@@ -3,4 +3,6 @@ allowBuilds:
   msgpackr-extract: false
   protobufjs: false
   sharp: false
+  stream-chat: false
+  stream-chat-react: false
   unrs-resolver: false
