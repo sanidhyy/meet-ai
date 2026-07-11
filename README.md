@@ -404,7 +404,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier): ^5.5.6
 - [eslint-plugin-tailwindcss](https://www.npmjs.com/package/eslint-plugin-tailwindcss): ^4.0.6
 - [humanize-duration](https://www.npmjs.com/package/humanize-duration): ^3.34.0
-- [inngest](https://www.npmjs.com/package/inngest): ^4.12.0
+- [inngest](https://www.npmjs.com/package/inngest): ^4.12.1
 - [jsonl-parse-stringify](https://www.npmjs.com/package/jsonl-parse-stringify): ^1.0.3
 - [lodash.debounce](https://www.npmjs.com/package/lodash.debounce): ^4.0.8
 - [lucide-react](https://www.npmjs.com/package/lucide-react): ^1.24.0
