@@ -383,7 +383,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [@trpc/tanstack-react-query](https://www.npmjs.com/package/@trpc/tanstack-react-query): ^11.18.0
 - [@types/humanize-duration](https://www.npmjs.com/package/@types/humanize-duration): ^3.27.4
 - [@types/lodash.debounce](https://www.npmjs.com/package/@types/lodash.debounce): ^4.0.9
-- [@types/node](https://www.npmjs.com/package/@types/node): ^25.9.5
+- [@types/node](https://www.npmjs.com/package/@types/node): ^26.1.1
 - [@types/react](https://www.npmjs.com/package/@types/react): ^19.2.17
 - [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): ^19
 - [@types/react-highlight-words](https://www.npmjs.com/package/@types/react-highlight-words): ^0.20.1
