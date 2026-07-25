@@ -355,7 +355,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [@dicebear/collection](https://www.npmjs.com/package/@dicebear/collection): ^9.2.4
 - [@dicebear/core](https://www.npmjs.com/package/@dicebear/core): ^9.4.3
 - [@eslint/eslintrc](https://www.npmjs.com/package/@eslint/eslintrc): ^3
-- [@hookform/resolvers](https://www.npmjs.com/package/@hookform/resolvers): ^5.4.0
+- [@hookform/resolvers](https://www.npmjs.com/package/@hookform/resolvers): ^5.4.3
 - [@ianvs/prettier-plugin-sort-imports](https://www.npmjs.com/package/@ianvs/prettier-plugin-sort-imports): ^4.7.1
 - [@inngest/agent-kit](https://www.npmjs.com/package/@inngest/agent-kit): ^0.13.2
 - [@neondatabase/serverless](https://www.npmjs.com/package/@neondatabase/serverless): ^1.0.2
