@@ -141,8 +141,8 @@ importers:
         specifier: ^2.9.0
         version: 2.9.0(next@16.2.10(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(react-dom@19.2.5(react@19.2.7))(react@19.2.7))(react@19.2.7)
       openai:
-        specifier: ^6.46.0
-        version: 6.46.0(ws@8.20.1)(zod@4.4.3)
+        specifier: ^6.49.0
+        version: 6.49.0(ws@8.20.1)(zod@4.4.3)
       react:
         specifier: 19.2.7
         version: 19.2.7
@@ -5795,8 +5795,8 @@ packages:
   once@1.4.0:
     resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
 
-  openai@6.46.0:
-    resolution: {integrity: sha512-DFg6jEPT2RO+oAyXtddeUJU8zkGy1OQ1AjGzNIJUMQG03TTqvCpy9tBpQ+2VVVnvrl3E56F8GEin2JYtWpITtA==}
+  openai@6.49.0:
+    resolution: {integrity: sha512-aYCc0C6L864eR6WSYIwQGyXriw/nIyZx0ObvhzOEVuk0zoBDpynjSbrionWI7q65B5H8jJX0DXR9snEzM6bfPg==}
     peerDependencies:
       '@aws-sdk/credential-provider-node': '>=3.972.0 <4'
       '@smithy/hash-node': '>=4.3.0 <5'
@@ -12823,7 +12823,7 @@ snapshots:
     dependencies:
       wrappy: 1.0.2
 
-  openai@6.46.0(ws@8.20.1)(zod@4.4.3):
+  openai@6.49.0(ws@8.20.1)(zod@4.4.3):
     optionalDependencies:
       ws: 8.20.1
       zod: 4.4.3
