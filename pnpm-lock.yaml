@@ -16,7 +16,7 @@ importers:
         version: 9.4.3
       '@hookform/resolvers':
         specifier: ^5.4.3
-        version: 5.4.3(@standard-schema/spec@1.1.0)(ajv@8.20.0)(effect@3.17.7)(react-hook-form@7.81.0(react@19.2.7))(zod@4.4.3)
+        version: 5.4.3(@standard-schema/spec@1.1.0)(ajv@8.20.0)(effect@3.17.7)(react-hook-form@7.83.0(react@19.2.7))(zod@4.4.3)
       '@inngest/agent-kit':
         specifier: ^0.13.2
         version: 0.13.2(inngest@4.13.0(@opentelemetry/core@2.9.0(@opentelemetry/api@1.9.1))(express@5.2.1)(hono@4.12.18)(next@16.2.10(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(react-dom@19.2.5(react@19.2.7))(react@19.2.7))(react@19.2.7)(typescript@6.0.3)(zod@4.4.3))(zod@4.4.3)
@@ -156,8 +156,8 @@ importers:
         specifier: ^0.21.0
         version: 0.21.0(react@19.2.7)
       react-hook-form:
-        specifier: ^7.81.0
-        version: 7.81.0(react@19.2.7)
+        specifier: ^7.83.0
+        version: 7.83.0(react@19.2.7)
       react-hot-toast:
         specifier: ^2.6.0
         version: 2.6.0(react-dom@19.2.5(react@19.2.7))(react@19.2.7)
@@ -6448,8 +6448,8 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
 
-  react-hook-form@7.81.0:
-    resolution: {integrity: sha512-ocbmr2p5KBMoAfj4WCUvped33lVi1Kd5DuDUvQDnB6VEAacOjPI/jMbtDdbhco4y9ct4xUuCmMY0b/C9L0QHjw==}
+  react-hook-form@7.83.0:
+    resolution: {integrity: sha512-AXt8cMCmx5a7u4uvpb2uRFVrWQhllI4pV+LSykxIac/hjt44TnQkmX9BKuQi2i+LDC62esmiLpilkav+kjVf/A==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
@@ -8078,10 +8078,10 @@ snapshots:
     dependencies:
       hono: 4.12.18
 
-  '@hookform/resolvers@5.4.3(@standard-schema/spec@1.1.0)(ajv@8.20.0)(effect@3.17.7)(react-hook-form@7.81.0(react@19.2.7))(zod@4.4.3)':
+  '@hookform/resolvers@5.4.3(@standard-schema/spec@1.1.0)(ajv@8.20.0)(effect@3.17.7)(react-hook-form@7.83.0(react@19.2.7))(zod@4.4.3)':
     dependencies:
       '@standard-schema/utils': 0.3.0
-      react-hook-form: 7.81.0(react@19.2.7)
+      react-hook-form: 7.83.0(react@19.2.7)
     optionalDependencies:
       '@standard-schema/spec': 1.1.0
       ajv: 8.20.0
@@ -9177,7 +9177,7 @@ snapshots:
       react: 19.2.7
       react-day-picker: 9.14.0(react@19.2.7)
       react-dom: 19.2.5(react@19.2.7)
-      react-hook-form: 7.81.0(react@19.2.7)
+      react-hook-form: 7.83.0(react@19.2.7)
       react-timeago: 8.3.0(react@19.2.7)
       recharts: 3.8.1(@types/react@19.2.17)(react-dom@19.2.5(react@19.2.7))(react-is@16.13.1)(react@19.2.7)(redux@5.0.1)
       tailwind-merge: 3.6.0
@@ -13646,7 +13646,7 @@ snapshots:
     dependencies:
       react: 19.2.7
 
-  react-hook-form@7.81.0(react@19.2.7):
+  react-hook-form@7.83.0(react@19.2.7):
     dependencies:
       react: 19.2.7
 
