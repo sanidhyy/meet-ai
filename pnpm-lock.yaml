@@ -60,8 +60,8 @@ importers:
         specifier: ^1.2.12
         version: 1.2.12(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@stream-io/node-sdk':
-        specifier: ^0.7.62
-        version: 0.7.62(@stream-io/openai-realtime-api@0.4.2)
+        specifier: ^0.7.63
+        version: 0.7.63(@stream-io/openai-realtime-api@0.4.2)
       '@stream-io/openai-realtime-api':
         specifier: ^0.4.2
         version: 0.4.2
@@ -3321,8 +3321,8 @@ packages:
   '@stream-io/logger@2.0.0':
     resolution: {integrity: sha512-cH9Gi/lAeDjLWB2J9xhPtiNOyRNNO9M46uT7507wT3MCouZNdlXDu/vgiGVhu3I/Tg7sG4ePlG5aHefJ6xjgmw==}
 
-  '@stream-io/node-sdk@0.7.62':
-    resolution: {integrity: sha512-5KrrZ3iwRE83TWROfnEq7ciKkmHivcpbRI92Rz82ND4WVhWnPvqxt0he8O9Fb3D/24rAjGOYYzTfuKmsR6WXHw==}
+  '@stream-io/node-sdk@0.7.63':
+    resolution: {integrity: sha512-S2jN73/AlBFzX/HlC83z6oKsTqzuFpVZaE+3Q39AA71X7R0FFrPNSWqClXyh1HutC/EZJfksMLp1RtuqibZ8JA==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       '@stream-io/openai-realtime-api': ~0.1.3 || ~0.2.0 || ~0.3.0 || ~0.4.0
@@ -6667,11 +6667,6 @@ packages:
 
   semver@7.7.4:
     resolution: {integrity: sha512-vFKC2IEtQnVhpT78h1Yp8wzwrf8CM+MzKMHGJZfBtzhZNycRFnXsHk6E5TxIkkMsgNS7mdX3AGB7x2QM2di4lA==}
-    engines: {node: '>=10'}
-    hasBin: true
-
-  semver@7.8.2:
-    resolution: {integrity: sha512-c8jsqUZm3omBOI66G90z1Dyw5z622G8oLG+omfsHBJf3CWQTlOcwOjvOG6wtiNfW6anKm/eA39LMwMtMez2TiQ==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -10213,7 +10208,7 @@ snapshots:
 
   '@stream-io/logger@2.0.0': {}
 
-  '@stream-io/node-sdk@0.7.62(@stream-io/openai-realtime-api@0.4.2)':
+  '@stream-io/node-sdk@0.7.63(@stream-io/openai-realtime-api@0.4.2)':
     dependencies:
       '@types/jsonwebtoken': 9.0.10
       '@types/node': 18.19.130
@@ -12581,7 +12576,7 @@ snapshots:
       lodash.isstring: 4.0.1
       lodash.once: 4.1.1
       ms: 2.1.3
-      semver: 7.8.2
+      semver: 7.8.5
 
   jsx-ast-utils@3.3.5:
     dependencies:
@@ -13891,8 +13886,6 @@ snapshots:
   semver@6.3.1: {}
 
   semver@7.7.4: {}
-
-  semver@7.8.2: {}
 
   semver@7.8.5: {}
 
