@@ -68,6 +68,7 @@ meet-ai/
       |--- ui/
       |--- command-select.tsx
       |--- data-pagination.tsx
+      |--- data-table-features.ts
       |--- data-table.tsx
       |--- empty-state.tsx
       |--- error-state.tsx
@@ -377,7 +378,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [@t3-oss/env-nextjs](https://www.npmjs.com/package/@t3-oss/env-nextjs): ^0.13.10
 - [@tailwindcss/postcss](https://www.npmjs.com/package/@tailwindcss/postcss): ^4.3.3
 - [@tanstack/react-query](https://www.npmjs.com/package/@tanstack/react-query): ^5.101.4
-- [@tanstack/react-table](https://www.npmjs.com/package/@tanstack/react-table): ^8.21.3
+- [@tanstack/react-table](https://www.npmjs.com/package/@tanstack/react-table): ^9.1.2
 - [@trpc/client](https://www.npmjs.com/package/@trpc/client): ^11.18.0
 - [@trpc/server](https://www.npmjs.com/package/@trpc/server): ^11.18.0
 - [@trpc/tanstack-react-query](https://www.npmjs.com/package/@trpc/tanstack-react-query): ^11.18.0
