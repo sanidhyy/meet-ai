@@ -1,27 +1,28 @@
 'use client';
 
-import { ColumnDef, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table';
+import { useTable, type ColumnDef, type RowData } from '@tanstack/react-table';
 
+import { features, type DataTableFeatures } from '@/components/data-table-features';
 import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table';
 import { cn } from '@/lib/utils';
 
-interface DataTableProps<TData, TValue> {
-	columns: ColumnDef<TData, TValue>[];
+interface DataTableProps<TData extends RowData> {
+	columns: ColumnDef<DataTableFeatures, TData>[];
 	data: TData[];
 	onRowClick?: (row: TData) => void;
 	emptyMessage?: string;
 }
 
-export function DataTable<TData, TValue>({
+export function DataTable<TData extends RowData>({
 	columns,
 	data,
 	emptyMessage = 'No results.',
 	onRowClick,
-}: DataTableProps<TData, TValue>) {
-	const table = useReactTable({
+}: DataTableProps<TData>) {
+	const table = useTable({
+		features,
 		columns,
 		data,
-		getCoreRowModel: getCoreRowModel(),
 	});
 
 	return (
@@ -32,13 +33,12 @@ export function DataTable<TData, TValue>({
 						table.getRowModel().rows.map((row) => (
 							<TableRow
 								key={row.id}
-								data-state={row.getIsSelected() && 'selected'}
 								onClick={() => onRowClick?.(row.original)}
 								className={cn(!!onRowClick && 'cursor-pointer')}
 							>
-								{row.getVisibleCells().map((cell) => (
+								{row.getAllCells().map((cell) => (
 									<TableCell key={cell.id} className='p-4 text-sm'>
-										{flexRender(cell.column.columnDef.cell, cell.getContext())}
+										<table.FlexRender cell={cell} />
 									</TableCell>
 								))}
 							</TableRow>

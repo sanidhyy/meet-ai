@@ -1,16 +1,17 @@
 'use client';
 
-import { ColumnDef } from '@tanstack/react-table';
+import { type ColumnDef } from '@tanstack/react-table';
 import { CornerDownRightIcon, VideoIcon } from 'lucide-react';
 
 import type { AgentGetMany } from '@/modules/agents/types';
 
+import { type DataTableFeatures } from '@/components/data-table-features';
 import { GeneratedAvatar } from '@/components/generated-avatar';
 import { Badge } from '@/components/ui/badge';
 
 type Agent = AgentGetMany['items'][number];
 
-export const columns: ColumnDef<Agent>[] = [
+export const columns: ColumnDef<DataTableFeatures, Agent>[] = [
 	{
 		accessorKey: 'name',
 		cell: ({ row }) => (
