@@ -1,6 +1,6 @@
 'use client';
 
-import { ColumnDef } from '@tanstack/react-table';
+import { type ColumnDef } from '@tanstack/react-table';
 import { formatDate } from 'date-fns';
 import {
 	CircleCheckIcon,
@@ -15,6 +15,7 @@ import {
 
 import type { MeetingGetMany } from '@/modules/meetings/types';
 
+import { type DataTableFeatures } from '@/components/data-table-features';
 import { GeneratedAvatar } from '@/components/generated-avatar';
 import { Badge } from '@/components/ui/badge';
 import { MeetingStatus } from '@/db/schema';
@@ -38,7 +39,7 @@ const statusColorMap: Record<MeetingStatus, string> = {
 	[MeetingStatus.CANCELLED]: 'bg-rose-500/20 text-rose-800 border-rose-800/5',
 };
 
-export const columns: ColumnDef<Meeting>[] = [
+export const columns: ColumnDef<DataTableFeatures, Meeting>[] = [
 	{
 		accessorKey: 'name',
 		cell: ({ row }) => (
