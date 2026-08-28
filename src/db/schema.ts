@@ -144,11 +144,7 @@ export const agents = pgTable(
 			.defaultNow()
 			.$onUpdate(() => new Date()),
 	},
-	(agent) => [
-		{
-			nameIdx: index('name_idx').on(agent.name),
-		},
-	]
+	(agent) => [index('agent_name_idx').on(agent.name)]
 );
 
 export const agentsRelations = relations(agents, ({ many, one }) => ({
@@ -197,11 +193,7 @@ export const meetings = pgTable(
 			.defaultNow()
 			.$onUpdate(() => new Date()),
 	},
-	(meeting) => [
-		{
-			nameIdx: index('name_idx').on(meeting.name),
-		},
-	]
+	(meeting) => [index('meeting_name_idx').on(meeting.name)]
 );
 
 export const meetingsRelations = relations(meetings, ({ one }) => ({

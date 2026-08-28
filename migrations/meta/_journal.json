@@ -36,6 +36,13 @@
       "when": 1760087961840,
       "tag": "0004_warm_shadow_king",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1787911331816,
+      "tag": "0005_smart_spot",
+      "breakpoints": true
     }
   ]
 }
