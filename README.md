@@ -408,7 +408,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [drizzle-kit](https://www.npmjs.com/package/drizzle-kit): ^0.31.11
 - [drizzle-orm](https://www.npmjs.com/package/drizzle-orm): ^0.45.1
 - [eslint](https://www.npmjs.com/package/eslint): ^9
-- [eslint-config-next](https://www.npmjs.com/package/eslint-config-next): 16.3.5
+- [eslint-config-next](https://www.npmjs.com/package/eslint-config-next): 16.3.7
 - [eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier): ^10.1.8
 - [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier): ^5.5.6
 - [eslint-plugin-tailwindcss](https://www.npmjs.com/package/eslint-plugin-tailwindcss): ^4.4.0
@@ -423,7 +423,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [next](https://www.npmjs.com/package/next): 16.3.3
 - [nuqs](https://www.npmjs.com/package/nuqs): ^2.9.0
 - [openai](https://www.npmjs.com/package/openai): ^7.5.0
-- [prettier](https://www.npmjs.com/package/prettier): ^3.9.7
+- [prettier](https://www.npmjs.com/package/prettier): ^3.9.9
 - [prettier-plugin-tailwindcss](https://www.npmjs.com/package/prettier-plugin-tailwindcss): ^0.8.1
 - [react](https://www.npmjs.com/package/react): 19.2.8
 - [react-dom](https://www.npmjs.com/package/react-dom): 19.2.8
