@@ -168,11 +168,11 @@ importers:
         specifier: ^0.0.1
         version: 0.0.1
       stream-chat:
-        specifier: ^9.51.0
-        version: 9.52.1(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
+        specifier: ^9.54.0
+        version: 9.54.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
       stream-chat-react:
         specifier: ^14.8.0
-        version: 14.12.0(@types/react@19.3.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(stream-chat@9.52.1(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0))(supports-color@7.2.0)(typescript@6.0.3)
+        version: 14.12.0(@types/react@19.3.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(stream-chat@9.54.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0))(supports-color@7.2.0)(typescript@6.0.3)
       superjson:
         specifier: ^2.2.6
         version: 2.2.6
@@ -5916,8 +5916,8 @@ packages:
       modern-normalize:
         optional: true
 
-  stream-chat@9.52.1:
-    resolution: {integrity: sha512-FwPmxvvlazGO94/kc3wGpVaDMwVwXRxJINibsyY8DeOpX6YduXquycSnvXuqYEQvQWe5pLZeD6ePeHfyUjHVEw==}
+  stream-chat@9.54.0:
+    resolution: {integrity: sha512-b7fhxBsYp7UjH8GFYl/kmtGdNE7t3x73wWrYHys80usAoSvOMfLBljQMtqwHOADvjhQJOqnlKYW3u9p4kNgP7w==}
     engines: {node: '>=18'}
 
   string-width@4.2.3:
@@ -12277,7 +12277,7 @@ snapshots:
       es-errors: 1.3.0
       internal-slot: 1.1.0
 
-  stream-chat-react@14.12.0(@types/react@19.3.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(stream-chat@9.52.1(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0))(supports-color@7.2.0)(typescript@6.0.3):
+  stream-chat-react@14.12.0(@types/react@19.3.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(stream-chat@9.54.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0))(supports-color@7.2.0)(typescript@6.0.3):
     dependencies:
       '@braintree/sanitize-url': 7.1.2
       '@floating-ui/react': 0.27.20(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -12305,7 +12305,7 @@ snapshots:
       react-virtuoso: 2.19.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       remark-gfm: 4.0.1(supports-color@7.2.0)
       remark-parse: 11.0.0(supports-color@7.2.0)
-      stream-chat: 9.52.1(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
+      stream-chat: 9.54.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
       unified: 11.0.5
       unist-builder: 4.0.0
       unist-util-visit: 5.1.0
@@ -12317,7 +12317,7 @@ snapshots:
       - supports-color
       - typescript
 
-  stream-chat@9.52.1(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0):
+  stream-chat@9.54.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0):
     dependencies:
       '@types/jsonwebtoken': 9.0.10
       '@types/ws': 8.18.1
