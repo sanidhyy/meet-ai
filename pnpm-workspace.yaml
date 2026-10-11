@@ -1,4 +1,5 @@
 allowBuilds:
+  '@stream-io/node-sdk': false
   esbuild: false
   msgpackr-extract: false
   protobufjs: false
