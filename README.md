@@ -393,7 +393,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [@types/humanize-duration](https://www.npmjs.com/package/@types/humanize-duration): ^3.27.4
 - [@types/lodash.debounce](https://www.npmjs.com/package/@types/lodash.debounce): ^4.0.9
 - [@types/node](https://www.npmjs.com/package/@types/node): ^26.6.1
-- [@types/react](https://www.npmjs.com/package/@types/react): ^19.2.17
+- [@types/react](https://www.npmjs.com/package/@types/react): ^19
 - [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): ^19
 - [@types/react-highlight-words](https://www.npmjs.com/package/@types/react-highlight-words): ^0.20.1
 - [@vercel/config](https://www.npmjs.com/package/@vercel/config): ^0.7.1
@@ -425,8 +425,8 @@ Useful resources and dependencies that are used in MeetAI.
 - [openai](https://www.npmjs.com/package/openai): ^7.30.0
 - [prettier](https://www.npmjs.com/package/prettier): ^3.9.9
 - [prettier-plugin-tailwindcss](https://www.npmjs.com/package/prettier-plugin-tailwindcss): ^0.8.1
-- [react](https://www.npmjs.com/package/react): 19.2.8
-- [react-dom](https://www.npmjs.com/package/react-dom): 19.2.8
+- [react](https://www.npmjs.com/package/react): 19.3.0
+- [react-dom](https://www.npmjs.com/package/react-dom): 19.3.0
 - [react-error-boundary](https://www.npmjs.com/package/react-error-boundary): ^6.1.6
 - [react-highlight-words](https://www.npmjs.com/package/react-highlight-words): ^0.21.0
 - [react-hook-form](https://www.npmjs.com/package/react-hook-form): ^7.83.0
