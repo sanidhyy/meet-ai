@@ -38,7 +38,7 @@
 		"@radix-ui/react-tooltip": "^1.2.16",
 		"@stream-io/node-sdk": "^0.8.6",
 		"@stream-io/openai-realtime-api": "^0.4.2",
-		"@stream-io/video-react-sdk": "^1.39.2",
+		"@stream-io/video-react-sdk": "^1.43.4",
 		"@t3-oss/env-nextjs": "^0.13.10",
 		"@tanstack/react-query": "^5.104.1",
 		"@tanstack/react-table": "^9.1.2",
