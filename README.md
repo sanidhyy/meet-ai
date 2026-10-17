@@ -382,7 +382,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [@radix-ui/react-tooltip](https://www.npmjs.com/package/@radix-ui/react-tooltip): ^1.2.16
 - [@stream-io/node-sdk](https://www.npmjs.com/package/@stream-io/node-sdk): ^0.8.6
 - [@stream-io/openai-realtime-api](https://www.npmjs.com/package/@stream-io/openai-realtime-api): ^0.4.2
-- [@stream-io/video-react-sdk](https://www.npmjs.com/package/@stream-io/video-react-sdk): ^1.39.2
+- [@stream-io/video-react-sdk](https://www.npmjs.com/package/@stream-io/video-react-sdk): ^1.43.4
 - [@t3-oss/env-nextjs](https://www.npmjs.com/package/@t3-oss/env-nextjs): ^0.13.10
 - [@tailwindcss/postcss](https://www.npmjs.com/package/@tailwindcss/postcss): ^4.3.3
 - [@tanstack/react-query](https://www.npmjs.com/package/@tanstack/react-query): ^5.104.1
