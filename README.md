@@ -420,7 +420,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [media-chrome](https://www.npmjs.com/package/media-chrome): ^4.19.3
 - [mprocs](https://www.npmjs.com/package/mprocs): ^0.9.6
 - [nanoid](https://www.npmjs.com/package/nanoid): ^6.0.1
-- [next](https://www.npmjs.com/package/next): 16.3.8
+- [next](https://www.npmjs.com/package/next): 16.4.1
 - [nuqs](https://www.npmjs.com/package/nuqs): ^2.10.2
 - [openai](https://www.npmjs.com/package/openai): ^7.30.0
 - [prettier](https://www.npmjs.com/package/prettier): ^3.9.9
