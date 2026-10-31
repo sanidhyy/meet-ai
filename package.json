@@ -63,7 +63,7 @@
 		"nanoid": "^6.0.1",
 		"next": "16.4.1",
 		"nuqs": "^2.10.2",
-		"openai": "^7.30.0",
+		"openai": "^7.45.1",
 		"react": "19.3.0",
 		"react-dom": "19.3.0",
 		"react-error-boundary": "^6.1.6",
