@@ -413,7 +413,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier): ^5.5.7
 - [eslint-plugin-tailwindcss](https://www.npmjs.com/package/eslint-plugin-tailwindcss): ^4.4.0
 - [humanize-duration](https://www.npmjs.com/package/humanize-duration): ^3.34.1
-- [inngest](https://www.npmjs.com/package/inngest): ^4.21.0
+- [inngest](https://www.npmjs.com/package/inngest): ^4.26.2
 - [jsonl-parse-stringify](https://www.npmjs.com/package/jsonl-parse-stringify): ^1.0.3
 - [lodash.debounce](https://www.npmjs.com/package/lodash.debounce): ^4.0.8
 - [lucide-react](https://www.npmjs.com/package/lucide-react): ^1.24.0
@@ -433,7 +433,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [react-hot-toast](https://www.npmjs.com/package/react-hot-toast): ^2.6.0
 - [react-markdown](https://www.npmjs.com/package/react-markdown): ^10.1.0
 - [server-only](https://www.npmjs.com/package/server-only): ^0.0.1
-- [stream-chat](https://www.npmjs.com/package/stream-chat): ^9.54.0
+- [stream-chat](https://www.npmjs.com/package/stream-chat): ^9.55.0
 - [stream-chat-react](https://www.npmjs.com/package/stream-chat-react): ^14.8.0
 - [superjson](https://www.npmjs.com/package/superjson): ^2.2.6
 - [tailwind-merge](https://www.npmjs.com/package/tailwind-merge): ^3.6.0
