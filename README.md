@@ -377,7 +377,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [@radix-ui/react-progress](https://www.npmjs.com/package/@radix-ui/react-progress): ^1.1.16
 - [@radix-ui/react-scroll-area](https://www.npmjs.com/package/@radix-ui/react-scroll-area): ^1.4.0
 - [@radix-ui/react-separator](https://www.npmjs.com/package/@radix-ui/react-separator): ^1.1.15
-- [@radix-ui/react-slot](https://www.npmjs.com/package/@radix-ui/react-slot): ^1.3.0
+- [@radix-ui/react-slot](https://www.npmjs.com/package/@radix-ui/react-slot): ^1.5.0
 - [@radix-ui/react-tabs](https://www.npmjs.com/package/@radix-ui/react-tabs): ^1.2.1
 - [@radix-ui/react-tooltip](https://www.npmjs.com/package/@radix-ui/react-tooltip): ^1.4.1
 - [@stream-io/node-sdk](https://www.npmjs.com/package/@stream-io/node-sdk): ^0.9.1
@@ -386,7 +386,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [@t3-oss/env-nextjs](https://www.npmjs.com/package/@t3-oss/env-nextjs): ^0.13.10
 - [@tailwindcss/postcss](https://www.npmjs.com/package/@tailwindcss/postcss): ^4.3.3
 - [@tanstack/react-query](https://www.npmjs.com/package/@tanstack/react-query): ^5.105.3
-- [@tanstack/react-table](https://www.npmjs.com/package/@tanstack/react-table): ^9.1.2
+- [@tanstack/react-table](https://www.npmjs.com/package/@tanstack/react-table): ^9.3.1
 - [@trpc/client](https://www.npmjs.com/package/@trpc/client): ^11.18.0
 - [@trpc/server](https://www.npmjs.com/package/@trpc/server): ^11.18.0
 - [@trpc/tanstack-react-query](https://www.npmjs.com/package/@trpc/tanstack-react-query): ^11.18.0
@@ -408,7 +408,7 @@ Useful resources and dependencies that are used in MeetAI.
 - [drizzle-kit](https://www.npmjs.com/package/drizzle-kit): ^0.31.11
 - [drizzle-orm](https://www.npmjs.com/package/drizzle-orm): ^0.45.1
 - [eslint](https://www.npmjs.com/package/eslint): ^9
-- [eslint-config-next](https://www.npmjs.com/package/eslint-config-next): 16.3.7
+- [eslint-config-next](https://www.npmjs.com/package/eslint-config-next): 16.4.6
 - [eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier): ^10.1.8
 - [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier): ^5.5.7
 - [eslint-plugin-tailwindcss](https://www.npmjs.com/package/eslint-plugin-tailwindcss): ^4.4.0
@@ -422,14 +422,14 @@ Useful resources and dependencies that are used in MeetAI.
 - [nanoid](https://www.npmjs.com/package/nanoid): ^6.0.2
 - [next](https://www.npmjs.com/package/next): 16.4.5
 - [nuqs](https://www.npmjs.com/package/nuqs): ^2.10.2
-- [openai](https://www.npmjs.com/package/openai): ^7.45.1
+- [openai](https://www.npmjs.com/package/openai): ^7.57.0
 - [prettier](https://www.npmjs.com/package/prettier): ^3.9.10
 - [prettier-plugin-tailwindcss](https://www.npmjs.com/package/prettier-plugin-tailwindcss): ^0.8.1
 - [react](https://www.npmjs.com/package/react): 19.3.0
 - [react-dom](https://www.npmjs.com/package/react-dom): 19.3.0
 - [react-error-boundary](https://www.npmjs.com/package/react-error-boundary): ^6.1.6
 - [react-highlight-words](https://www.npmjs.com/package/react-highlight-words): ^0.21.0
-- [react-hook-form](https://www.npmjs.com/package/react-hook-form): ^7.83.0
+- [react-hook-form](https://www.npmjs.com/package/react-hook-form): ^7.92.0
 - [react-hot-toast](https://www.npmjs.com/package/react-hot-toast): ^2.6.0
 - [react-markdown](https://www.npmjs.com/package/react-markdown): ^10.1.0
 - [server-only](https://www.npmjs.com/package/server-only): ^0.0.1
